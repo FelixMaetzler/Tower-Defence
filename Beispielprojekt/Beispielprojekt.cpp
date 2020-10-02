@@ -20,6 +20,7 @@ public:
 		: Window(800, 600)
 	{
 		set_caption("Gosu Tutorial Game mit Git zum testen geändert");
+		//Pfeife
 	}
 
 	// wird bis zu 60x pro Sekunde aufgerufen.
