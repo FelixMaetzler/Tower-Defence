@@ -28,6 +28,7 @@ public:
 	// dann werden `draw` Aufrufe ausgelassen und die Framerate sinkt
 	void draw() override
 	{
+		//hajonet
 	}
 
 	// Wird 60x pro Sekunde aufgerufen
