@@ -29,11 +29,14 @@ public:
 	void draw() override
 	{
 		//hajonet
+		//Pfeife
+		//Pfeife2
 	}
 
 	// Wird 60x pro Sekunde aufgerufen
 	void update() override
 	{
+		//oiuveno
 	}
 };
 
