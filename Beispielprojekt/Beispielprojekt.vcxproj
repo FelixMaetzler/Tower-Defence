@@ -160,6 +160,7 @@
     <ClInclude Include="ErsterGegner.h" />
     <ClInclude Include="Figuren.h" />
     <ClInclude Include="Gegner.h" />
+    <ClInclude Include="Grid.h" />
     <ClInclude Include="Planet.h" />
     <ClInclude Include="Spieler.h" />
     <ClInclude Include="stdafx.h" />
@@ -173,6 +174,7 @@
     <ClCompile Include="ErsterGegner.cpp" />
     <ClCompile Include="Figuren.cpp" />
     <ClCompile Include="Gegner.cpp" />
+    <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Planet.cpp" />
     <ClCompile Include="Spieler.cpp" />
     <ClCompile Include="stdafx.cpp">
