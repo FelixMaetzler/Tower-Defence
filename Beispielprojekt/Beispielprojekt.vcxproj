@@ -157,6 +157,9 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ErsterGegner.h" />
+    <ClInclude Include="Figuren.h" />
+    <ClInclude Include="Gegner.h" />
     <ClInclude Include="Planet.h" />
     <ClInclude Include="Spieler.h" />
     <ClInclude Include="stdafx.h" />
@@ -166,6 +169,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Beispielprojekt.cpp" />
+    <ClCompile Include="ErsterGegner.cpp" />
+    <ClCompile Include="Figuren.cpp" />
+    <ClCompile Include="Gegner.cpp" />
     <ClCompile Include="Planet.cpp" />
     <ClCompile Include="Spieler.cpp" />
     <ClCompile Include="stdafx.cpp">

@@ -38,7 +38,7 @@ public:
 		mauszeiger(bild, x_maus, y_maus);
 		rechteck_2Ecken(0, 0, 800, 600, Weiss, 0);//Hintergrund
 		punkt(200, 200, Schwarz, 100);
-		rechteck_Mittelpunkt(200, 200, 200, 300, Gruen, 50);
+		rechteck_Mittelpunkt(200, 200, 200, 300, Blau, 50);
 		
 	}
 

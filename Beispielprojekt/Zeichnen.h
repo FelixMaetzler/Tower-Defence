@@ -2,16 +2,17 @@
 #ifndef ZEICHNEN_H
 #define ZEICHNEN_H
 
-
+//Wieso geht die Scheiße nicht?!?!?
+//Wenn man Zahlen angibt gehts und wenn man die Konstanten angibt, gehts nicht... Das gibts doch nicht
 const Gosu::Color Hellblau = Gosu::Color::AQUA;
-const Gosu::Color Schwarz = Gosu::Color::BLACK;
-const Gosu::Color Blau = Gosu::Color::BLUE;
+const Gosu::Color Schwarz = Gosu::Color::Color(0, 0, 0);
+const Gosu::Color Blau = Gosu::Color::Color(0, 0, 255);
 const Gosu::Color Cyan = Gosu::Color::CYAN;
 const Gosu::Color Lila = Gosu::Color::FUCHSIA;
 const Gosu::Color Grau = Gosu::Color::GRAY;
-const Gosu::Color Gruen = Gosu::Color::GREEN;
-const Gosu::Color Rot = Gosu::Color::RED;
-const Gosu::Color Weiss = Gosu::Color::WHITE;
+const Gosu::Color Gruen = Gosu::Color::Color(0, 255, 0);
+const Gosu::Color Rot = Gosu::Color::Color(255, 0, 0);
+const Gosu::Color Weiss = Gosu::Color::Color(255, 255, 255);
 const Gosu::Color Gelb = Gosu::Color::YELLOW;
 
 //Hier müssen zwei sich gegenüberliegende Punkte angegeben werden

@@ -36,6 +36,15 @@
     <ClInclude Include="Spieler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Gegner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Figuren.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ErsterGegner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -54,6 +63,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Spieler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Gegner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Figuren.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ErsterGegner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
