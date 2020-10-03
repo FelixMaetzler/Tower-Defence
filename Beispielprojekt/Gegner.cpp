@@ -11,15 +11,15 @@ Gegner::Gegner(int l, double g) {
 
 //Methoden
 
-int Gegner::get_leben(void) {
+int Gegner::get_leben(void) const {
 	return this->leben;
 }
-void Gegner::set_leben(int l) {
+void Gegner::set_leben(const int l) {
 	this->leben = l;
 }
-double Gegner::get_geschwindigkeit(void) {
+double Gegner::get_geschwindigkeit(void) const {
 	return this->geschwindigkeit;
 }
-void Gegner::set_Geschwindigkeit(double gesch) {
+void Gegner::set_Geschwindigkeit(const double gesch) {
 	this->geschwindigkeit = gesch;
 }

@@ -5,7 +5,7 @@
 #include <Gosu/AutoLink.hpp>
 #include "Zeichnen.h"
 
-void rechteck_2Ecken(double x1, double y1, double x2, double y2, Gosu::Color farbe, Gosu::ZPos zpos) {
+void rechteck_2Ecken(double x1, double y1, double x2, double y2, Gosu::Color farbe, Gosu::ZPos zpos)  {
 
 	Gosu::Graphics::draw_quad(
 		x1, y1, farbe,

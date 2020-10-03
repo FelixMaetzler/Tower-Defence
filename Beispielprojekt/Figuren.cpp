@@ -12,21 +12,21 @@ Figuren::Figuren(double as, double d, int p) {
 
 //Methoden
 
-void Figuren::set_attackspeed(double as) {
+void Figuren::set_attackspeed(const double as) {
 	this->attackspeed = as;
 }
-double Figuren::get_attackspeed(void) {
+double Figuren::get_attackspeed(void) const {
 	return this->attackspeed;
 }
-void Figuren::set_damage(double d) {
+void Figuren::set_damage(const double d) {
 	this->damage = d;
 }
-double Figuren::get_damage(void) {
+double Figuren::get_damage(void) const {
 	return this->damage;
 }
-void Figuren::set_price(int p) {
+void Figuren::set_price(const int p) {
 	this->price = p;
 }
-int Figuren::get_price(void) {
+int Figuren::get_price(void) const {
 	return this->price;
 }

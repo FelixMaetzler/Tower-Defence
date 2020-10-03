@@ -31,4 +31,3 @@ public:
 	static Vektor2d from_angle(double angle, double speed = 1.0);
 };
 
-std::ostream& operator<<(std::ostream&, const Vektor2d&);

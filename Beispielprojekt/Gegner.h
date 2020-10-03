@@ -12,15 +12,15 @@ public:
 	
 	//Standartkonstruktor
 	Gegner(void);
-	//Leben, Geschwindigkeit
+	//Konstruktor für Leben und Geschwindigkeit
 	Gegner(int, double);
 
 	//Methoden:
 
-	int get_leben(void);
-	void set_leben(int);
-	double get_geschwindigkeit(void);
-	void set_Geschwindigkeit(double);
+	int get_leben(void)const;
+	void set_leben(const int);
+	double get_geschwindigkeit(void)const;
+	void set_Geschwindigkeit(const double);
 };
 
 

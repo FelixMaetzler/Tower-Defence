@@ -7,10 +7,10 @@ private:
 	int geld = 0;
 	int leben = 0;
 public:
-	void set_geld(int);
-	int get_geld(void);
-	void set_leben(int);
-	int get_leben(void);
+	void set_geld(const int);
+	int get_geld(void)const;
+	void set_leben(const int);
+	int get_leben(void)const;
 };
 
 #endif // !SPIELER_H
