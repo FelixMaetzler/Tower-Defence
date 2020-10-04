@@ -12,6 +12,7 @@ private:
 	Gosu::Color farbe = Schwarz;
 	int kachelgröße;
 	int x, y;
+	bool istWeg = false;
 public:
 	//Konstruktoren
 	
@@ -31,6 +32,8 @@ public:
 	void set_kachelgröße(const int);
 	Gosu::Color get_farbe(void)const;
 	void set_farbe(const Gosu::Color);
+	bool get_istWeg(void)const;
+	void set_istWeg(const bool);
 	
 	//Zeichnet eine Kachel
 	void zeichnen(void);
