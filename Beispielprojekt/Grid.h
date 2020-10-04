@@ -14,7 +14,7 @@ private:
 	int x, y;
 	bool Check_if_changed;
 	bool istWeg = false;
-	bool istWeg = false;
+	
 public:
 	//Konstruktoren
 	
@@ -39,8 +39,7 @@ public:
 	void set_change(const bool);
 	bool get_istWeg(void)const;
 	void set_istWeg(const bool);
-	bool get_istWeg(void)const;
-	void set_istWeg(const bool);
+	
 	
 	//Zeichnet eine Kachel
 	void zeichnen(void);

@@ -161,9 +161,3 @@ bool Kachel::get_istWeg(void)const {
 void Kachel::set_istWeg(const bool b) {
 	this->istWeg = b;
 }
-bool Kachel::get_istWeg(void)const {
-	return this->istWeg;
-}
-void Kachel::set_istWeg(const bool b) {
-	this->istWeg = b;
-}
