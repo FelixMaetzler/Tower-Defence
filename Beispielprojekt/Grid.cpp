@@ -12,6 +12,13 @@ Kachel::Kachel(int x, int y, int kachelgröße, Gosu::Color farbe) {
 	this->farbe = farbe;
 }
 
+Kachel::Kachel(int x, int y, int kachelgröße, Gosu::Color farbe, bool Check_if_Changed) {
+	this->x = x;
+	this->y = y;
+	this->kachelgröße = kachelgröße;
+	this->farbe = farbe;
+	this->Check_if_changed = false;
+}
 
 
 
@@ -39,7 +46,7 @@ vector<vector<Kachel>> gridZeichnen(int fensterbreite, int fensterhöhe, int kach
 			y2 = y1 + kachelgröße;
 			//rechteck_2Ecken(x1, y1, x2, y2, Gosu::Color::BLACK, 5);
 
-			Kachel a(x1, y1, kachelgröße, Gosu::Color::Color(255, 0, 0, 0));
+			Kachel a(x1, y1, kachelgröße, Gosu::Color::Color(255, 0, 0, 0),false);
 			Kachelarray[i][j] = a;
 			//Kachelarray[j][i].set_farbe(Gosu::Color::Color(255, 0, 0, 0));
 
@@ -55,6 +62,7 @@ void Kachel::zeichnen(void) {
 void Kachel::set_farbe(Gosu::Color f) {
 	this->farbe = f;
 }
+
 void ArrayZeichnen(vector<vector<Kachel>> Kachelarray) {
 	for each (auto x in Kachelarray)
 	{
@@ -138,4 +146,18 @@ void Kachel::set_y(const int a) {
 }
 void Kachel::set_kachelgröße(const int a) {
 	this->kachelgröße = a;
+}
+bool Kachel::get_change(void) const
+{
+	return this->Check_if_changed;
+}
+void Kachel::set_change(const bool changer)
+{
+	this->Check_if_changed = changer;
+}
+bool Kachel::get_istWeg(void)const {
+	return this->istWeg;
+}
+void Kachel::set_istWeg(const bool b) {
+	this->istWeg = b;
 }

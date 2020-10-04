@@ -56,28 +56,33 @@ public:
 		//arrayKachel[2][2].set_farbe(Gosu::Color::Color(255,255,0,0));
 		
 	}
-
+	
 	// Wird 60x pro Sekunde aufgerufen
 	void update() override
 	{
 		x_maus = input().mouse_x();
 		y_maus = input().mouse_y();
+		
 		if (input().down(Gosu::Button::Button(Gosu::ButtonName::MS_LEFT)) )
 		{
-			Sleep(100);
+			
 			if (hatKachelgetroffen(x_maus, y_maus, arrayKachel))//Wenn man eine Kachel geklickt hat
 			{
 				//Dann soll eine Funktion ausgeführt werden, die die Kachelposition als Vektor zurückgibt
 				Vektoren a = MausZuKachel(x_maus, y_maus, arrayKachel);
+				
 				//a.print();
 				Kachel z = arrayKachel[a.get_x()][a.get_y()];
-				if (z.get_farbe() == Schwarz)
+				
+				if (z.get_farbe() == Schwarz&& z.get_change()==false)
 				{
+					z.set_change(true);
 					//cout << "Schwarz wurde erkannt" << endl;
 					z.set_farbe(Rot);
 				}
-				else if (z.get_farbe() == Rot)
+				else if (z.get_farbe() == Rot && z.get_change() == false)
 				{
+					z.set_change(true);
 					z.set_farbe(Schwarz);
 					//cout << "Rot wurde erkannt" << endl;
 				}
