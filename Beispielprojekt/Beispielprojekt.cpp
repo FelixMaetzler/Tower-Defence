@@ -19,13 +19,17 @@ using namespace std;
 // Simulationsgeschwindigkeit
 const double DT = 100.0;
 
-double x_maus = 0;//X-Position der Maus
-double y_maus = 0;//Y-Position der Maus
+int x_maus = 0;//X-Position der Maus
+int y_maus = 0;//Y-Position der Maus
 int fensterbreite = 1920;
 int fensterhöhe = 1080;
 int kachelgröße = 50;
 int abstand = 2;
+Gosu::Color blck(255, 0, 0, 0);
+Gosu::Color rd(255, 255, 0, 0);
+
 auto arrayKachel = gridZeichnen(fensterbreite, fensterhöhe, kachelgröße, abstand);
+
 class GameWindow : public Gosu::Window
 {
 public:
@@ -48,9 +52,9 @@ public:
 
 		rechteck_2Ecken(0, 0, fensterbreite, fensterhöhe, Weiss, 0);//Hintergrund
 		
-		arrayKachel[3][4].set_farbe(Schwarz);
 		ArrayZeichnen(arrayKachel);
-		arrayKachel[3][5].set_farbe(Blau);
+		//arrayKachel[2][2].set_farbe(Gosu::Color::Color(255,255,0,0));
+		
 	}
 
 	// Wird 60x pro Sekunde aufgerufen
@@ -58,13 +62,41 @@ public:
 	{
 		x_maus = input().mouse_x();
 		y_maus = input().mouse_y();
+		if (input().down(Gosu::Button::Button(Gosu::ButtonName::MS_LEFT)) )
+		{
+			Sleep(100);
+			if (hatKachelgetroffen(x_maus, y_maus, arrayKachel))//Wenn man eine Kachel geklickt hat
+			{
+				//Dann soll eine Funktion ausgeführt werden, die die Kachelposition als Vektor zurückgibt
+				Vektoren a = MausZuKachel(x_maus, y_maus, arrayKachel);
+				//a.print();
+				Kachel z = arrayKachel[a.get_x()][a.get_y()];
+				if (z.get_farbe() == Schwarz)
+				{
+					//cout << "Schwarz wurde erkannt" << endl;
+					z.set_farbe(Rot);
+				}
+				else if (z.get_farbe() == Rot)
+				{
+					z.set_farbe(Schwarz);
+					//cout << "Rot wurde erkannt" << endl;
+				}
+				
+				arrayKachel[a.get_x()][a.get_y()] = z;
+				
+			}
+		}
+		
 	}
 };
 
 // C++ Hauptprogramm
 int main()
 {
-	
+	/*Gosu::Color a(255, 255, 0, 0);
+	cout << a.gl() << endl;
+	a = Gosu::Color::Color(4278190080);
+	cout << a.gl() << endl;*/
 	GameWindow window;
 	window.show();
 
