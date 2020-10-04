@@ -27,7 +27,7 @@ vector<vector<Kachel>> gridZeichnen(int fensterbreite, int fensterhöhe, int kach
 	{
 		AnzahlKachelnZeile++;
 	}
-	vector<vector<Kachel>> Kachelarray(AnzahlKachelnZeile, vector<Kachel>(AnzahlKachelnSpalte));
+	vector<vector<Kachel>> Kachelarray(AnzahlKachelnSpalte, vector<Kachel>(AnzahlKachelnZeile));
 	for (int i = 0; i < AnzahlKachelnSpalte; i++)
 	{
 		for (int j = 0; j < AnzahlKachelnZeile; j++)
@@ -39,9 +39,9 @@ vector<vector<Kachel>> gridZeichnen(int fensterbreite, int fensterhöhe, int kach
 			y2 = y1 + kachelgröße;
 			//rechteck_2Ecken(x1, y1, x2, y2, Gosu::Color::BLACK, 5);
 
-			Kachel a(x1, y1, kachelgröße, Schwarz);
-			Kachelarray[j][i] = a;
-			Kachelarray[j][i].set_farbe(Gosu::Color::Color(255, 0, 0, 0));
+			Kachel a(x1, y1, kachelgröße, Gosu::Color::Color(255, 0, 0, 0));
+			Kachelarray[i][j] = a;
+			//Kachelarray[j][i].set_farbe(Gosu::Color::Color(255, 0, 0, 0));
 
 			//Kachelarray[j][i] = Kachel(x1, y1, kachelgröße, Schwarz);
 			
@@ -65,36 +65,58 @@ void ArrayZeichnen(vector<vector<Kachel>> Kachelarray) {
 	}
 }
 Vektoren MausZuKachel(int x, int y, vector<vector<Kachel>> Kachelarray)  {
-	for (int i = 0; i < Kachelarray.size(); i++)
+	int Koordinate_Zeile;
+	int Koordinate_Spalte;
+	for (Koordinate_Zeile = 0; Koordinate_Zeile < Kachelarray.size(); Koordinate_Zeile++)
 	{
-		for (int j = 0; j < Kachelarray.at(i).size(); j++)
-		{
-			Kachel b = Kachelarray[j][i];
-			if (b.get_x() <= x && x <= (b.get_x() + b.get_kachelgröße()))
-			{
-				if (b.get_y() <= y && y <= (b.get_y() + b.get_kachelgröße()))
-				{
-					return Vektoren(j, i);
-				}
-			}
+		Kachel a = Kachelarray[Koordinate_Zeile][0];
+		if (a.get_y() <= y && y <= (a.get_y() + a.get_kachelgröße())) {
+			break;
 		}
 	}
+	for (Koordinate_Spalte = 0; Koordinate_Spalte < Kachelarray.at(0).size(); Koordinate_Spalte++)
+	{
+		Kachel a = Kachelarray[0][Koordinate_Spalte];
+		if (a.get_x() <= x && x <= (a.get_x() + a.get_kachelgröße())) {
+			break;
+		}
+	}
+	return Vektoren(Koordinate_Zeile, Koordinate_Spalte);
 }
 bool hatKachelgetroffen(int x, int y, vector<vector<Kachel>> Kachelarray) {
-	for each (auto a in Kachelarray)
+
+	//[i][0] iterieren wir über die erste Spalte -> Hier muss die Höhe geprüft werden
+	//if Mauspos-Höhe ein Wert der einer Kachel zugewiesen werden kann: 
+	//[0][j] iterieren wir über die erste Zeile -> Hier muss die Breite geprüft werden
+	
+	bool g = false;
+	bool h = false;
+	for (int i = 0; i < Kachelarray.size(); i++)
 	{
-		for each (auto b in a)
-		{
-			if (b.get_x() <= x && x <= (b.get_x() + b.get_kachelgröße()))
-			{
-				if (b.get_y() <= y && y <= (b.get_y() + b.get_kachelgröße()))
-				{
-					return true;
-				}
-			}
+		Kachel a = Kachelarray[i][0];
+		if (a.get_y() <= y && y <= (a.get_y() + a.get_kachelgröße())) {
+			g = true;
+			break;
 		}
 	}
-	return false;
+	for (int j = 0; j < Kachelarray.at(0).size(); j++)
+	{
+		Kachel a = Kachelarray[0][j];
+		if (a.get_x() <= x && x <= (a.get_x() + a.get_kachelgröße())) {
+			h = true;
+			break;
+		}
+	}
+	if (g && h)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+	
+		
 }
 int Kachel::get_x(void) const {
 	return this->x;

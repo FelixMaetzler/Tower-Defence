@@ -23,7 +23,7 @@ int x_maus = 0;//X-Position der Maus
 int y_maus = 0;//Y-Position der Maus
 int fensterbreite = 1920;
 int fensterhöhe = 1080;
-int kachelgröße = 50;
+int kachelgröße = 30;
 int abstand = 2;
 Gosu::Color blck(255, 0, 0, 0);
 Gosu::Color rd(255, 255, 0, 0);
