@@ -12,6 +12,7 @@
 #include "Grid.h"
 #include "Zeichnen.h"
 #include "Spieler.h"
+#include "Wegkachel.h"
 
 using namespace std;
 
@@ -23,12 +24,14 @@ int x_maus = 0;//X-Position der Maus
 int y_maus = 0;//Y-Position der Maus
 int fensterbreite = 1920;
 int fensterhöhe = 1080;
-int kachelgröße = 30;
-int abstand = 2;
-Gosu::Color blck(255, 0, 0, 0);
-Gosu::Color rd(255, 255, 0, 0);
+int kachelgröße = 50;
+int abstand = 5;
+//Gosu::Color blck(255, 0, 0, 0);
+//Gosu::Color rd(255, 255, 0, 0);
 
-auto arrayKachel = gridZeichnen(fensterbreite, fensterhöhe, kachelgröße, abstand);
+auto arrayKacheln = gridZeichnen(fensterbreite, fensterhöhe, kachelgröße, abstand);
+auto arrayKachel = weg(arrayKacheln, 3);
+
 
 class GameWindow : public Gosu::Window
 {
@@ -41,7 +44,7 @@ public:
 	{
 		set_caption("Gosu Tutorial mit Git");
 	}
-	
+
 	// wird bis zu 60x pro Sekunde aufgerufen.
 	// Wenn die Grafikkarte oder der Prozessor nicht mehr hinterherkommen,
 	// dann werden `draw` Aufrufe ausgelassen und die Framerate sinkt
@@ -51,10 +54,10 @@ public:
 
 
 		rechteck_2Ecken(0, 0, fensterbreite, fensterhöhe, Weiss, 0);//Hintergrund
-		
+
 		ArrayZeichnen(arrayKachel);
 		//arrayKachel[2][2].set_farbe(Gosu::Color::Color(255,255,0,0));
-		
+
 	}
 	
 	// Wird 60x pro Sekunde aufgerufen
@@ -86,12 +89,12 @@ public:
 					z.set_farbe(Schwarz);
 					//cout << "Rot wurde erkannt" << endl;
 				}
-				
+
 				arrayKachel[a.get_x()][a.get_y()] = z;
-				
+
 			}
 		}
-		
+
 	}
 };
 
