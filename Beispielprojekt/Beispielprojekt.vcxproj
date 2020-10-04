@@ -167,6 +167,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Vektor2d.h" />
     <ClInclude Include="Vektoren.h" />
+    <ClInclude Include="Wegkachel.h" />
     <ClInclude Include="Zeichnen.h" />
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +186,7 @@
     </ClCompile>
     <ClCompile Include="Vektor2d.cpp" />
     <ClCompile Include="Vektoren.cpp" />
+    <ClCompile Include="Wegkachel.cpp" />
     <ClCompile Include="Zeichnen.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
