@@ -102,7 +102,7 @@ bool hatKachelgetroffen(int x, int y, vector<vector<Kachel>> Kachelarray) {
 	for (int i = 0; i < Kachelarray.size(); i++)
 	{
 		Kachel a = Kachelarray[i][0];
-		if (a.get_y() <= y && y <= (a.get_y() + a.get_kachelgröße()) && !a.get_istWeg()) {
+		if (a.get_y() <= y && y <= (a.get_y() + a.get_kachelgröße()) ){
 			g = true;
 			break;
 		}
@@ -160,4 +160,10 @@ bool Kachel::get_istWeg(void)const {
 }
 void Kachel::set_istWeg(const bool b) {
 	this->istWeg = b;
+}
+Vektoren Kachel::Mittelpunkt(void)  {
+	Vektoren a;
+	a.set_x(this->x + this->kachelgröße / 2);
+	a.set_y(this->y + this->kachelgröße / 2);
+	return a;
 }

@@ -39,6 +39,7 @@ public:
 	void set_change(const bool);
 	bool get_istWeg(void)const;
 	void set_istWeg(const bool);
+	Vektoren Mittelpunkt(void);
 	
 	
 	//Zeichnet eine Kachel

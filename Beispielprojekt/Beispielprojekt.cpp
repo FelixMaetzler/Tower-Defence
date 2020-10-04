@@ -30,7 +30,8 @@ int abstand = 5;
 //Gosu::Color rd(255, 255, 0, 0);
 
 auto arrayKacheln = gridZeichnen(fensterbreite, fensterhöhe, kachelgröße, abstand);
-auto arrayKachel = weg(arrayKacheln, 3);
+auto arrayKachel = weg(arrayKacheln);
+
 
 
 class GameWindow : public Gosu::Window
@@ -104,6 +105,7 @@ int main()
 	cout << a.gl() << endl;
 	a = Gosu::Color::Color(4278190080);
 	cout << a.gl() << endl;*/
+
 	GameWindow window;
 	window.show();
 
