@@ -30,6 +30,7 @@ Gosu::Color rd(255, 255, 0, 0);
 
 auto arrayKachel = gridZeichnen(fensterbreite, fensterhöhe, kachelgröße, abstand);
 
+
 class GameWindow : public Gosu::Window
 {
 public:
@@ -62,7 +63,6 @@ public:
 	{
 		x_maus = input().mouse_x();
 		y_maus = input().mouse_y();
-		
 		if (input().down(Gosu::Button::Button(Gosu::ButtonName::MS_LEFT)) )
 		{
 			
