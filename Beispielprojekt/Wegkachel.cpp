@@ -25,7 +25,7 @@ vector<vector<Kachel>> wegVertikal(vector<vector<Kachel>> Kachelmatrix, int x, i
 	}
 	return Kachelmatrix;
 }
-vector<vector<Kachel>> weg(vector<vector<Kachel>> Kachelmatrix) {
+vector<vector<Kachel>> gridmitweg(vector<vector<Kachel>> Kachelmatrix) {
 	int Zeilenzahl = Kachelmatrix.size();
 	int Spaltenzahl = Kachelmatrix.at(0).size();
 
@@ -37,7 +37,7 @@ vector<vector<Kachel>> weg(vector<vector<Kachel>> Kachelmatrix) {
 
 	return Kachelmatrix;
 }
-vector<Kachel> wegalsVektor(vector<vector<Kachel>> Kachelmatrix) {
+vector<Kachel> wegalsListe(vector<vector<Kachel>> Kachelmatrix) {
 	vector<Kachel> liste(0);
 	int Zeilenzahl = Kachelmatrix.size();
 	int Spaltenzahl = Kachelmatrix.at(0).size();

@@ -2,12 +2,7 @@
 #ifndef VEKTOREN_H
 #define VEKTOREN_H
 
-//wandelt Bogenmaß in Gradmaß um
-double radiantToDegree(const double);
-//wandelt Gradmaß in Bogenmaß um
-double DegreeToRadiant(const double);
-//gibt einen Winkel zwischen 0° und 359° zurück
-double winkelNormalisieren(const double w);
+
 
 
 class Vektoren {
@@ -21,17 +16,20 @@ public:
 	Vektoren(void);
 	//Konstruktor für die x und y Komponente des Vektors
 	Vektoren(const double,const double);
+	Vektoren(const int, const int);
 
-	//Methoden
+	//Get/Set Methoden
 
 	//gibt die x-Komponente des Vektors zurück
-	double get_x(void);
+	double get_x(void)const;
 	//setzt die x-Komponente des Vektors
-	void set_x(double);
+	void set_x(const double);
 	//gibt die y-Komponente des Vektors zurück
-	double get_y(void);
+	double get_y(void)const;
 	//setzt die y-Komponente des Vektors
-	void set_y(double);
+	void set_y(const double);
+
+	//andere Methoden
 
 	//addiert die Vektoren
 	Vektoren operator+(const Vektoren)const;
@@ -66,6 +64,15 @@ public:
 	//gibt das Skalarprodukt zweier Vektoren zurück 
 	double skalarprodukt(Vektoren)const;
 };
+
+//Funktionen
+
+//wandelt Bogenmaß in Gradmaß um
+double radiantToDegree(const double);
+//wandelt Gradmaß in Bogenmaß um
+double DegreeToRadiant(const double);
+//gibt einen Winkel zwischen 0° und 359° zurück
+double winkelNormalisieren(const double w);
 
 
 #endif // !VEKTOREN_H

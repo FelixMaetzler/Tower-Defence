@@ -5,9 +5,9 @@
 
 Figuren::Figuren(void) {};
 Figuren::Figuren(double as, double d, int p) {
-	this->attackspeed = as;
-	this->damage = d;
-	this->price = p;
+	this->set_attackspeed(as);
+	this->set_damage(d);
+	this->set_price(p);
 };
 
 //Methoden

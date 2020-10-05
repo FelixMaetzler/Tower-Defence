@@ -8,7 +8,7 @@ class Gegner {
 private:
 	int leben;
 	double geschwindigkeit;
-	Vektoren position;
+	Vektoren position;//linke obere Ecke
 	Vektoren richtung;
 	int naechsterwegpunkt = 0;
 
@@ -20,7 +20,7 @@ public:
 	//Konstruktor für Leben und Geschwindigkeit
 	Gegner(int, double);
 
-	//Methoden:
+	//Get/Set Methoden:
 
 	int get_leben(void)const;
 	void set_leben(const int);
@@ -37,6 +37,7 @@ public:
 	int get_naechsterwegpunkt(void)const;
 	void set_naechsterwegpunkt(const int);
 
+	//andere Methoden
 
 	void RichtungZuPunkt(const Vektoren);
 	void Zeichnen(void)const;

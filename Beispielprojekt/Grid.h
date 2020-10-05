@@ -11,7 +11,7 @@ class Kachel {
 private:
 	Gosu::Color farbe = Schwarz;
 	int kachelgröße;
-	int x, y;
+	Vektoren position;
 	bool Check_if_changed;
 	bool istWeg = false;
 	
@@ -20,9 +20,9 @@ public:
 	
 	//Standartkonstruktor
 	Kachel();
-	//Konstruktor mit x und y Position der oberen linken Ecke, die Kantenlänge und die Farbe
-	Kachel(int, int, int, Gosu::Color);
-	Kachel(int, int, int, Gosu::Color,bool);
+	//Konstruktor mit Position der oberen linken Ecke, die Kantenlänge und die Farbe
+	Kachel(Vektoren, int, Gosu::Color);
+	Kachel(Vektoren, int, Gosu::Color, bool);
 	
 	//Methoden
 	
@@ -41,13 +41,16 @@ public:
 	void set_istWeg(const bool);
 	Vektoren Mittelpunkt(void);
 	Vektoren get_position(void)const;
+	void set_position(const Vektoren);
 	
 	
 	//Zeichnet eine Kachel
 	void zeichnen(void);
 };
-//Fensterbreite, Fensterhöhe, Kachelgröße und Abstand
-vector<vector<Kachel>> gridZeichnen(int fensterbreite, int fensterhöhe, int kachelgröße, int abstand);
+//Funktionen
+
+//gibt die Kachelmatrix zurück. Nur die Kacheln, also ohne Weg. Fensterbreite, Fensterhöhe, Kachelgröße und Abstand. 
+vector<vector<Kachel>> grid(int fensterbreite, int fensterhöhe, int kachelgröße, int abstand);
 //nimmt die Mauskoordinaten (x|y) und die Kachelmatrix und gibt die getroffene Kachel als Vektor zurück
 Vektoren MausZuKachel(int, int, vector<vector<Kachel>>);
 //nimmt die Mauskoordinaten (x|y) und die Kachelmatrix und gibt zurück, ob überhaupt eine Kachel getroffen wurde

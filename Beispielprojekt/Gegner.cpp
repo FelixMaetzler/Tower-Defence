@@ -7,11 +7,11 @@
 
 Gegner::Gegner(void) {};
 Gegner::Gegner(int l, double g) {
-	this->leben = l;
-	this->geschwindigkeit = g;
+	this->set_leben(l);
+	this->set_Geschwindigkeit(g);
 };
 
-//Methoden
+//Get/Set Methoden
 
 int Gegner::get_leben(void) const {
 	return this->leben;
@@ -42,10 +42,7 @@ Vektoren Gegner::get_richtung(void) const {
 }
 void Gegner::set_richtung(const Vektoren a) {
 	a.normieren();
-	this->richtung = a * this->geschwindigkeit;
-}
-void Gegner::RichtungZuPunkt(const Vektoren a) {
-	this->set_richtung(a - this->position);
+	this->richtung = a * this->get_geschwindigkeit();
 }
 void Gegner::set_position(const Vektoren a) {
 	this->position = a;
@@ -53,29 +50,41 @@ void Gegner::set_position(const Vektoren a) {
 Vektoren Gegner::get_position(void) const {
 	return this->position;
 }
-void Gegner::Zeichnen(void) const {
-	int b = 20;
-	//rechteck_2Ecken(this->get_x(), this->get_y(), this->get_x() + b, this->get_y() + b, Gosu::Color::Color(255, 0, 0, 255), 30);
-	rechteck_Mittelpunkt(this->get_x(), this->get_y(), b, b, Gosu::Color::Color(255, 0, 0, 255), 30);
-}
 int Gegner::get_naechsterwegpunkt(void)const {
 	return this->naechsterwegpunkt;
 }
 void Gegner::set_naechsterwegpunkt(const int w) {
 	this->naechsterwegpunkt = w;
 }
+
+//andere Methoden
+
+//setzt die Richtung des Gegners zu dem als Argument angegebenen Punkrt
+void Gegner::RichtungZuPunkt(const Vektoren a) {
+	this->set_richtung(a - this->get_position());
+}
+
+void Gegner::Zeichnen(void) const {
+	int b = 20;//Kantenlänge des quadratischen Gegners
+	int a = 50;//Kachelgröße. Gegebenfalls als Variable neiboltzten
+
+	rechteck_Mittelpunkt(this->get_x() + a / 2, this->get_y() + a / 2, b, b, Gosu::Color::Color(255, 0, 0, 255), 30);
+}
+//Diese Funktion sorgt dafür, dass der Gegner den richtigen Weg abfährt. Dafür wird ggf. die Richtung gesetzt
 void Gegner::wegpunkt(vector<Kachel> liste) {
-	
+
 	//Hier muss noch was hin, wenn das Ende erreicht worden ist
+
 	int k = this->get_naechsterwegpunkt();
 	Kachel a = liste.at(k);//nächste Kachel
 	Vektoren d;
-	d = Vektoren({ double(a.get_x()), double(a.get_y()) }) - this->get_position();//Verbindungsvektor zwischen dem Gegner und der nächsten Kachel
+
+	d = a.get_position() - this->get_position();//Verbindungsvektor zwischen dem Gegner und der nächsten Kachel
 	if (d.laenge() <= 3)//Wenn der Gegner nah genug an der Kachel ist, dann
 	{
 		this->set_naechsterwegpunkt(k + 1);//Dann ist der Wegpunkt erreicht und der nächste Wegpunkt wird gesetzt
-		this->set_richtung(Vektoren({ double(liste.at(k + 1).get_x()),double(liste.at(k + 1).get_y()) }) - this->get_position());//Dann wird die neueRcihtung gesetzt
+		this->set_richtung(liste.at(k + 1).get_position() - this->get_position());//Dann wird die neueRcihtung gesetzt
 	}
 
-	
+
 }
