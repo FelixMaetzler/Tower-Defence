@@ -13,6 +13,7 @@
 #include "Zeichnen.h"
 #include "Spieler.h"
 #include "Wegkachel.h"
+#include "ErsterGegner.h"
 
 using namespace std;
 
@@ -32,7 +33,7 @@ int abstand = 5;
 auto arrayKacheln = gridZeichnen(fensterbreite, fensterhöhe, kachelgröße, abstand);
 auto arrayKachel = weg(arrayKacheln);
 
-
+ErsterGegner test;
 
 class GameWindow : public Gosu::Window
 {
@@ -52,13 +53,13 @@ public:
 	void draw() override
 	{
 		mauszeiger(bild, x_maus, y_maus);
-
+		
 
 		rechteck_2Ecken(0, 0, fensterbreite, fensterhöhe, Weiss, 0);//Hintergrund
 
 		ArrayZeichnen(arrayKachel);
 		//arrayKachel[2][2].set_farbe(Gosu::Color::Color(255,255,0,0));
-
+		test.Zeichnen();
 	}
 	
 	// Wird 60x pro Sekunde aufgerufen
@@ -94,6 +95,7 @@ public:
 
 			}
 		}
+		test.set_position(test.get_position() + test.get_richtung());
 
 	}
 };
@@ -106,6 +108,12 @@ int main()
 	a = Gosu::Color::Color(4278190080);
 	cout << a.gl() << endl;*/
 
+	
+	test.set_Geschwindigkeit(1);
+	test.set_leben(10);
+	test.set_position(arrayKachel.at(0).at(0).Mittelpunkt());
+	test.set_richtung({ 1, 0});
+	
 	GameWindow window;
 	window.show();
 
