@@ -3,6 +3,24 @@
 #include "Zeichnen.h"
 #include "list"
 #include "Vektoren.h"
+#include <Gosu/Gosu.hpp>
+#include <Gosu/AutoLink.hpp>
+#include "stdafx.h"
+
+#include <Gosu/Gosu.hpp>
+#include <Gosu/AutoLink.hpp>
+
+#include <vector>
+#include <string>
+#include <iostream>
+
+//#include "Vektor2d.h"
+#include "Vektoren.h"
+#include "Grid.h"
+#include "Zeichnen.h"
+#include "Spieler.h"
+#include "Wegkachel.h"
+#include "ErsterGegner.h"
 using namespace std;
 
 //Konstruktoren
@@ -137,6 +155,8 @@ void ArrayZeichnen(vector<vector<Kachel>> Kachelarray) {
 	}
 }
 
+
+
 Vektoren MausZuKachel(int x, int y, vector<vector<Kachel>> Kachelarray) {
 	int Koordinate_Zeile;
 	int Koordinate_Spalte;
@@ -192,3 +212,41 @@ bool hatKachelgetroffen(int x, int y, vector<vector<Kachel>> Kachelarray) {
 
 
 }
+//vector<vector<Kachel>> Maustaste_Losgelassen(bool Matrix_Change_Sauber, vector<vector<Kachel>> arrayKachel)
+//{
+//	
+//	return vector<vector<Kachel>>();
+//}
+//
+//vector<vector<Kachel>> Maustaste_Gedrückt(bool Matrix_Change_Sauber, vector<vector<Kachel>> arrayKachel)
+//{
+//	if (input().down(Gosu::Button::Button(Gosu::ButtonName::MS_LEFT)))
+//	{
+//		Matrix_Change_Sauber = false;
+//		if (hatKachelgetroffen(x_maus, y_maus, arrayKachel))//Wenn man eine Kachel geklickt hat
+//		{
+//			//Dann soll eine Funktion ausgeführt werden, die die Kachelposition als Vektor zurückgibt
+//			Vektoren a = MausZuKachel(x_maus, y_maus, arrayKachel);
+//
+//			//a.print();
+//			Kachel z = arrayKachel[a.get_x()][a.get_y()];
+//
+//			if (z.get_farbe() == Schwarz && z.get_change() == false)
+//			{
+//				z.set_change(true);
+//				//cout << "Schwarz wurde erkannt" << endl;
+//				z.set_farbe(Rot);
+//			}
+//			else if (z.get_farbe() == Rot && z.get_change() == false)
+//			{
+//				z.set_change(true);
+//				z.set_farbe(Schwarz);
+//				//cout << "Rot wurde erkannt" << endl;
+//			}
+//
+//			arrayKachel[a.get_x()][a.get_y()] = z;
+//
+//		}
+//	}
+//	return vector<vector<Kachel>>();
+//}

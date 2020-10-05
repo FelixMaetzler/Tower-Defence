@@ -157,6 +157,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ButtonHandler.h" />
     <ClInclude Include="ErsterGegner.h" />
     <ClInclude Include="Figuren.h" />
     <ClInclude Include="Gegner.h" />
@@ -172,6 +173,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Beispielprojekt.cpp" />
+    <ClCompile Include="ButtonHandler.cpp" />
     <ClCompile Include="ErsterGegner.cpp" />
     <ClCompile Include="Figuren.cpp" />
     <ClCompile Include="Gegner.cpp" />

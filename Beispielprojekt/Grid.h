@@ -58,6 +58,9 @@ Vektoren MausZuKachel(int, int, vector<vector<Kachel>>);
 bool hatKachelgetroffen(int, int, vector<vector<Kachel>>);
 //Zeichnet die Kachelmatrix
 void ArrayZeichnen(vector<vector<Kachel>>);
+//
+
+
 #endif // !GRID_H
 
 
