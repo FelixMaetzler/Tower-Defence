@@ -57,8 +57,8 @@ public:
 	double winkel(void)const;
 	//Wenn ich den Winkel auf meinen Vektor draufaddiere, dann komme ich zu dem Vektor in den Klammern
 	double winkelZwischen2Vektoren(const Vektoren)const;
-	//gibt den Vektor mit gleicher Richtung, allerdings mit der Länge 1 zurück
-	Vektoren normieren(void)const;
+	//normiert den Vektoren
+	void normieren(void);
 	//gibt den Vektor in der Konsole aus (nur zu Testzwecken)
 	void print(void)const;
 	//gibt das Skalarprodukt zweier Vektoren zurück 

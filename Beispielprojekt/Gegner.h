@@ -31,7 +31,7 @@ public:
 	int get_y(void)const;
 	void set_y(const int);
 	Vektoren get_richtung(void)const;
-	void set_richtung(const Vektoren);
+	void set_richtung( Vektoren);
 	Vektoren get_position(void)const;
 	void set_position(const Vektoren);
 	int get_naechsterwegpunkt(void)const;
@@ -39,8 +39,11 @@ public:
 
 	//andere Methoden
 
+	//setzt die Richtung des Gegners zu dem als Argument angegebenen Punkrt
 	void RichtungZuPunkt(const Vektoren);
+
 	void Zeichnen(void)const;
+	//Diese Funktion sorgt dafür, dass der Gegner den richtigen Weg abfährt. Dafür wird die Richtung gesetzt
 	void wegpunkt(vector<Kachel>);
 
 };

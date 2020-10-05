@@ -79,10 +79,12 @@ double Vektoren::winkel(void) const {
 double Vektoren::winkelZwischen2Vektoren(const Vektoren a) const {
 	double w;
 	w = a.winkel() - this->winkel();
-	return winkelNormalisieren(w);
+	return w;
 }
-Vektoren Vektoren::normieren(void) const {
-	return (*this / this->laenge());
+void Vektoren::normieren(void)  {
+	double d = this->laenge();
+	this->set_x(this->get_x() / d);
+	this->set_y(this->get_y() / d);
 }
 void Vektoren::print(void) const {
 	std::cout << "(" << this->get_x() << "|" << this->get_y() << ")" << std::endl;

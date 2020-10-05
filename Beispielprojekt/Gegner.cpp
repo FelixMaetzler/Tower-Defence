@@ -40,7 +40,7 @@ void Gegner::set_y(const int y) {
 Vektoren Gegner::get_richtung(void) const {
 	return this->richtung;
 }
-void Gegner::set_richtung(const Vektoren a) {
+void Gegner::set_richtung( Vektoren a) {
 	a.normieren();
 	this->richtung = a * this->get_geschwindigkeit();
 }
@@ -59,7 +59,7 @@ void Gegner::set_naechsterwegpunkt(const int w) {
 
 //andere Methoden
 
-//setzt die Richtung des Gegners zu dem als Argument angegebenen Punkrt
+
 void Gegner::RichtungZuPunkt(const Vektoren a) {
 	this->set_richtung(a - this->get_position());
 }
@@ -69,8 +69,9 @@ void Gegner::Zeichnen(void) const {
 	int a = 50;//Kachelgröße. Gegebenfalls als Variable neiboltzten
 
 	rechteck_Mittelpunkt(this->get_x() + a / 2, this->get_y() + a / 2, b, b, Gosu::Color::Color(255, 0, 0, 255), 30);
+	
 }
-//Diese Funktion sorgt dafür, dass der Gegner den richtigen Weg abfährt. Dafür wird ggf. die Richtung gesetzt
+
 void Gegner::wegpunkt(vector<Kachel> liste) {
 
 	//Hier muss noch was hin, wenn das Ende erreicht worden ist
@@ -83,7 +84,11 @@ void Gegner::wegpunkt(vector<Kachel> liste) {
 	if (d.laenge() <= 3)//Wenn der Gegner nah genug an der Kachel ist, dann
 	{
 		this->set_naechsterwegpunkt(k + 1);//Dann ist der Wegpunkt erreicht und der nächste Wegpunkt wird gesetzt
-		this->set_richtung(liste.at(k + 1).get_position() - this->get_position());//Dann wird die neueRcihtung gesetzt
+		this->RichtungZuPunkt(liste.at(k + 1).get_position());
+	}
+	else
+	{
+		this->set_richtung(a.get_position() - this->get_position());
 	}
 
 

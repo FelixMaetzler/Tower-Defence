@@ -6,7 +6,7 @@
 #include <Gosu/AutoLink.hpp>
 #include "Vektoren.h"
 using namespace std;
-//Test
+
 class Kachel {
 private:
 	Gosu::Color farbe = Schwarz;
@@ -24,7 +24,7 @@ public:
 	Kachel(Vektoren, int, Gosu::Color);
 	Kachel(Vektoren, int, Gosu::Color, bool);
 	
-	//Methoden
+	//Get/Set Methoden
 	
 	
 	int get_x(void)const;
@@ -39,13 +39,14 @@ public:
 	void set_change(const bool);
 	bool get_istWeg(void)const;
 	void set_istWeg(const bool);
-	Vektoren Mittelpunkt(void);
 	Vektoren get_position(void)const;
 	void set_position(const Vektoren);
 	
-	
+	//andere Methoden
+
 	//Zeichnet eine Kachel
 	void zeichnen(void);
+	Vektoren Mittelpunkt(void);
 };
 //Funktionen
 
