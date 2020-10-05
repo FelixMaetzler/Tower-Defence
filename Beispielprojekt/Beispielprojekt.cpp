@@ -32,7 +32,6 @@ int abstand = 5;
 
 auto arrayKacheln = gridZeichnen(fensterbreite, fensterhöhe, kachelgröße, abstand);
 auto arrayKachel = weg(arrayKacheln);
-
 ErsterGegner test;
 
 class GameWindow : public Gosu::Window
@@ -97,8 +96,10 @@ public:
 		}
 		test.wegpunkt(wegalsVektor(arrayKachel));
 		test.set_position(test.get_position() + test.get_richtung());
+		
 
 	}
+	
 };
 
 // C++ Hauptprogramm
@@ -113,7 +114,8 @@ int main()
 	test.set_Geschwindigkeit(0.1);
 	test.set_leben(10);
 	test.set_position(arrayKachel.at(0).at(0).get_position());
-	
+	arrayKachel.back().back().set_farbe(Gosu::Color::Color(120, 120, 120));
+
 	
 	GameWindow window;
 	window.show();
