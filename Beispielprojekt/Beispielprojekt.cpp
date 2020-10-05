@@ -95,6 +95,7 @@ public:
 
 			}
 		}
+		test.wegpunkt(wegalsVektor(arrayKachel));
 		test.set_position(test.get_position() + test.get_richtung());
 
 	}
@@ -109,10 +110,10 @@ int main()
 	cout << a.gl() << endl;*/
 
 	
-	test.set_Geschwindigkeit(1);
+	test.set_Geschwindigkeit(0.1);
 	test.set_leben(10);
-	test.set_position(arrayKachel.at(0).at(0).Mittelpunkt());
-	test.set_richtung({ 1, 0});
+	test.set_position(arrayKachel.at(0).at(0).get_position());
+	
 	
 	GameWindow window;
 	window.show();

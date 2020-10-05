@@ -2,6 +2,7 @@
 #ifndef GEGNER_H
 #define GEGNER_H
 #include "Vektoren.h"
+#include "Grid.h"
 
 class Gegner {
 private:
@@ -9,6 +10,7 @@ private:
 	double geschwindigkeit;
 	Vektoren position;
 	Vektoren richtung;
+	int naechsterwegpunkt = 0;
 
 public:
 	//Konstruktoren
@@ -32,11 +34,14 @@ public:
 	void set_richtung(const Vektoren);
 	Vektoren get_position(void)const;
 	void set_position(const Vektoren);
-
+	int get_naechsterwegpunkt(void)const;
+	void set_naechsterwegpunkt(const int);
 
 
 	void RichtungZuPunkt(const Vektoren);
 	void Zeichnen(void)const;
+	void wegpunkt(vector<Kachel>);
+
 };
 
 

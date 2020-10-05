@@ -58,3 +58,24 @@ void Gegner::Zeichnen(void) const {
 	//rechteck_2Ecken(this->get_x(), this->get_y(), this->get_x() + b, this->get_y() + b, Gosu::Color::Color(255, 0, 0, 255), 30);
 	rechteck_Mittelpunkt(this->get_x(), this->get_y(), b, b, Gosu::Color::Color(255, 0, 0, 255), 30);
 }
+int Gegner::get_naechsterwegpunkt(void)const {
+	return this->naechsterwegpunkt;
+}
+void Gegner::set_naechsterwegpunkt(const int w) {
+	this->naechsterwegpunkt = w;
+}
+void Gegner::wegpunkt(vector<Kachel> liste) {
+	
+	//Hier muss noch was hin, wenn das Ende erreicht worden ist
+	int k = this->get_naechsterwegpunkt();
+	Kachel a = liste.at(k);//nächste Kachel
+	Vektoren d;
+	d = Vektoren({ double(a.get_x()), double(a.get_y()) }) - this->get_position();//Verbindungsvektor zwischen dem Gegner und der nächsten Kachel
+	if (d.laenge() <= 3)//Wenn der Gegner nah genug an der Kachel ist, dann
+	{
+		this->set_naechsterwegpunkt(k + 1);//Dann ist der Wegpunkt erreicht und der nächste Wegpunkt wird gesetzt
+		this->set_richtung(Vektoren({ double(liste.at(k + 1).get_x()),double(liste.at(k + 1).get_y()) }) - this->get_position());//Dann wird die neueRcihtung gesetzt
+	}
+
+	
+}

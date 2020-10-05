@@ -46,12 +46,12 @@ vector<vector<Kachel>> gridZeichnen(int fensterbreite, int fensterhöhe, int kach
 			y2 = y1 + kachelgröße;
 			//rechteck_2Ecken(x1, y1, x2, y2, Gosu::Color::BLACK, 5);
 
-			Kachel a(x1, y1, kachelgröße, Gosu::Color::Color(255, 0, 0, 0),false);
+			Kachel a(x1, y1, kachelgröße, Gosu::Color::Color(255, 0, 0, 0), false);
 			Kachelarray[i][j] = a;
 			//Kachelarray[j][i].set_farbe(Gosu::Color::Color(255, 0, 0, 0));
 
 			//Kachelarray[j][i] = Kachel(x1, y1, kachelgröße, Schwarz);
-			
+
 		}
 	}
 	return Kachelarray;
@@ -72,7 +72,7 @@ void ArrayZeichnen(vector<vector<Kachel>> Kachelarray) {
 		}
 	}
 }
-Vektoren MausZuKachel(int x, int y, vector<vector<Kachel>> Kachelarray)  {
+Vektoren MausZuKachel(int x, int y, vector<vector<Kachel>> Kachelarray) {
 	int Koordinate_Zeile;
 	int Koordinate_Spalte;
 	for (Koordinate_Zeile = 0; Koordinate_Zeile < Kachelarray.size(); Koordinate_Zeile++)
@@ -96,13 +96,13 @@ bool hatKachelgetroffen(int x, int y, vector<vector<Kachel>> Kachelarray) {
 	//[i][0] iterieren wir über die erste Spalte -> Hier muss die Höhe geprüft werden
 	//if Mauspos-Höhe ein Wert der einer Kachel zugewiesen werden kann: 
 	//[0][j] iterieren wir über die erste Zeile -> Hier muss die Breite geprüft werden
-	
+
 	bool g = false;
 	bool h = false;
 	for (int i = 0; i < Kachelarray.size(); i++)
 	{
 		Kachel a = Kachelarray[i][0];
-		if (a.get_y() <= y && y <= (a.get_y() + a.get_kachelgröße()) ){
+		if (a.get_y() <= y && y <= (a.get_y() + a.get_kachelgröße())) {
 			g = true;
 			break;
 		}
@@ -123,8 +123,8 @@ bool hatKachelgetroffen(int x, int y, vector<vector<Kachel>> Kachelarray) {
 	{
 		return false;
 	}
-	
-		
+
+
 }
 int Kachel::get_x(void) const {
 	return this->x;
@@ -161,9 +161,12 @@ bool Kachel::get_istWeg(void)const {
 void Kachel::set_istWeg(const bool b) {
 	this->istWeg = b;
 }
-Vektoren Kachel::Mittelpunkt(void)  {
+Vektoren Kachel::Mittelpunkt(void) {
 	Vektoren a;
 	a.set_x(this->x + this->kachelgröße / 2);
 	a.set_y(this->y + this->kachelgröße / 2);
 	return a;
+}
+Vektoren Kachel::get_position(void) const {
+	return Vektoren({ double(this->get_x()),double(this->get_y()) });
 }
