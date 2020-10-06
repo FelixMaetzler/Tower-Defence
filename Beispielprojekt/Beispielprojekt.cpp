@@ -12,6 +12,7 @@
 #include "ErsterGegner.h"
 #include "ButtonHandler.h"
 #include "Figuren.h"
+#include "GegnerInteraktion.h"
 using namespace std;
 
 
@@ -38,7 +39,7 @@ vector<Figuren>* figurenliste_ptr = &figurenliste;
 ErsterGegner test;
 Figuren figur;
 
-//Check ob die Maus bereits im vorherigen Zyklus losgelassen wurde, wenn ja, dann muss nicht die ganze Liste gechanged werden.
+
 
 
 class GameWindow : public Gosu::Window
@@ -65,8 +66,8 @@ public:
 
 		ArrayZeichnen(arrayKachel);
 		//arrayKachel[2][2].set_farbe(Gosu::Color::Color(255,255,0,0));
+		zeichnen(gegnerliste_ptr);
 		test.Zeichnen();
-
 
 	}
 
@@ -124,8 +125,11 @@ public:
 		//}
 		test.wegpunkt(wegalsListe(arrayKachel));
 		test.set_position(test.get_position() + test.get_richtung());
-
-
+		
+		wegpunkt(gegnerliste_ptr, wegalsListe(arrayKachel));
+		bewegen(gegnerliste_ptr);
+		
+		
 	}
 
 	void button_down(Gosu::Button button) override
@@ -162,16 +166,31 @@ int main()
 	test.set_leben(10);
 	//test.set_position(arrayKachel.at(0).at(0).get_position());
 	test.set_position(Vektoren(0, 0));
-	
+	gegnerliste_ptr->push_back(test);
 	arrayKachel.back().back().set_farbe(Gosu::Color::Color(120, 120, 120));
 
 	figur.set_attackspeed(1);
 	figur.set_damage(1);
+	figur.set_range(2000);
 	figur.set_position(arrayKachel[3][3].get_position());// Sitzt auf der 4. kachel von rechts und der 4. von oben
-
+	figurenliste_ptr->push_back(figur);
 	
-	GameWindow Fenster;
+	
 
+	GameWindow Fenster;
+	/*
+	Gosu::Graphics::draw_quad(
+		15, 15, Gosu::Color::Color(255, 0, 0),
+		15, 35, Gosu::Color::Color(255, 0, 0),
+		35, 15, Gosu::Color::Color(255, 0, 0),
+		35, 35, Gosu::Color::Color(255, 0, 0), 30
+	);
+	
+	Gosu::Graphics::draw_rect(
+		15, 15,
+		20, 20, Gosu::Color::Color(255, 0, 0), 30
+	);
+	*/
 	Fenster.show();
 
 

@@ -162,6 +162,7 @@
     <ClInclude Include="ErsterGegner.h" />
     <ClInclude Include="Figuren.h" />
     <ClInclude Include="Gegner.h" />
+    <ClInclude Include="GegnerInteraktion.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="Planet.h" />
     <ClInclude Include="Spieler.h" />
@@ -179,6 +180,7 @@
     <ClCompile Include="ErsterGegner.cpp" />
     <ClCompile Include="Figuren.cpp" />
     <ClCompile Include="Gegner.cpp" />
+    <ClCompile Include="GegnerInteraktion.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Planet.cpp" />
     <ClCompile Include="Spieler.cpp" />

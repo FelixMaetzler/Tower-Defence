@@ -22,6 +22,10 @@ int Gegner::get_leben(void) const {
 }
 void Gegner::set_leben(const int l) {
 	this->leben = l;
+	if (this->leben <= 0)
+	{
+		this->~Gegner();
+	}
 }
 double Gegner::get_geschwindigkeit(void) const {
 	return this->geschwindigkeit;

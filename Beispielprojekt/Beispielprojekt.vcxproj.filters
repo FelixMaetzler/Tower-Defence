@@ -60,6 +60,9 @@
     <ClInclude Include="ersteFigur.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GegnerInteraktion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -102,6 +105,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ersteFigur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GegnerInteraktion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
