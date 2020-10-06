@@ -11,6 +11,10 @@ Gegner::Gegner(int l, double g) {
 	this->set_Geschwindigkeit(g);
 };
 
+//Destruktor
+
+Gegner::~Gegner(void) {};
+
 //Get/Set Methoden
 
 int Gegner::get_leben(void) const {
@@ -40,7 +44,7 @@ void Gegner::set_y(const int y) {
 Vektoren Gegner::get_richtung(void) const {
 	return this->richtung;
 }
-void Gegner::set_richtung( Vektoren a) {
+void Gegner::set_richtung(Vektoren a) {
 	a.normieren();
 	this->richtung = a * this->get_geschwindigkeit();
 }
@@ -69,20 +73,29 @@ void Gegner::Zeichnen(void) const {
 	int a = 50;//Kachelgröße. Gegebenfalls als Variable neiboltzten
 
 	rechteck_Mittelpunkt(this->get_x() + a / 2, this->get_y() + a / 2, b, b, Gosu::Color::Color(255, 0, 0, 255), 30);
-	
+
 }
 
 void Gegner::wegpunkt(vector<Kachel> liste) {
 
-	//Hier muss noch was hin, wenn das Ende erreicht worden ist
+
 
 	int k = this->get_naechsterwegpunkt();
+	
 	Kachel a = liste.at(k);//nächste Kachel
 	Vektoren d;
 
 	d = a.get_position() - this->get_position();//Verbindungsvektor zwischen dem Gegner und der nächsten Kachel
 	if (d.laenge() <= 3)//Wenn der Gegner nah genug an der Kachel ist, dann
 	{
+		//das erkennt wenn der Gegner am Ende ist, allerdings macht endeErreicht() noch nicht das was es soll
+		/*
+		if (k + 1 >= liste.size())
+		{
+			this->endeErreicht();
+			return;
+		}
+		*/
 		this->set_naechsterwegpunkt(k + 1);//Dann ist der Wegpunkt erreicht und der nächste Wegpunkt wird gesetzt
 		this->RichtungZuPunkt(liste.at(k + 1).get_position());
 	}
@@ -92,4 +105,11 @@ void Gegner::wegpunkt(vector<Kachel> liste) {
 	}
 
 
+}
+void Gegner::lebenAbziehen(int l) {
+	this->set_leben(this->get_leben() - l);
+}
+void Gegner::endeErreicht(void) {
+	this->~Gegner();
+	//Spieler müssen noch leben abgezogen werden
 }

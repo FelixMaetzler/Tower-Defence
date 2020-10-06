@@ -158,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ButtonHandler.h" />
+    <ClInclude Include="ersteFigur.h" />
     <ClInclude Include="ErsterGegner.h" />
     <ClInclude Include="Figuren.h" />
     <ClInclude Include="Gegner.h" />
@@ -174,6 +175,7 @@
   <ItemGroup>
     <ClCompile Include="Beispielprojekt.cpp" />
     <ClCompile Include="ButtonHandler.cpp" />
+    <ClCompile Include="ersteFigur.cpp" />
     <ClCompile Include="ErsterGegner.cpp" />
     <ClCompile Include="Figuren.cpp" />
     <ClCompile Include="Gegner.cpp" />

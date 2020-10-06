@@ -14,11 +14,14 @@ private:
 
 public:
 	//Konstruktoren
-	
+
 	//Standartkonstruktor
 	Gegner(void);
 	//Konstruktor für Leben und Geschwindigkeit
 	Gegner(int, double);
+
+	//Destruktor
+	~Gegner(void);
 
 	//Get/Set Methoden:
 
@@ -31,7 +34,7 @@ public:
 	int get_y(void)const;
 	void set_y(const int);
 	Vektoren get_richtung(void)const;
-	void set_richtung( Vektoren);
+	void set_richtung(Vektoren);
 	Vektoren get_position(void)const;
 	void set_position(const Vektoren);
 	int get_naechsterwegpunkt(void)const;
@@ -45,6 +48,10 @@ public:
 	void Zeichnen(void)const;
 	//Diese Funktion sorgt dafür, dass der Gegner den richtigen Weg abfährt. Dafür wird die Richtung gesetzt
 	void wegpunkt(vector<Kachel>);
+	//Zieht die Anzahl an Leben ab
+	void lebenAbziehen(int);
+	//Wenn der gegner das Ende des Paths erreicht hat
+	void endeErreicht(void);
 
 };
 

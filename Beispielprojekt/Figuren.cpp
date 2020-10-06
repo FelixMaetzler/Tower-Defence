@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "Figuren.h"
+#include "Vektoren.h"
+#include "ErsterGegner.h"
 
 //Konstruktoren
 
@@ -29,4 +31,16 @@ void Figuren::set_price(const int p) {
 }
 int Figuren::get_price(void) const {
 	return this->price;
+}
+void Figuren::set_position(const Vektoren p) {
+	this->position = p;
+}
+Vektoren Figuren::get_position(void) const {
+	return this->position;
+}
+void Figuren::set_range(const double r) {
+	this->range = r;
+}
+double Figuren::get_range(void) const {
+	return this->range;
 }

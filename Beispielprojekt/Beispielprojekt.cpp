@@ -11,6 +11,7 @@
 #include "Wegkachel.h"
 #include "ErsterGegner.h"
 #include "ButtonHandler.h"
+#include "Figuren.h"
 using namespace std;
 
 
@@ -29,7 +30,7 @@ int abstand = 5;
 auto qwertz = grid(fensterbreite, fensterhöhe, kachelgröße, abstand);
 auto arrayKachel = gridmitweg(qwertz);
 ErsterGegner test;
-
+Figuren figur;
 //Check ob die Maus bereits im vorherigen Zyklus losgelassen wurde, wenn ja, dann muss nicht die ganze Liste gechanged werden.
 
 
@@ -149,13 +150,15 @@ int main()
 	cout << a.gl() << endl;*/
 
 	
-	test.set_Geschwindigkeit(1);
+	test.set_Geschwindigkeit(5);
 	test.set_leben(10);
 	//test.set_position(arrayKachel.at(0).at(0).get_position());
 	test.set_position(Vektoren(0, 0));
 	arrayKachel.back().back().set_farbe(Gosu::Color::Color(120, 120, 120));
 
-
+	figur.set_attackspeed(1);
+	figur.set_damage(1);
+	figur.set_position(arrayKachel[3][3].get_position());// Sitzt auf der 4. kachel von rechts und der 4. von oben
 
 	
 	GameWindow Fenster;
@@ -166,4 +169,10 @@ int main()
 	//system("pause");
 }
 
-//TODO: ENUM für Z-Ebene
+//TODO: ENUM für Z-Ebene implementieren
+
+enum Zpos {
+	Z_Hintergrund,
+	Z_Kacheln,
+	Z_Gegner,
+};
