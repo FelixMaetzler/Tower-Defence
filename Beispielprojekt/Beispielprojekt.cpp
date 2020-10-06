@@ -66,7 +66,7 @@ public:
 
 		ArrayZeichnen(arrayKachel);
 		//arrayKachel[2][2].set_farbe(Gosu::Color::Color(255,255,0,0));
-		zeichnen(gegnerliste_ptr);
+		//zeichnen(gegnerliste_ptr);
 		test.Zeichnen();
 
 	}
@@ -124,10 +124,11 @@ public:
 		//	}
 		//}
 		test.wegpunkt(wegalsListe(arrayKachel));
-		test.set_position(test.get_position() + test.get_richtung());
-		
-		wegpunkt(gegnerliste_ptr, wegalsListe(arrayKachel));
-		bewegen(gegnerliste_ptr);
+		//test.set_position(test.get_position() + test.get_richtung());
+		bewegen(test);
+		//wegpunkt(gegnerliste_ptr, wegalsListe(arrayKachel));
+		//bewegen(gegnerliste_ptr);
+		//(*gegnerliste_ptr)[0].set_position(((*gegnerliste_ptr))[0].get_position() + ((*gegnerliste_ptr))[0].get_richtung());
 		
 		
 	}

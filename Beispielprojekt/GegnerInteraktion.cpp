@@ -31,6 +31,12 @@ void bewegen(vector<Gegner>* liste_ptr) {
 		x.set_position(x.get_position() + x.get_richtung());
 	}
 }
+void bewegen(Gegner x) {
+	
+	
+		x.set_position(x.get_position() + x.get_richtung());
+	
+}
 void wegpunkt(vector<Gegner>* liste_ptr, vector<Kachel> wegliste) {
 
 	for (int i = 0; i < (*liste_ptr).size(); i++)
