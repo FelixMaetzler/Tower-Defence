@@ -2,7 +2,7 @@
 #include"Gegner.h"
 #include "Vektoren.h"
 #include "Zeichnen.h"
-
+#include <iostream>
 //Konstruktoren
 
 Gegner::Gegner(void) {};
@@ -13,7 +13,9 @@ Gegner::Gegner(int l, double g) {
 
 //Destruktor
 
-Gegner::~Gegner(void) {};
+Gegner::~Gegner(void) {
+	std::cout << "Feierabend ist eine rare aber gute Sache";
+};
 
 //Get/Set Methoden
 

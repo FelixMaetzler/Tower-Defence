@@ -20,21 +20,26 @@ void inrange(vector<Gegner>* Gegnerliste, vector<Figuren>* Figurenliste)
 	}
 }
 void zeichnen(vector<Gegner>* Gegnerliste) {
-	for each (Gegner x in *Gegnerliste)
+	for (int i = 0; i < (*Gegnerliste).size(); i++)
 	{
-		x.Zeichnen();
+		Gegner& gegner = (*Gegnerliste).at(i);
+
+
+		gegner.Zeichnen();
 	}
 }
-void bewegen(vector<Gegner>* liste_ptr) {
-	for each (Gegner x in *liste_ptr)
+void bewegen(vector<Gegner>* Gegnerliste) {
+	for (int i = 0; i < (*Gegnerliste).size(); i++)
 	{
-		x.set_position(x.get_position() + x.get_richtung());
+		Gegner& gegner = (*Gegnerliste).at(i);
+			   			
+		gegner.set_position(gegner.get_position() + gegner.get_richtung());
 	}
 }
-void bewegen(Gegner x) {
+void bewegen(Gegner* x) {
 	
 	
-		x.set_position(x.get_position() + x.get_richtung());
+		x->set_position(x->get_position() + x->get_richtung());
 	
 }
 void wegpunkt(vector<Gegner>* liste_ptr, vector<Kachel> wegliste) {
