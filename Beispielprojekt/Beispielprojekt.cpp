@@ -29,8 +29,15 @@ int abstand = 5;
 
 auto qwertz = grid(fensterbreite, fensterhöhe, kachelgröße, abstand);
 auto arrayKachel = gridmitweg(qwertz);
+
+vector<Gegner> gegnerliste(0);
+vector<Figuren> figurenliste(0);
+vector<Gegner>* gegnerliste_ptr = &gegnerliste;
+vector<Figuren>* figurenliste_ptr = &figurenliste;
+
 ErsterGegner test;
 Figuren figur;
+
 //Check ob die Maus bereits im vorherigen Zyklus losgelassen wurde, wenn ja, dann muss nicht die ganze Liste gechanged werden.
 
 
@@ -52,23 +59,23 @@ public:
 	void draw() override
 	{
 		mauszeiger(bild, x_maus, y_maus);
-		
+
 
 		rechteck_2Ecken(0, 0, fensterbreite, fensterhöhe, Weiss, 0);//Hintergrund
 
 		ArrayZeichnen(arrayKachel);
 		//arrayKachel[2][2].set_farbe(Gosu::Color::Color(255,255,0,0));
 		test.Zeichnen();
-	
+
 
 	}
-	
+
 	// Wird 60x pro Sekunde aufgerufen
 	void update() override
 	{
-		
-		
-		
+
+
+
 		//if (!input().down(Gosu::Button::Button(Gosu::ButtonName::MS_LEFT)) {
 
 
@@ -117,26 +124,26 @@ public:
 		//}
 		test.wegpunkt(wegalsListe(arrayKachel));
 		test.set_position(test.get_position() + test.get_richtung());
-		
+
 
 	}
 
 	void button_down(Gosu::Button button) override
 	{
-		
-		
+
+
 		if (button == Gosu::MS_LEFT) {
-			
+
 			arrayKachel = Maustaste_Gedrückt(arrayKachel, x_maus, y_maus);
 		}
-		
+
 		else {
 			Window::button_down(button);
 		}
 	}
 	void button_up(Gosu::Button button)override {
 		if (button == Gosu::MS_LEFT) {
-			arrayKachel =Maustaste_Losgelassen(arrayKachel, x_maus, y_maus);
+			arrayKachel = Maustaste_Losgelassen(arrayKachel, x_maus, y_maus);
 		}
 	}
 };
@@ -149,11 +156,13 @@ int main()
 	a = Gosu::Color::Color(4278190080);
 	cout << a.gl() << endl;*/
 
-	
+
+
 	test.set_Geschwindigkeit(5);
 	test.set_leben(10);
 	//test.set_position(arrayKachel.at(0).at(0).get_position());
 	test.set_position(Vektoren(0, 0));
+	
 	arrayKachel.back().back().set_farbe(Gosu::Color::Color(120, 120, 120));
 
 	figur.set_attackspeed(1);
@@ -162,7 +171,7 @@ int main()
 
 	
 	GameWindow Fenster;
-	
+
 	Fenster.show();
 
 
