@@ -9,7 +9,7 @@ private:
 
 public:
 
-	virtual void gegnerinrange(vector<Gegner> *gegnerliste_ptr) override;
+	virtual void gegnerinrange(vector<Gegner*> *gegnerliste_ptr) override;
 };
 
 

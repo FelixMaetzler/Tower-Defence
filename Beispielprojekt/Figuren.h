@@ -42,7 +42,7 @@ public:
 	std::chrono::steady_clock::time_point get_zeitstempel(void)const;
 	//andere Methoden
 
-	virtual void gegnerinrange(vector<Gegner>* gegnerliste_ptr) { return; };
+	virtual void gegnerinrange(vector<Gegner*>* gegnerliste_ptr) { return; };
 };
 
 #endif // !FIGUREN_H

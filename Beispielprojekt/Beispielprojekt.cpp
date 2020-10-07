@@ -32,10 +32,10 @@ int abstand = 5;
 auto qwertz = grid(fensterbreite, fensterhöhe, kachelgröße, abstand);
 auto arrayKachel = gridmitweg(qwertz);
 
-vector<Gegner> gegnerliste(0);
-vector<Figuren> figurenliste(0);
-vector<Gegner>* gegnerliste_ptr = &gegnerliste;
-vector<Figuren>* figurenliste_ptr = &figurenliste;
+vector<Gegner*> gegnerliste(0);
+vector<Figuren*> figurenliste(0);
+vector<Gegner*>* gegnerliste_ptr = &gegnerliste;
+vector<Figuren*>* figurenliste_ptr = &figurenliste;
 
 ErsterGegner test;
 ErsterGegner test2;
@@ -129,6 +129,7 @@ public:
 		//test.wegpunkt(wegalsListe(arrayKachel));
 		//test.set_position(test.get_position() + test.get_richtung());
 		//bewegen(test_ptr);
+		//wegpunkt(gegnerliste_ptr, wegalsListe(arrayKachel));
 		wegpunkt(gegnerliste_ptr, wegalsListe(arrayKachel));
 		bewegen(gegnerliste_ptr);
 		//(*gegnerliste_ptr)[0].set_position(((*gegnerliste_ptr))[0].get_position() + ((*gegnerliste_ptr))[0].get_richtung());
@@ -170,19 +171,19 @@ int main()
 	test.set_leben(10);
 	//test.set_position(arrayKachel.at(0).at(0).get_position());
 	test.set_position(Vektoren(0, 0));
-	gegnerliste_ptr->push_back(test);
+	gegnerliste_ptr->push_back(&test);
 	test2.set_Geschwindigkeit(3);
-	test2.set_leben(10);
+	test2.set_leben(100);
 	//test.set_position(arrayKachel.at(0).at(0).get_position());
 	test2.set_position(Vektoren(0, 0));
-	gegnerliste_ptr->push_back(test2);
+	gegnerliste_ptr->push_back(&test2);
 	arrayKachel.back().back().set_farbe(Gosu::Color::Color(120, 120, 120));
 
 	figur.set_attackspeed(20);
-	figur.set_damage(10);
+	figur.set_damage(0.5);
 	figur.set_range(5000);
 	figur.set_position(arrayKachel[3][3].get_position());// Sitzt auf der 4. kachel von rechts und der 4. von oben
-	figurenliste_ptr->push_back(figur);
+	figurenliste_ptr->push_back(&figur);
 	
 	
 

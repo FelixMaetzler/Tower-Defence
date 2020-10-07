@@ -77,7 +77,7 @@ void Gegner::RichtungZuPunkt(const Vektoren a) {
 void Gegner::Zeichnen(void) const {
 	int b = 20;//Kantenlänge des quadratischen Gegners
 	int a = 50;//Kachelgröße. Gegebenfalls als Variable neiboltzten
-
+	//int f = (this->get_leben() / 100) * 255;
 	rechteck_Mittelpunkt(this->get_x() + a / 2, this->get_y() + a / 2, b, b, Gosu::Color::Color(255, 0, 0, 255), 30);
 
 }
