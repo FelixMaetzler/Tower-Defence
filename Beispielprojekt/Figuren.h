@@ -5,6 +5,8 @@
 #include"stdafx.h"
 #include "Gegner.h"
 #include "Vektoren.h"
+#include <ctime>
+#include <chrono>
 using namespace std;
 
 
@@ -15,6 +17,7 @@ private:
 	int price;
 	Vektoren position;
 	double range;
+	std::chrono::steady_clock::time_point zeitstempel = std::chrono::steady_clock::now();
 public:
 	//Konstruktoren
 	
@@ -35,10 +38,11 @@ public:
 	Vektoren get_position(void)const;
 	void set_range(const double);
 	double get_range(void)const;
-
+	void set_zeitstempel(const std::chrono::steady_clock::time_point);
+	std::chrono::steady_clock::time_point get_zeitstempel(void)const;
 	//andere Methoden
 
-	virtual void gegnerinrange(vector<Gegner>&) {};
+	virtual void gegnerinrange(vector<Gegner>* gegnerliste_ptr) { return; };
 };
 
 #endif // !FIGUREN_H

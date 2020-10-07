@@ -44,3 +44,14 @@ void Figuren::set_range(const double r) {
 double Figuren::get_range(void) const {
 	return this->range;
 }
+
+void Figuren::set_zeitstempel(const std::chrono::steady_clock::time_point z)
+{
+	this->zeitstempel = z;
+}
+
+std::chrono::steady_clock::time_point Figuren::get_zeitstempel(void) const
+{
+	return this->zeitstempel;
+}
+

@@ -1,22 +1,33 @@
 #include "stdafx.h"
 #include "GegnerInteraktion.h"
 
-void inrange(vector<Gegner>* Gegnerliste, vector<Figuren>* Figurenliste)
+void schiessen(vector<Gegner>* Gegnerliste, vector<Figuren>* Figurenliste)
 {
-	for each (Gegner gegner in *Gegnerliste)
+	
+	for (int i = 0; i < Gegnerliste->size(); i++)
 	{
-		int j = 0;
-		for each (Figuren figur in *Figurenliste)
+		for (int j = 0; j < Figurenliste->size(); j++)
 		{
-			Vektoren d = gegner.get_position() - figur.get_position();
-			if (d.laenge() <= figur.get_range())
+			Figurenliste->at(j).gegnerinrange(Gegnerliste);
+			/*
+			d = Gegnerliste->at(i).get_position() - Figurenliste->at(j).get_position();
+			if (d.laenge() <= Figurenliste->at(j).get_range())
 			{
-				gegner.lebenAbziehen(figur.get_damage());
-				(*Gegnerliste).erase((*Gegnerliste).begin() + j);
-
+				if (Gegnerliste->at(i).get_leben()>Figurenliste->at(j).get_damage())
+				{
+					Gegnerliste->at(i).lebenAbziehen(Figurenliste->at(j).get_damage());
+				}
+				else
+				{
+					//stirbt er
+					//Spieler bekommt Geld
+					//vllt in andere Funktion auslagern
+					Gegnerliste->erase(Gegnerliste->begin() + i);
+					i--;
+				}
 			}
+			*/
 		}
-		j++;
 	}
 }
 void zeichnen(vector<Gegner>* Gegnerliste) {
@@ -44,9 +55,9 @@ void bewegen(Gegner* x) {
 }
 void wegpunkt(vector<Gegner>* liste_ptr, vector<Kachel> wegliste) {
 
-	for (int i = 0; i < (*liste_ptr).size(); i++)
+	for (int i = 0; i < liste_ptr->size(); i++)
 	{
-		Gegner& gegner = (*liste_ptr).at(i);
+		Gegner& gegner = liste_ptr->at(i);
 	
 	
 
@@ -58,14 +69,17 @@ void wegpunkt(vector<Gegner>* liste_ptr, vector<Kachel> wegliste) {
 		d = a.get_position() - gegner.get_position();//Verbindungsvektor zwischen dem Gegner und der nächsten Kachel
 		if (d.laenge() <= 3)//Wenn der Gegner nah genug an der Kachel ist, dann
 		{
-			//das erkennt wenn der Gegner am Ende ist, allerdings macht endeErreicht() noch nicht das was es soll
-			/*
-			if (k + 1 >= liste.size())
+			
+			
+			if (k + 1 >= wegliste.size())
 			{
-				this->endeErreicht();
+				liste_ptr->erase(liste_ptr->begin() + i);
+				i--;
+				//Dem spieler müssen Leben abgezogen werden
+				
 				return;
 			}
-			*/
+			
 			gegner.set_naechsterwegpunkt(k + 1);//Dann ist der Wegpunkt erreicht und der nächste Wegpunkt wird gesetzt
 			gegner.RichtungZuPunkt(wegliste.at(k + 1).get_position());
 		}

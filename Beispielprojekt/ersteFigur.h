@@ -5,11 +5,11 @@
 #include "stdafx.h"
 class ersteFigur : public Figuren {
 private:
-
+	//Sniper
 
 public:
 
-	virtual void gegnerinrange(vector<Gegner>&) override;
+	virtual void gegnerinrange(vector<Gegner> *gegnerliste_ptr) override;
 };
 
 

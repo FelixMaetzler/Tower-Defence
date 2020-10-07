@@ -19,10 +19,10 @@ Gegner::~Gegner(void) {
 
 //Get/Set Methoden
 
-int Gegner::get_leben(void) const {
+double Gegner::get_leben(void) const {
 	return this->leben;
 }
-void Gegner::set_leben(const int l) {
+void Gegner::set_leben(const double l) {
 	this->leben = l;
 	if (this->leben <= 0)
 	{
@@ -112,7 +112,7 @@ void Gegner::wegpunkt(vector<Kachel> liste) {
 
 
 }
-void Gegner::lebenAbziehen(int l) {
+void Gegner::lebenAbziehen(double l) {
 	this->set_leben(this->get_leben() - l);
 }
 void Gegner::endeErreicht(void) {

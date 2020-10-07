@@ -6,7 +6,7 @@
 
 class Gegner {
 private:
-	int leben;
+	double leben;
 	double geschwindigkeit;
 	Vektoren position;//linke obere Ecke
 	Vektoren richtung;
@@ -25,8 +25,8 @@ public:
 
 	//Get/Set Methoden:
 
-	int get_leben(void)const;
-	void set_leben(const int);
+	double get_leben(void)const;
+	void set_leben(const double);
 	double get_geschwindigkeit(void)const;
 	void set_Geschwindigkeit(const double);
 	int get_x(void)const;
@@ -49,7 +49,7 @@ public:
 	//Diese Funktion sorgt dafür, dass der Gegner den richtigen Weg abfährt. Dafür wird die Richtung gesetzt
 	void wegpunkt(vector<Kachel>);
 	//Zieht die Anzahl an Leben ab
-	void lebenAbziehen(int);
+	void lebenAbziehen(double);
 	//Wenn der gegner das Ende des Paths erreicht hat
 	void endeErreicht(void);
 

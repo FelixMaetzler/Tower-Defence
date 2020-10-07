@@ -13,6 +13,7 @@
 #include "ButtonHandler.h"
 #include "Figuren.h"
 #include "GegnerInteraktion.h"
+#include "ersteFigur.h"
 using namespace std;
 
 
@@ -39,7 +40,7 @@ vector<Figuren>* figurenliste_ptr = &figurenliste;
 ErsterGegner test;
 ErsterGegner test2;
 ErsterGegner* test_ptr = &test;
-Figuren figur;
+ersteFigur figur;
 
 
 
@@ -131,7 +132,7 @@ public:
 		wegpunkt(gegnerliste_ptr, wegalsListe(arrayKachel));
 		bewegen(gegnerliste_ptr);
 		//(*gegnerliste_ptr)[0].set_position(((*gegnerliste_ptr))[0].get_position() + ((*gegnerliste_ptr))[0].get_richtung());
-		
+		schiessen(gegnerliste_ptr, figurenliste_ptr);
 		
 	}
 
@@ -177,9 +178,9 @@ int main()
 	gegnerliste_ptr->push_back(test2);
 	arrayKachel.back().back().set_farbe(Gosu::Color::Color(120, 120, 120));
 
-	figur.set_attackspeed(1);
-	figur.set_damage(1);
-	figur.set_range(2000);
+	figur.set_attackspeed(20);
+	figur.set_damage(10);
+	figur.set_range(5000);
 	figur.set_position(arrayKachel[3][3].get_position());// Sitzt auf der 4. kachel von rechts und der 4. von oben
 	figurenliste_ptr->push_back(figur);
 	

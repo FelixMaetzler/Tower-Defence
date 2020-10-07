@@ -2,15 +2,15 @@
 #include "Spieler.h"
 
 
-void Spieler::set_geld(const int g) {
+void Spieler::set_geld(const double g) {
 
 	this->geld = g;
 
 }
-int Spieler::get_geld(void) const {
+double Spieler::get_geld(void) const {
 	return this->geld;
 }
-void Spieler::set_leben(const int l) {
+void Spieler::set_leben(const double l) {
 	if (l < 1)
 	{
 		// Game Over
@@ -20,6 +20,6 @@ void Spieler::set_leben(const int l) {
 		this->leben = l;
 	}
 }
-int Spieler::get_leben(void) const {
+double Spieler::get_leben(void) const {
 	return this->leben;
 }

@@ -4,13 +4,13 @@
 
 class Spieler {
 private:
-	int geld = 0;
-	int leben = 0;
+	double geld = 0;
+	double leben = 0;
 public:
-	void set_geld(const int);
-	int get_geld(void)const;
-	void set_leben(const int);
-	int get_leben(void)const;
+	void set_geld(const double);
+	double get_geld(void)const;
+	void set_leben(const double);
+	double get_leben(void)const;
 };
 
 #endif // !SPIELER_H
