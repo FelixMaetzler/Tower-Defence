@@ -124,5 +124,8 @@
     <Image Include="rakete.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="tomato.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

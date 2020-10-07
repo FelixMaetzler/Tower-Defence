@@ -11,14 +11,26 @@ private:
 	Vektoren position;//linke obere Ecke
 	Vektoren richtung;
 	int naechsterwegpunkt = 0;
+	Gosu::Image image;
 
 public:
+	
 	//Konstruktoren
 
 	//Standartkonstruktor
-	Gegner(void);
+	//Gegner(void);
+	Gegner(void)
+		:image("tomato.png")
+	{
+		
+	};
 	//Konstruktor für Leben und Geschwindigkeit
-	Gegner(int, double);
+	Gegner::Gegner(int l, double g)
+		//:image("tomato.png")
+	{
+		this->set_leben(l);
+		this->set_Geschwindigkeit(g);	
+	};
 
 	//Destruktor
 	~Gegner(void);

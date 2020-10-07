@@ -4,7 +4,12 @@
 #include <chrono>
 #include <iostream>
 
- void ersteFigur::gegnerinrange(vector<Gegner*>* liste_ptr)  {
+ 
+
+
+
+
+void ersteFigur::gegnerinrange(vector<Gegner*>* liste_ptr)  {
 	auto d = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - this->get_zeitstempel()).count();
 	if (d >= (1/(this->get_attackspeed())*1000))
 	{

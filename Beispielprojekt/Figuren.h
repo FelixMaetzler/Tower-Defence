@@ -10,7 +10,7 @@
 using namespace std;
 
 
-class Figuren {
+class Figuren  {
 private:
 	double attackspeed;
 	double damage;

@@ -38,7 +38,7 @@ vector<Gegner*>* gegnerliste_ptr = &gegnerliste;
 vector<Figuren*>* figurenliste_ptr = &figurenliste;
 
 ErsterGegner test;
-ErsterGegner test2;
+//ErsterGegner test2;
 ErsterGegner* test_ptr = &test;
 ersteFigur figur;
 
@@ -48,10 +48,14 @@ ersteFigur figur;
 class GameWindow : public Gosu::Window
 {
 public:
-	Gosu::Image bild;
+	Gosu::Image Mauszeiger;
+	Gosu::Image Tomate;
 	GameWindow()
-		: Window(fensterbreite, fensterhöhe, false)
-		, bild("mauscursor_bearbeitet.png")
+		: 
+		 Mauszeiger("mauscursor_bearbeitet.png"),
+		Window(fensterbreite, fensterhöhe, false),
+		Tomate("tomato.png")
+
 
 	{
 		set_caption("Gosu Tutorial mit Git");
@@ -62,77 +66,28 @@ public:
 	// dann werden `draw` Aufrufe ausgelassen und die Framerate sinkt
 	void draw() override
 	{
-		mauszeiger(bild, x_maus, y_maus);
+		mauszeiger(Mauszeiger, x_maus, y_maus);
 
 
 		rechteck_2Ecken(0, 0, fensterbreite, fensterhöhe, Weiss, 0);//Hintergrund
 
 		ArrayZeichnen(arrayKachel);
-		//arrayKachel[2][2].set_farbe(Gosu::Color::Color(255,255,0,0));
+
 		zeichnen(gegnerliste_ptr);
-		//test.Zeichnen();
+		//Tomate.draw_rot(500, 500, 500,0,0.5,0.5, 1, 1);
 
 	}
 
 	// Wird 60x pro Sekunde aufgerufen
 	void update() override
 	{
-		
 
-
-		//if (!input().down(Gosu::Button::Button(Gosu::ButtonName::MS_LEFT)) {
-
-
-		//	int iterator_ze = 1;
-		//	int iterator_sp = 1;
-
-		//	for (int iterator_ze = 1; iterator_ze < arrayKachel.size(); iterator_ze++)
-		//	{
-		//		for (int iterator_sp = 1; iterator_sp < arrayKachel.at(0).size(); iterator_sp++)
-		//		{
-		//			arrayKachel[iterator_ze][iterator_sp].set_change(false);
-		//		}
-		//	}
-		//	Matrix_Change_Sauber = true;
-		//}
 		x_maus = input().mouse_x();
 		y_maus = input().mouse_y();
-		//if (input().down(Gosu::Button::Button(Gosu::ButtonName::MS_LEFT)))
-		//{
 
-		//	Matrix_Change_Sauber = false;
-		//	if (hatKachelgetroffen(x_maus, y_maus, arrayKachel))//Wenn man eine Kachel geklickt hat
-		//	{
-		//		//Dann soll eine Funktion ausgeführt werden, die die Kachelposition als Vektor zurückgibt
-		//		Vektoren a = MausZuKachel(x_maus, y_maus, arrayKachel);
-		//		
-		//		//a.print();
-		//		Kachel z = arrayKachel[a.get_x()][a.get_y()];
-		//		
-		//		if (z.get_farbe() == Schwarz&& z.get_change()==false)
-		//		{
-		//			z.set_change(true);
-		//			//cout << "Schwarz wurde erkannt" << endl;
-		//			z.set_farbe(Rot);
-		//		}
-		//		else if (z.get_farbe() == Rot && z.get_change() == false)
-		//		{
-		//			z.set_change(true);
-		//			z.set_farbe(Schwarz);
-		//			//cout << "Rot wurde erkannt" << endl;
-		//		}
-
-		//		arrayKachel[a.get_x()][a.get_y()] = z;
-
-		//	}
-		//}
-		//test.wegpunkt(wegalsListe(arrayKachel));
-		//test.set_position(test.get_position() + test.get_richtung());
-		//bewegen(test_ptr);
-		//wegpunkt(gegnerliste_ptr, wegalsListe(arrayKachel));
 		wegpunkt(gegnerliste_ptr, wegalsListe(arrayKachel));
 		bewegen(gegnerliste_ptr);
-		//(*gegnerliste_ptr)[0].set_position(((*gegnerliste_ptr))[0].get_position() + ((*gegnerliste_ptr))[0].get_richtung());
+
 		schiessen(gegnerliste_ptr, figurenliste_ptr);
 		
 	}
@@ -160,23 +115,17 @@ public:
 // C++ Hauptprogramm
 int main()
 {
-	/*Gosu::Color a(255, 255, 0, 0);
-	cout << a.gl() << endl;
-	a = Gosu::Color::Color(4278190080);
-	cout << a.gl() << endl;*/
-
-
 
 	test.set_Geschwindigkeit(5);
 	test.set_leben(10);
 	//test.set_position(arrayKachel.at(0).at(0).get_position());
 	test.set_position(Vektoren(0, 0));
 	gegnerliste_ptr->push_back(&test);
-	test2.set_Geschwindigkeit(3);
-	test2.set_leben(10);
+	//test2.set_Geschwindigkeit(3);
+	//test2.set_leben(10);
 	//test.set_position(arrayKachel.at(0).at(0).get_position());
-	test2.set_position(Vektoren(0, 0));
-	gegnerliste_ptr->push_back(&test2);
+	//test2.set_position(Vektoren(0, 0));
+	//gegnerliste_ptr->push_back(&test2);
 	arrayKachel.back().back().set_farbe(Gosu::Color::Color(120, 120, 120));
 
 	figur.set_attackspeed(10);
@@ -188,23 +137,12 @@ int main()
 	
 
 	GameWindow Fenster;
-	/*
-	Gosu::Graphics::draw_quad(
-		15, 15, Gosu::Color::Color(255, 0, 0),
-		15, 35, Gosu::Color::Color(255, 0, 0),
-		35, 15, Gosu::Color::Color(255, 0, 0),
-		35, 35, Gosu::Color::Color(255, 0, 0), 30
-	);
-	
-	Gosu::Graphics::draw_rect(
-		15, 15,
-		20, 20, Gosu::Color::Color(255, 0, 0), 30
-	);
-	*/
+
+
 	Fenster.show();
 
 
-	//system("pause");
+
 }
 
 //TODO: ENUM für Z-Ebene implementieren

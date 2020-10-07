@@ -205,6 +205,7 @@
     <Image Include="planet2.png" />
     <Image Include="planet3.png" />
     <Image Include="rakete.png" />
+    <Image Include="tomato.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

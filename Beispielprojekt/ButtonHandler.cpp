@@ -5,23 +5,23 @@
 #include "Grid.h"
 #include <iostream>
 using namespace std;
-vector<vector<Kachel>> Maustaste_Losgelassen(vector<vector<Kachel>> arrayKachel,int x_maus,int y_maus)
+vector<vector<Kachel>> Maustaste_Losgelassen(vector<vector<Kachel>> arrayKachel, int x_maus, int y_maus)
 {
 
 	int iterator_ze = 1;
 	int iterator_sp = 1;
 
-	for (int iterator_ze = 1; iterator_ze < arrayKachel.size(); iterator_ze++)
+	for (iterator_ze = 1; iterator_ze < arrayKachel.size(); iterator_ze++)
 	{
-		for (int iterator_sp = 1; iterator_sp < arrayKachel.at(0).size(); iterator_sp++)
+		for (iterator_sp = 1; iterator_sp < arrayKachel.at(0).size(); iterator_sp++)
 		{
-			arrayKachel[iterator_ze][iterator_sp].set_change(false);
+			arrayKachel[iterator_ze - 1][iterator_sp - 1].set_change(false);
 		}
 	}
 	return arrayKachel;
 }
 
-vector<vector<Kachel>> Maustaste_Gedrückt(vector<vector<Kachel>> arrayKachel, int x_maus , int y_maus)
+vector<vector<Kachel>> Maustaste_Gedrückt(vector<vector<Kachel>> arrayKachel, int x_maus, int y_maus)
 {
 	if (hatKachelgetroffen(x_maus, y_maus, arrayKachel))//Wenn man eine Kachel geklickt hat
 	{
