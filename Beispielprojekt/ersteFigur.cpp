@@ -2,11 +2,13 @@
 #include "ersteFigur.h"
 #include "Gegner.h"
 #include <chrono>
+#include <iostream>
 
  void ersteFigur::gegnerinrange(vector<Gegner*>* liste_ptr)  {
 	auto d = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - this->get_zeitstempel()).count();
 	if (d >= (1/(this->get_attackspeed())*1000))
 	{
+		std::cout << d << std::endl;
 		this->set_zeitstempel(std::chrono::steady_clock::now());
 		Vektoren abstand;
 		int j = 0;

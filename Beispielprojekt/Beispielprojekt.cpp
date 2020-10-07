@@ -173,13 +173,13 @@ int main()
 	test.set_position(Vektoren(0, 0));
 	gegnerliste_ptr->push_back(&test);
 	test2.set_Geschwindigkeit(3);
-	test2.set_leben(100);
+	test2.set_leben(10);
 	//test.set_position(arrayKachel.at(0).at(0).get_position());
 	test2.set_position(Vektoren(0, 0));
 	gegnerliste_ptr->push_back(&test2);
 	arrayKachel.back().back().set_farbe(Gosu::Color::Color(120, 120, 120));
 
-	figur.set_attackspeed(20);
+	figur.set_attackspeed(10);
 	figur.set_damage(0.5);
 	figur.set_range(5000);
 	figur.set_position(arrayKachel[3][3].get_position());// Sitzt auf der 4. kachel von rechts und der 4. von oben
