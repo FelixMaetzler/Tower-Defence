@@ -37,7 +37,10 @@ auto arrayKachel = gridmitweg(qwertz);
 
 //ErsterGegner* test_ptr = &test;
 
-
+vector<Gegner*> gegnerliste(0);
+vector<Figuren*> figurenliste(0);
+vector<Gegner*>* gegnerliste_ptr = &gegnerliste;
+vector<Figuren*>* figurenliste_ptr = &figurenliste;
 
 
 
@@ -112,10 +115,7 @@ public:
 // C++ Hauptprogramm
 int main()
 {
-	vector<Gegner*> gegnerliste(0);
-	vector<Figuren*> figurenliste(0);
-	vector<Gegner*>* gegnerliste_ptr = &gegnerliste;
-	vector<Figuren*>* figurenliste_ptr = &figurenliste;
+
 	ErsterGegner test;
 	ErsterGegner test2;
 	ersteFigur figur;
