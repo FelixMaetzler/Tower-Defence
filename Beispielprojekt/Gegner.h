@@ -12,25 +12,21 @@ private:
 	Vektoren richtung;
 	int naechsterwegpunkt = 0;
 	Gosu::Image image;
+	
 
 public:
-	
+
+
 	//Konstruktoren
 
 	//Standartkonstruktor
 	//Gegner(void);
-	Gegner(void)
-		
-	{
-		
-	};
+	Gegner(void);
+
 	//Konstruktor für Leben und Geschwindigkeit
-	Gegner(int l, double g)
-		//:image("tomato.png")
-	{
-		this->set_leben(l);
-		this->set_Geschwindigkeit(g);	
-	};
+	Gegner(int l, double g);
+	
+	
 
 	//Destruktor
 	~Gegner(void);
@@ -51,6 +47,9 @@ public:
 	void set_position(const Vektoren);
 	int get_naechsterwegpunkt(void)const;
 	void set_naechsterwegpunkt(const int);
+	Gosu::Image get_image(void)const;
+	void set_image(const string);
+
 
 	//andere Methoden
 
@@ -64,7 +63,7 @@ public:
 	void lebenAbziehen(double);
 	//Wenn der gegner das Ende des Paths erreicht hat
 	void endeErreicht(void);
-
+	
 };
 
 

@@ -5,7 +5,12 @@
 #include <iostream>
 //Konstruktoren
 
-
+Gegner::Gegner(void) {};
+Gegner::Gegner(int l, double g)
+{
+	this->set_leben(l);
+	this->set_Geschwindigkeit(g);
+};
 
 
 //Destruktor
@@ -62,6 +67,12 @@ int Gegner::get_naechsterwegpunkt(void)const {
 }
 void Gegner::set_naechsterwegpunkt(const int w) {
 	this->naechsterwegpunkt = w;
+}
+Gosu::Image Gegner::get_image(void) const {
+	return this->image;
+}
+void Gegner::set_image(const string dateipfad) {
+	this->image = Gosu::Image(dateipfad);
 }
 
 //andere Methoden

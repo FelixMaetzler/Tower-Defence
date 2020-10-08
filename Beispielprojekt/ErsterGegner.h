@@ -6,7 +6,7 @@
 #include <Gosu/AutoLink.hpp>
 class ErsterGegner : public Gegner {
 private:
-	Gosu::Image image;
+	
 public:
 	
 	//Konstruktoren
