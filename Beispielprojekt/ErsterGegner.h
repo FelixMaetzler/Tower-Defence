@@ -12,6 +12,7 @@ public:
 	//Konstruktoren
 
 	ErsterGegner(void);
+	
 
 	//Methoden
 };

@@ -7,14 +7,19 @@
 #include <Gosu/AutoLink.hpp>
 
 class ersteFigur : public Figuren {
-
+	Vektoren richtungzumgegner;
 private:
 
 	//Sniper
+	
 
 public:
-
+	ersteFigur(void);
+	
+	void set_richtungzumgegner(const Vektoren);
+	Vektoren get_richtungzumgegner(void)const;
 	virtual void gegnerinrange(vector<Gegner*> *gegnerliste_ptr) override;
+	virtual void Zeichnen(void) override;
 };
 
 

@@ -68,7 +68,7 @@ double Vektoren::laenge(void) const {
 	return d;
 }
 double Vektoren::winkel(void) const {
-	double w;
+	double w = 0;
 	double r = 0;//Um alles um einen bestimmen Winkel im Gradmaß gegen den Uhrzeigersinn zu drehen
 
 	w = -radiantToDegree(atan2(this->get_y(), this->get_x()));

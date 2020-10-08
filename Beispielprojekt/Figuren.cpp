@@ -54,4 +54,22 @@ std::chrono::steady_clock::time_point Figuren::get_zeitstempel(void) const
 {
 	return this->zeitstempel;
 }
+Gosu::Image Figuren::get_image(void) const {
+	return this->image;
+}
+void Figuren::set_image(const string dateipfad) {
+	this->image = Gosu::Image(dateipfad);
+}
+int Figuren::get_x(void) const {
+	return this->get_position().get_x();
+}
+void Figuren::set_x(const int x) {
+	this->position.set_x(x);
+}
+int Figuren::get_y(void) const {
+	return this->get_position().get_y();
+}
+void Figuren::set_y(const int y) {
+	this->position.set_y(y);
+}
 

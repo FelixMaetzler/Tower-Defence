@@ -10,7 +10,7 @@
 using namespace std;
 
 
-class Figuren  {
+class Figuren {
 private:
 	double attackspeed;
 	double damage;
@@ -18,16 +18,18 @@ private:
 	Vektoren position;
 	double range;
 	std::chrono::steady_clock::time_point zeitstempel = std::chrono::steady_clock::now();
+	Gosu::Image image;
+
 public:
 	//Konstruktoren
-	
+
 	//Standartkonstruktor
 	Figuren(void);
 	//Konstruktor für Attackspeed, Damage und Price
 	Figuren(double, double, int);
 
 	//Get/Set Methoden
-	
+
 	void set_attackspeed(const double);
 	double get_attackspeed(void)const;
 	void set_damage(const double);
@@ -40,8 +42,15 @@ public:
 	double get_range(void)const;
 	void set_zeitstempel(const std::chrono::steady_clock::time_point);
 	std::chrono::steady_clock::time_point get_zeitstempel(void)const;
-	//andere Methoden
+	Gosu::Image get_image(void)const;
+	void set_image(const string);
+	void set_x(const int);
+	int get_x(void)const;
+	void set_y(const int);
+	int get_y(void)const;
 
+	//andere Methoden
+	virtual void Zeichnen(void) { return; };
 	virtual void gegnerinrange(vector<Gegner*>* gegnerliste_ptr) { return; };
 };
 

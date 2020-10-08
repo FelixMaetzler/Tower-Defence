@@ -36,6 +36,13 @@ void zeichnen(vector<Gegner*>* Gegnerliste) {
 		(Gegnerliste->at(i))->Zeichnen();
 	}
 }
+void zeichnen(vector<Figuren*>* Figurenliste) {
+	for (int i = 0; i < (*Figurenliste).size(); i++)
+	{
+		(Figurenliste->at(i))->Zeichnen();
+	}
+}
+
 void bewegen(vector<Gegner*>* Gegnerliste) {
 	for (int i = 0; i < (*Gegnerliste).size(); i++)
 	{
