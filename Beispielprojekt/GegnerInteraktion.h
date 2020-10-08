@@ -11,7 +11,7 @@ void zeichnen(vector<Gegner*>*);
 void zeichnen(vector<Figuren*>*);
 //Alle Gegner bewegen sich
 void bewegen(vector<Gegner*>*);
-//?
+//Test Methode für einen einzelnen Pointer auf einen Gegner
 void bewegen(Gegner*);
 //Für jeden Gegner wird die Richtung berechnet
 void wegpunkt(vector<Gegner*>*, vector<Kachel>);

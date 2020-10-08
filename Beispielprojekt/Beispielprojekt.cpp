@@ -32,10 +32,7 @@ int abstand = 5;
 auto qwertz = grid(fensterbreite, fensterhöhe, kachelgröße, abstand);
 auto arrayKachel = gridmitweg(qwertz);
 
-vector<Gegner*> gegnerliste(0);
-vector<Figuren*> figurenliste(0);
-vector<Gegner*>* gegnerliste_ptr = &gegnerliste;
-vector<Figuren*>* figurenliste_ptr = &figurenliste;
+
 
 
 //ErsterGegner* test_ptr = &test;
@@ -115,6 +112,10 @@ public:
 // C++ Hauptprogramm
 int main()
 {
+	vector<Gegner*> gegnerliste(0);
+	vector<Figuren*> figurenliste(0);
+	vector<Gegner*>* gegnerliste_ptr = &gegnerliste;
+	vector<Figuren*>* figurenliste_ptr = &figurenliste;
 	ErsterGegner test;
 	ErsterGegner test2;
 	ersteFigur figur;

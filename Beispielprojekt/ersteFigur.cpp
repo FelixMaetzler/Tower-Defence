@@ -8,11 +8,11 @@
 
 
 ersteFigur::ersteFigur(void) {
-	this->set_attackspeed(0.1);
+	this->set_attackspeed(1);
 	this->set_damage(10);
 	this->set_image("Sniper.png");
 	this->set_price(100);
-	this->set_range(1000);
+	this->set_range(5000);
 }
 
 void ersteFigur::set_richtungzumgegner(const Vektoren a) {
