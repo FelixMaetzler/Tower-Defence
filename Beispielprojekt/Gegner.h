@@ -20,12 +20,12 @@ public:
 	//Standartkonstruktor
 	//Gegner(void);
 	Gegner(void)
-		:image("tomato.png")
+		
 	{
 		
 	};
 	//Konstruktor für Leben und Geschwindigkeit
-	Gegner::Gegner(int l, double g)
+	Gegner(int l, double g)
 		//:image("tomato.png")
 	{
 		this->set_leben(l);

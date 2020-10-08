@@ -39,7 +39,7 @@ vector<Figuren*>* figurenliste_ptr = &figurenliste;
 
 ErsterGegner test;
 //ErsterGegner test2;
-ErsterGegner* test_ptr = &test;
+//ErsterGegner* test_ptr = &test;
 ersteFigur figur;
 
 
@@ -118,14 +118,16 @@ int main()
 
 	test.set_Geschwindigkeit(5);
 	test.set_leben(10);
-	//test.set_position(arrayKachel.at(0).at(0).get_position());
+	test.set_position(arrayKachel.at(0).at(0).get_position());
 	test.set_position(Vektoren(0, 0));
 	gegnerliste_ptr->push_back(&test);
-	//test2.set_Geschwindigkeit(3);
-	//test2.set_leben(10);
-	//test.set_position(arrayKachel.at(0).at(0).get_position());
-	//test2.set_position(Vektoren(0, 0));
-	//gegnerliste_ptr->push_back(&test2);
+	/*
+	test2.set_Geschwindigkeit(3);
+	test2.set_leben(10);
+	test.set_position(arrayKachel.at(0).at(0).get_position());
+	test2.set_position(Vektoren(0, 0));
+	gegnerliste_ptr->push_back(&test2);
+	*/
 	arrayKachel.back().back().set_farbe(Gosu::Color::Color(120, 120, 120));
 
 	figur.set_attackspeed(10);
