@@ -12,7 +12,7 @@ Figuren::Figuren(double as, double d, int p) {
 	this->set_price(p);
 };
 
-//Methoden
+//Get/Set Methoden
 
 void Figuren::set_attackspeed(const double as) {
 	this->attackspeed = as;
@@ -79,3 +79,4 @@ void Figuren::set_audio(const string s) {
 	this->audio = Gosu::Sample(s);
 }
 
+//andere Methoden

@@ -12,10 +12,12 @@ ErsterGegner::ErsterGegner(void) {
 	this->set_image("tomato.png");
 }
 
-Gegner* ErsterGegner::schwaecherenGegnerSpawnen(Vektoren pos, int wegpunkt) {
-	Gegner* gegner = NULL;
 
-	return gegner;
-}
 
 //Methoden
+
+Gegner* ErsterGegner::schwaecherenGegnerSpawnen(Vektoren pos, int wegpunkt) {
+	Gegner* gegner = NULL; 
+
+	return gegner;//es wird ein NULL pointer zurückgegeben, da er schon der schwächste Gegner ist
+}

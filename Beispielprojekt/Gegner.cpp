@@ -16,7 +16,7 @@ Gegner::Gegner(int l, double g)
 //Destruktor
 
 Gegner::~Gegner(void) {
-	std::cout << "Feierabend ist eine rare aber gute Sache"<< std::endl;
+	std::cout << "Destruktor für Gegner wurde uffgferufe"<< std::endl;
 };
 
 //Get/Set Methoden

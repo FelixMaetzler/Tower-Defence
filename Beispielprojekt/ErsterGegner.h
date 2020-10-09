@@ -12,9 +12,11 @@ public:
 	//Konstruktoren
 
 	ErsterGegner(void);
-	virtual Gegner* schwaecherenGegnerSpawnen(Vektoren, int) override;
+	
 
 	//Methoden
+
+virtual Gegner* schwaecherenGegnerSpawnen(Vektoren, int) override;
 };
 
 #endif // !ERSTERGEGNER_H
