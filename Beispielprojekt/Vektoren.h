@@ -72,7 +72,8 @@ double radiantToDegree(const double);
 //wandelt Gradmaß in Bogenmaß um
 double DegreeToRadiant(const double);
 //gibt einen Winkel zwischen 0° und 359° zurück
-double winkelNormalisieren(const double w);
+double winkelNormalisieren(const double);
+double winkelingosuwinkel(const double);
 
 
 #endif // !VEKTOREN_H

@@ -63,6 +63,7 @@ public:
 	void lebenAbziehen(double);
 	//Wenn der gegner das Ende des Paths erreicht hat
 	void endeErreicht(void);
+	virtual Gegner* schwaecherenGegnerSpawnen(Vektoren, int) { return NULL; };
 	
 };
 

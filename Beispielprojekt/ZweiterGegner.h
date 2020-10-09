@@ -1,21 +1,17 @@
 #pragma once
-#ifndef ERSTERGEGNER_H
-#define ERSTERGEGNER_H
+#ifndef ZWEITERGEGNER_H
+#define ZWEITERGEGNER_H
 #include "Gegner.h"
 #include <Gosu/Gosu.hpp>
 #include <Gosu/AutoLink.hpp>
-class ErsterGegner : public Gegner {
+class ZweiterGegner : public Gegner {
 private:
-	
+
 public:
-	
-	//Konstruktoren
 
-	ErsterGegner(void);
+	ZweiterGegner(void);
 	virtual Gegner* schwaecherenGegnerSpawnen(Vektoren, int) override;
-
-	//Methoden
 };
 
-#endif // !ERSTERGEGNER_H
+#endif // !ZWEITERGEGNER_H
 

@@ -52,17 +52,36 @@ void ersteFigur::gegnerinrange(vector<Gegner*>* liste_ptr) {
 			}
 			else
 			{
-				liste_ptr->erase(liste_ptr->begin() + j);
+				Gegner* a = (liste_ptr->at(j))->schwaecherenGegnerSpawnen((liste_ptr->at(j))->get_position(), (liste_ptr->at(j))->get_naechsterwegpunkt());
+				this->set_richtungzumgegner((liste_ptr->at(j))->get_position() - this->get_position());
+				liste_ptr->at(j)->~Gegner();//Keine Ahnung ob des funzt
+				//cout << a << endl;
+				//free(liste_ptr->at(j));
+				//cout << a << endl;
+				
+				if (a != NULL)
+				{
+					liste_ptr->at(j) = a;
+				}
+				else
+				{
+					
+					liste_ptr->erase(liste_ptr->begin() + j);
+				}
+				
+
 			}
 		}
 	}
 }
 void ersteFigur::Zeichnen(void) {
 	double angle = 0;
-	 angle = double(this->get_richtungzumgegner().winkel());
-	if (angle != 0)
+	angle = winkelingosuwinkel(double(this->get_richtungzumgegner().winkel()));
+	/*
+	 if (angle != 0)
 	{
 		cout << angle << endl;
 	}
+	*/
 	this->get_image().draw_rot(this->get_x(), this->get_y(), 50, angle);
 }

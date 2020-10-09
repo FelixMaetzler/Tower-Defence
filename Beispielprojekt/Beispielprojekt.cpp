@@ -10,6 +10,7 @@
 #include "Spieler.h"
 #include "Wegkachel.h"
 #include "ErsterGegner.h"
+#include "ZweiterGegner.h"
 #include "ButtonHandler.h"
 #include "Figuren.h"
 #include "GegnerInteraktion.h"
@@ -116,21 +117,25 @@ public:
 int main()
 {
 
-	ErsterGegner test;
-	ErsterGegner test2;
+	ZweiterGegner test;
+	ZweiterGegner test2;
+	ZweiterGegner test3;
 	ersteFigur figur;
 
 	//test.set_Geschwindigkeit(5);
 	//test.set_leben(10);
 	//test.set_position(arrayKachel.at(0).at(0).get_position());
-	test.set_position(Vektoren(0, 0));
+	test.set_position(Vektoren(0, 30));
 	gegnerliste_ptr->push_back(&test);
 
-	test2.set_Geschwindigkeit(3);
-	test2.set_leben(100);
+	//test2.set_Geschwindigkeit(3);
+	//test2.set_leben(100);
 	//test.set_position(arrayKachel.at(0).at(0).get_position());
-	test2.set_position(Vektoren(0, 0));
+	test2.set_position(Vektoren(50, 0));
 	gegnerliste_ptr->push_back(&test2);
+
+	test3.set_position(Vektoren(0, 0));
+	gegnerliste_ptr->push_back(&test3);
 	
 	arrayKachel.back().back().set_farbe(Gosu::Color::Color(120, 120, 120));
 	/*

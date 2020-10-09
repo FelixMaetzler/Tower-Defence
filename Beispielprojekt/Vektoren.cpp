@@ -119,4 +119,7 @@ double winkelNormalisieren(double w) {
 		return w;
 	}
 }
+double winkelingosuwinkel(const double w) {
+	return 90 - w;
+}
 

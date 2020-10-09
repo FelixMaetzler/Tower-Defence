@@ -16,7 +16,7 @@ Gegner::Gegner(int l, double g)
 //Destruktor
 
 Gegner::~Gegner(void) {
-	std::cout << "Feierabend ist eine rare aber gute Sache";
+	std::cout << "Feierabend ist eine rare aber gute Sache"<< std::endl;
 };
 
 //Get/Set Methoden
@@ -86,9 +86,10 @@ void Gegner::Zeichnen(void) const {
 	int b = 20;//Kantenlänge des quadratischen Gegners
 	int a = 50;//Kachelgröße. Gegebenfalls als Variable neiboltzten
 	int f = (this->get_leben() / 100) * 255;
-	rechteck_Mittelpunkt(this->get_x() + a / 2, this->get_y() + a / 2, b, b, Gosu::Color::Color(255, 0, 0, 255), 30);
+	//rechteck_Mittelpunkt(this->get_x() + a / 2, this->get_y() + a / 2, b, b, Gosu::Color::Color(255, 0, 0, 255), 30);
 	//this->image.draw(this->get_x(), this->get_y(), 100, 10000, 10000);
-	this->image.draw_rot(this->get_x(), this->get_y(), 500, 0, 0.5, 0.5, 1, 1);
+	this->image.draw_rot(this->get_x() + a/2, this->get_y()+a/2, 500, 0, 0.5, 0.5, 0.1, 0.1);
+	
 }
 
 void Gegner::wegpunkt(vector<Kachel> liste) {
