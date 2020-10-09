@@ -15,7 +15,7 @@ vector<vector<Kachel>> Maustaste_Losgelassen(vector<vector<Kachel>> arrayKachel,
 	{
 		for (iterator_sp = 1; iterator_sp < arrayKachel.at(0).size() + 1; iterator_sp++)
 		{
-			arrayKachel[iterator_ze - 1][iterator_sp - 1].set_change(false);
+			arrayKachel[int(iterator_ze - 1)][int(iterator_sp - 1)].set_change(false);
 		}
 	}
 	return arrayKachel;

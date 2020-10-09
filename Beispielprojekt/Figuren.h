@@ -54,7 +54,7 @@ public:
 
 	//andere Methoden
 	virtual void Zeichnen(void) { return; };
-	virtual void gegnerinrange(vector<Gegner*>* gegnerliste_ptr) { return; };
+	virtual void gegnerinrange(vector<Gegner*>* gegnerliste_ptr) = 0;
 };
 
 #endif // !FIGUREN_H
