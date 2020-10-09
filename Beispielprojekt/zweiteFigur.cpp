@@ -9,6 +9,8 @@ zweiteFigur::zweiteFigur(void) {
 	this->set_price(100);
 	this->set_range(200);
 	this->set_slowrate(0.5);
+	this->set_audio("Eisberg.wav");
+
 }
 
 void zweiteFigur::set_slowrate(const double sl) {
@@ -20,12 +22,19 @@ double zweiteFigur::get_slowrate(void) const {
 
 void zweiteFigur::gegnerinrange(vector<Gegner*>* liste_ptr) {
 	Vektoren d;
+	auto t = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - this->get_zeitstempel()).count();
 	for (int i = 0; i < liste_ptr->size(); i++)
 	{
 		d = liste_ptr->at(i)->get_position() - this->get_position();
 		if (d.laenge() <= this->get_range())
 		{
 			liste_ptr->at(i)->set_richtung(liste_ptr->at(i)->get_richtung(), this->get_slowrate());
+			if (t > 4000/1.3)
+			{
+				this->get_audio().play(1, 1.3);
+				this->set_zeitstempel(std::chrono::steady_clock::now());
+			}
+
 		}
 	}
 }

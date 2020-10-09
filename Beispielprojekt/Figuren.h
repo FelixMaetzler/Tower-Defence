@@ -19,6 +19,7 @@ private:
 	double range;
 	std::chrono::steady_clock::time_point zeitstempel = std::chrono::steady_clock::now();
 	Gosu::Image image;
+	Gosu::Sample audio;
 
 public:
 	//Konstruktoren
@@ -48,6 +49,8 @@ public:
 	int get_x(void)const;
 	void set_y(const int);
 	int get_y(void)const;
+	Gosu::Sample get_audio(void)const;
+	void set_audio(const string);
 
 	//andere Methoden
 	virtual void Zeichnen(void) { return; };

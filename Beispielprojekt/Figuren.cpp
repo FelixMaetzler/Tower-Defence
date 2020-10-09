@@ -72,4 +72,10 @@ int Figuren::get_y(void) const {
 void Figuren::set_y(const int y) {
 	this->position.set_y(y);
 }
+Gosu::Sample Figuren::get_audio(void) const {
+	return this->audio;
+}
+void Figuren::set_audio(const string s) {
+	this->audio = Gosu::Sample(s);
+}
 

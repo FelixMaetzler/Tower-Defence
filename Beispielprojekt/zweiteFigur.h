@@ -9,6 +9,7 @@
 class zweiteFigur : public Figuren {
 private:
 	double slowrate;
+	
 public:
 	zweiteFigur(void);
 

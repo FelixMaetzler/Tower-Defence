@@ -139,7 +139,7 @@ int main()
 	test3->set_position(Vektoren(0, 0));
 	gegnerliste_ptr->push_back(test3);
 
-	arrayKachel.back().back().set_farbe(Gosu::Color::Color(255, 0, 0));
+	arrayKachel.back().back().set_farbe(Gosu::Color::Color(254, 0, 0));
 	arrayKachel.at(0).at(0).set_farbe(Gosu::Color::Color(0, 255, 0));
 	/*
 	figur.set_attackspeed(10);
