@@ -66,6 +66,9 @@
     <ClInclude Include="ZweiterGegner.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="zweiteFigur.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -114,6 +117,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ZweiterGegner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="zweiteFigur.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -9,7 +9,7 @@ Gegner::Gegner(void) {};
 Gegner::Gegner(int l, double g)
 {
 	this->set_leben(l);
-	this->set_Geschwindigkeit(g);
+	this->set_geschwindigkeit(g);
 };
 
 
@@ -34,7 +34,7 @@ void Gegner::set_leben(const double l) {
 double Gegner::get_geschwindigkeit(void) const {
 	return this->geschwindigkeit;
 }
-void Gegner::set_Geschwindigkeit(const double gesch) {
+void Gegner::set_geschwindigkeit(const double gesch) {
 	this->geschwindigkeit = gesch;
 }
 int Gegner::get_x(void) const {
@@ -52,9 +52,9 @@ void Gegner::set_y(const int y) {
 Vektoren Gegner::get_richtung(void) const {
 	return this->richtung;
 }
-void Gegner::set_richtung(Vektoren a) {
+void Gegner::set_richtung(Vektoren a, double modificator) {
 	a.normieren();
-	this->richtung = a * this->get_geschwindigkeit();
+	this->richtung = a * this->get_geschwindigkeit() * modificator;
 }
 void Gegner::set_position(const Vektoren a) {
 	this->position = a;

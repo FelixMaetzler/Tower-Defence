@@ -15,6 +15,7 @@
 #include "Figuren.h"
 #include "GegnerInteraktion.h"
 #include "ersteFigur.h"
+#include "zweiteFigur.h"
 using namespace std;
 
 
@@ -51,8 +52,8 @@ public:
 	Gosu::Image Mauszeiger;
 	Gosu::Image Tomate;
 	GameWindow()
-		: 
-		 Mauszeiger("mauscursor_bearbeitet.png"),
+		:
+		Mauszeiger("mauscursor_bearbeitet.png"),
 		Window(fensterbreite, fensterhöhe, false),
 		Tomate("tomato.png")
 
@@ -82,15 +83,15 @@ public:
 	// Wird 60x pro Sekunde aufgerufen
 	void update() override
 	{
-		
+
 		x_maus = input().mouse_x();
 		y_maus = input().mouse_y();
+		bewegen(gegnerliste_ptr);//Bewegen muss IMMER vor Wegpunkt uffgerufe werden, weil sonst das Slowen von zweiteFigur nicht funzt
+		wegpunkt(gegnerliste_ptr, wegalsListe(arrayKachel));//Bewegen muss IMMER vor Wegpunkt uffgerufe werden, weil sonst das Slowen von zweiteFigur nicht funzt
 
-		wegpunkt(gegnerliste_ptr, wegalsListe(arrayKachel));
-		bewegen(gegnerliste_ptr);
 
 		schiessen(gegnerliste_ptr, figurenliste_ptr);
-		
+
 	}
 
 	void button_down(Gosu::Button button) override
@@ -117,27 +118,29 @@ public:
 int main()
 {
 
-	ZweiterGegner test;
-	ZweiterGegner test2;
-	ZweiterGegner test3;
+	ZweiterGegner* test = new ZweiterGegner();
+	ZweiterGegner* test2 = new ZweiterGegner();
+	ZweiterGegner* test3 = new ZweiterGegner();
 	ersteFigur figur;
+	zweiteFigur figur2;
 
 	//test.set_Geschwindigkeit(5);
 	//test.set_leben(10);
 	//test.set_position(arrayKachel.at(0).at(0).get_position());
-	test.set_position(Vektoren(0, 30));
-	gegnerliste_ptr->push_back(&test);
+	test->set_position(Vektoren(0, 100));
+	gegnerliste_ptr->push_back(test);
 
 	//test2.set_Geschwindigkeit(3);
 	//test2.set_leben(100);
 	//test.set_position(arrayKachel.at(0).at(0).get_position());
-	test2.set_position(Vektoren(50, 0));
-	gegnerliste_ptr->push_back(&test2);
+	test2->set_position(Vektoren(200, 0));
+	gegnerliste_ptr->push_back(test2);
 
-	test3.set_position(Vektoren(0, 0));
-	gegnerliste_ptr->push_back(&test3);
-	
-	arrayKachel.back().back().set_farbe(Gosu::Color::Color(120, 120, 120));
+	test3->set_position(Vektoren(0, 0));
+	gegnerliste_ptr->push_back(test3);
+
+	arrayKachel.back().back().set_farbe(Gosu::Color::Color(255, 0, 0));
+	arrayKachel.at(0).at(0).set_farbe(Gosu::Color::Color(0, 255, 0));
 	/*
 	figur.set_attackspeed(10);
 	figur.set_damage(0.5);
@@ -145,8 +148,8 @@ int main()
 	*/
 	figur.set_position(arrayKachel[3][3].get_position());// Sitzt auf der 4. kachel von rechts und der 4. von oben
 	figurenliste_ptr->push_back(&figur);
-	
-	
+	figur2.set_position(arrayKachel[11][2].get_position());
+	figurenliste_ptr->push_back(&figur2);
 
 	GameWindow Fenster;
 

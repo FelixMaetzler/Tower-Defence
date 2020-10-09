@@ -18,7 +18,7 @@ public:
 	
 	void set_richtungzumgegner(const Vektoren);
 	Vektoren get_richtungzumgegner(void)const;
-	virtual void gegnerinrange(vector<Gegner*> *gegnerliste_ptr) override;
+	virtual void gegnerinrange(vector<Gegner*>*) override;
 	virtual void Zeichnen(void) override;
 };
 

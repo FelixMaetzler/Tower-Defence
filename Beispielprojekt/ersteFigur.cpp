@@ -12,7 +12,7 @@ ersteFigur::ersteFigur(void) {
 	this->set_damage(10);
 	this->set_image("Sniper.png");
 	this->set_price(100);
-	this->set_range(5000);
+	this->set_range(750);
 }
 
 void ersteFigur::set_richtungzumgegner(const Vektoren a) {
@@ -54,10 +54,11 @@ void ersteFigur::gegnerinrange(vector<Gegner*>* liste_ptr) {
 			{
 				Gegner* a = (liste_ptr->at(j))->schwaecherenGegnerSpawnen((liste_ptr->at(j))->get_position(), (liste_ptr->at(j))->get_naechsterwegpunkt());
 				this->set_richtungzumgegner((liste_ptr->at(j))->get_position() - this->get_position());
-				liste_ptr->at(j)->~Gegner();//Keine Ahnung ob des funzt
+				//liste_ptr->at(j)->~Gegner();//Keine Ahnung ob des funzt
 				//cout << a << endl;
 				//free(liste_ptr->at(j));
 				//cout << a << endl;
+				delete liste_ptr->at(j);
 				
 				if (a != NULL)
 				{

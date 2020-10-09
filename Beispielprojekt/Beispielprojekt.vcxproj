@@ -172,6 +172,7 @@
     <ClInclude Include="Vektoren.h" />
     <ClInclude Include="Wegkachel.h" />
     <ClInclude Include="Zeichnen.h" />
+    <ClInclude Include="zweiteFigur.h" />
     <ClInclude Include="ZweiterGegner.h" />
   </ItemGroup>
   <ItemGroup>
@@ -200,6 +201,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="zweiteFigur.cpp" />
     <ClCompile Include="ZweiterGegner.cpp" />
   </ItemGroup>
   <ItemGroup>

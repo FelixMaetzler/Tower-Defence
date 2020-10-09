@@ -4,8 +4,8 @@
 #include "ErsterGegner.h"
 
 ZweiterGegner::ZweiterGegner(void) {
-	this->set_leben(20);
-	this->set_Geschwindigkeit(5);
+	this->set_leben(30);
+	this->set_geschwindigkeit(5);
 	this->set_image("Gurke.png");
 }
 Gegner* ZweiterGegner::schwaecherenGegnerSpawnen(Vektoren pos, int wegpunkt) {
