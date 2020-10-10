@@ -1,3 +1,16 @@
 Hier werden To-Do´s uffgeschriebe:
 
-
+-Enumeration der ZPos integrieren, dafür am besten eigene "Konstantendatei" anlegen. Diese ist nur intern von Nutzen
+-eine Konfigdatei erstellen für zb Fensterhöhe, Fensterbreite, Lautstärke usw. Diese Daten sind ggf. vom Benutzer änderbar
+-Mehr Türme
+-Mehr Gegner
+-Ein Hauptmenu
+-Türme upgraden Fenster
+-Level erstellen
+-generell Userinteraktion, Türme platzieren usw.
+-Animationen
+-eine Kugel Klasse erstellen und implementieren
+-Spieler erstellen
+-Geld und Leben anzeigen
+-ein Bild für die Kacheln und eins für den Weg
+-ggf. Shortcuts für Türme
