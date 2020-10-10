@@ -1,4 +1,4 @@
-Hier werden To-Do´s uffgeschriebe:
+Hier werden die To-Do´s uffgeschriebe:
 
 -Enumeration der ZPos integrieren, dafür am besten eigene "Konstantendatei" anlegen. Diese ist nur intern von Nutzen
 -eine Konfigdatei erstellen für zb Fensterhöhe, Fensterbreite, Lautstärke usw. Diese Daten sind ggf. vom Benutzer änderbar
@@ -14,3 +14,7 @@ Hier werden To-Do´s uffgeschriebe:
 -Geld und Leben anzeigen
 -ein Bild für die Kacheln und eins für den Weg
 -ggf. Shortcuts für Türme
+-Kacheln auch auf Pointer uffbaue um Performance zu sparen
+
+-überlegen, was jetzt die Ggener sein sollen (Gemüse, Süßigkeiten, Ballons usw.)
+-überlegen, was jetzt die Türme darstellen sollen (Gemüse usw.)

@@ -77,6 +77,7 @@ public:
 		zeichnen(gegnerliste_ptr);
 		zeichnen(figurenliste_ptr);
 		//Tomate.draw_rot(500, 500, 500,0,0.5,0.5, 1, 1);
+		
 
 	}
 
@@ -123,6 +124,7 @@ int main()
 	ZweiterGegner* test3 = new ZweiterGegner();
 	ersteFigur figur;
 	zweiteFigur figur2;
+	Spieler spieler;
 
 	//test.set_Geschwindigkeit(5);
 	//test.set_leben(10);
@@ -150,6 +152,9 @@ int main()
 	figurenliste_ptr->push_back(&figur);
 	figur2.set_position(arrayKachel[11][2].get_position());
 	figurenliste_ptr->push_back(&figur2);
+
+	
+	
 
 	GameWindow Fenster;
 
