@@ -8,8 +8,17 @@ class ZweiterGegner : public Gegner {
 private:
 
 public:
+	//Konstruktoren
 
+	//Standartkonstruktor
 	ZweiterGegner(void);
+
+	//Get/Set Methoden
+
+	//andere Methoden
+
+	//Virtuelle Methoden
+
 	virtual Gegner* schwaecherenGegnerSpawnen(Vektoren, int) override;
 };
 

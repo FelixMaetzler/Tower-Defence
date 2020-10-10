@@ -55,7 +55,7 @@ public:
 	double laenge(void)const;
 	//gibt den Winkel zur positiven x-Achse und gegen den Uhrzeigersinn zurück
 	double winkel(void)const;
-	//Wenn ich den Winkel auf meinen Vektor draufaddiere, dann komme ich zu dem Vektor in den Klammern
+	//Wenn ich den Winkel auf meinen Vektor draufaddiere, dann komme ich zu dem Vektor in den Klammern. Kannd eswegen auch neg sein
 	double winkelZwischen2Vektoren(const Vektoren)const;
 	//normiert den Vektoren
 	void normieren(void);
@@ -73,6 +73,7 @@ double radiantToDegree(const double);
 double DegreeToRadiant(const double);
 //gibt einen Winkel zwischen 0° und 359° zurück
 double winkelNormalisieren(const double);
+//rechnet einen "normalen" Winkel in einen GosuWinkel um. Wir messen von der pos x Achse gegen den Uhrzeigersinn und Gosu misst von deren neg y Achse mit dem Uhrzeigersinn
 double winkelingosuwinkel(const double);
 
 

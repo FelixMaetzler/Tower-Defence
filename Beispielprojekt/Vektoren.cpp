@@ -107,7 +107,7 @@ double DegreeToRadiant(double d) {
 }
 
 double winkelNormalisieren(double w) {
-
+	//Hier hääte man auch den Modulo Operator verwenden können, aber ich hab in dem Moment nicht dran gedacht...
 	int i = (int)(w / 360);
 	w = (w - double(i) * 360);
 	if (w < 0)

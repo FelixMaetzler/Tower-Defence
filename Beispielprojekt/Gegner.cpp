@@ -88,7 +88,7 @@ void Gegner::Zeichnen(void) const {
 	int f = (this->get_leben() / 100) * 255;
 	//rechteck_Mittelpunkt(this->get_x() + a / 2, this->get_y() + a / 2, b, b, Gosu::Color::Color(255, 0, 0, 255), 30);
 	//this->image.draw(this->get_x(), this->get_y(), 100, 10000, 10000);
-	this->image.draw_rot(this->get_x() + a/2, this->get_y()+a/2, 500, 0, 0.5, 0.5, 0.1, 0.1);
+	this->image.draw_rot(double(this->get_x() + a/2), double(this->get_y()+a/2), 500, 0, 0.5, 0.5, 0.1, 0.1);
 	
 }
 
@@ -104,14 +104,7 @@ void Gegner::wegpunkt(vector<Kachel> liste) {
 	d = a.get_position() - this->get_position();//Verbindungsvektor zwischen dem Gegner und der nächsten Kachel
 	if (d.laenge() <= 3)//Wenn der Gegner nah genug an der Kachel ist, dann
 	{
-		//das erkennt wenn der Gegner am Ende ist, allerdings macht endeErreicht() noch nicht das was es soll
-		/*
-		if (k + 1 >= liste.size())
-		{
-			this->endeErreicht();
-			return;
-		}
-		*/
+		
 		this->set_naechsterwegpunkt(k + 1);//Dann ist der Wegpunkt erreicht und der nächste Wegpunkt wird gesetzt
 		this->RichtungZuPunkt(liste.at(k + 1).get_position());
 	}

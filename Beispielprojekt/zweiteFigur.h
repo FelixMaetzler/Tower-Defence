@@ -8,13 +8,25 @@
 
 class zweiteFigur : public Figuren {
 private:
+	//gibt die Slowrate des Turms an
 	double slowrate;
-	
-public:
-	zweiteFigur(void);
 
+public:
+	//Konstruktoren
+	
+	//Standartkonstruktor
+	zweiteFigur(void);
+	
+	//Get/Set Methoden
+	
+	//setzt die Slowrate
 	void set_slowrate(const double);
+	//gibt die Slowrate zurück
 	double get_slowrate(void)const;
+
+	//Andere Methoden
+
+	//Virtuelle Methoden
 
 	virtual void gegnerinrange(vector<Gegner*>*) override;
 	virtual void Zeichnen(void) override;

@@ -4,6 +4,8 @@
 #include "Grid.h"
 #include "Vektoren.h"
 
+//ist nur dazu da, um den Weg einmalig zu zeichnen
+
 class Wegkachel : public Kachel {
 private:
 
@@ -20,7 +22,7 @@ vector<vector<Kachel>> wegHorizontal(vector<vector<Kachel>>, int, int, int);
 vector<vector<Kachel>> wegVertikal(vector<vector<Kachel>>, int, int, int);
 //ninmt das komplett leere Grid und gibt das Grid mit dem gelben Weg zurück
 vector<vector<Kachel>> gridmitweg(vector<vector<Kachel>>);
-//nimmt das Komplette Grid und gibt den Weg als Liste zurück
+//nimmt das Komplette Grid und gibt den Weg als Liste zurück. dabei sind die Kacheln in der richtigen Reihenfolge
 vector<Kachel> wegalsListe(vector<vector<Kachel>>);
 
 

@@ -7,7 +7,7 @@
 void schiessen(vector<Gegner*>*, vector<Figuren*>*);
 //Alle Gegner werden gezeichnet
 void zeichnen(vector<Gegner*>*);
-//alle Figuren werden gezeichnet
+//Alle Figuren werden gezeichnet
 void zeichnen(vector<Figuren*>*);
 //Alle Gegner bewegen sich
 void bewegen(vector<Gegner*>*);

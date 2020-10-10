@@ -7,10 +7,10 @@ vector<vector<Kachel>> wegHorizontal(vector<vector<Kachel>> Kachelmatrix, int x,
 
 	for (int i = 0; i < länge; i++)
 	{
-		Kachel a = Kachelmatrix[x][y + i];
+		Kachel a = Kachelmatrix[x][double(y + i)];
 		a.set_istWeg(true);
 		a.set_farbe(Gosu::Color::Color(255, 255, 255, 0));
-		Kachelmatrix[x][y + i] = a;
+		Kachelmatrix[x][double(y + i)] = a;
 	}
 	return Kachelmatrix;
 }
@@ -18,10 +18,10 @@ vector<vector<Kachel>> wegVertikal(vector<vector<Kachel>> Kachelmatrix, int x, i
 
 	for (int i = 0; i < länge; i++)
 	{
-		Kachel a = Kachelmatrix[x + i][y];
+		Kachel a = Kachelmatrix[double(x + i)][y];
 		a.set_istWeg(true);
 		a.set_farbe(Gosu::Color::Color(255, 255, 255, 0));
-		Kachelmatrix[x + i][y] = a;
+		Kachelmatrix[double(x + i)][y] = a;
 	}
 	return Kachelmatrix;
 }
@@ -48,19 +48,19 @@ vector<Kachel> wegalsListe(vector<vector<Kachel>> Kachelmatrix) {
 	int i = 0;
 	for (i = 1; i < Zeilenzahl; i++)
 	{
-		if (Kachelmatrix[i][Spaltenzahl - 1].get_istWeg() == false)
+		if (Kachelmatrix[i][double(Spaltenzahl - 1)].get_istWeg() == false)
 		{
 			break;
 		}
 		else
 		{
-			liste.push_back(Kachelmatrix[i][Spaltenzahl - 1]);
+			liste.push_back(Kachelmatrix[i][double(Spaltenzahl - 1)]);
 		}
 
 	}
 	for (int j = Spaltenzahl - 2; j >= 0; j--)
 	{
-		liste.push_back(Kachelmatrix[i - 1][j]);
+		liste.push_back(Kachelmatrix[double(i - 1)][j]);
 	}
 	for (int j = i; j < Zeilenzahl; j++)
 	{
@@ -68,7 +68,7 @@ vector<Kachel> wegalsListe(vector<vector<Kachel>> Kachelmatrix) {
 	}
 	for (int j = 1; j < Spaltenzahl; j++)
 	{
-		liste.push_back(Kachelmatrix[Zeilenzahl - 1][j]);
+		liste.push_back(Kachelmatrix[double(Zeilenzahl - 1)][j]);
 	}
 
 	return liste;

@@ -3,11 +3,13 @@
 
 void schiessen(vector<Gegner*>* Gegnerliste, vector<Figuren*>* Figurenliste)
 {
-	
-	for (int i = 0; i < Gegnerliste->size(); i++)
-	{
+	//iteriert über alle Gegner
+	//for (int i = 0; i < Gegnerliste->size(); i++)
+	//{
+		//iteriert über alle Figuren
 		for (int j = 0; j < Figurenliste->size(); j++)
 		{
+		
 			(Figurenliste->at(j))->gegnerinrange(Gegnerliste);
 			/*
 			d = Gegnerliste->at(i).get_position() - Figurenliste->at(j).get_position();
@@ -28,7 +30,7 @@ void schiessen(vector<Gegner*>* Gegnerliste, vector<Figuren*>* Figurenliste)
 			}
 			*/
 		}
-	}
+	//}
 }
 void zeichnen(vector<Gegner*>* Gegnerliste) {
 	for (int i = 0; i < (*Gegnerliste).size(); i++)
@@ -74,9 +76,10 @@ void wegpunkt(vector<Gegner*>* liste_ptr, vector<Kachel> wegliste) {
 		if (d.laenge() <= 3)//Wenn der Gegner nah genug an der Kachel ist, dann
 		{
 			
-			
-			if (k + 1 >= wegliste.size())
+			//Wenn er den letzten Wegpunkt erreicht hat, dann wird er aus der Liste gelöscht
+			if (double(k + 1) >= wegliste.size())
 			{
+				delete liste_ptr->at(i);
 				liste_ptr->erase(liste_ptr->begin() + i);
 				i--;
 				//Dem spieler müssen Leben abgezogen werden
