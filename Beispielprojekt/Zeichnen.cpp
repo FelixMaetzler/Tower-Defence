@@ -4,6 +4,7 @@
 #include <Gosu/Gosu.hpp>
 #include <Gosu/AutoLink.hpp>
 #include "Zeichnen.h"
+#include "interneKonstanten.h"
 
 void rechteck_2Ecken(double x1, double y1, double x2, double y2, Gosu::Color farbe, Gosu::ZPos zpos) {
 	
@@ -33,5 +34,5 @@ void punkt(double x, double y, Gosu::Color farbe, Gosu::ZPos zpos) {
 	rechteck_2Ecken(x - 1, y - 1, x + 1, y + 1, farbe, zpos);
 }
 void mauszeiger(Gosu::Image bild, double x, double y) {
-	bild.draw_rot(x + 5, y + 5, 3147483647, 0, 0.3, 0.15, 0.011, 0.011);//Mauszeiger
+	bild.draw_rot(x + 5, y + 5, Z_Mauszeiger, 0, 0.3, 0.15, 0.011, 0.011);//Mauszeiger
 };

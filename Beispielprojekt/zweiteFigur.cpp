@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "zweiteFigur.h"
+#include "interneKonstanten.h"
 
 //Konstruktoren
 
@@ -54,5 +55,5 @@ void zweiteFigur::gegnerinrange(vector<Gegner*>* liste_ptr) {
 }
 void zweiteFigur::Zeichnen(void) {
 	//this->get_image().draw_rot(this->get_x(), this->get_y(), 50, 0, 0.5, 0.5);
-	this->get_image().draw(this->get_x(), this->get_y(), 50);
+	this->get_image().draw(this->get_x(), this->get_y(), Z_Figur);
 }

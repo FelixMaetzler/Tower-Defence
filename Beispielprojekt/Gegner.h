@@ -14,11 +14,13 @@ private:
 	double geschwindigkeit;
 	//ist die Position (linke obere Ecke)
 	Vektoren position;
+	//ist der Geldwert des Gegners
+	double geld;
 	//ist die Richtung, in der sich der Gegner bewegt. Die Länge entspicht der Geschwindigkeit
 	Vektoren richtung;
 	//ist eine Art Counter die den nächsten Wegpunkt angibt. Sort für Ordentlich Performance Ersparnis
 	int naechsterwegpunkt = 0;
-	//istr das Bild des Gegners
+	//ist das Bild des Gegners
 	Gosu::Image image;
 	
 
@@ -73,6 +75,10 @@ public:
 	Gosu::Image get_image(void)const;
 	//setzt das Bild
 	void set_image(const string);
+	//gibt den Geldwert zurück
+	double get_geld(void)const;
+	//setzt den Geldwert
+	void set_geld(const double);
 
 
 	//andere Methoden

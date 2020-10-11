@@ -4,6 +4,7 @@
 #include "Gegner.h"
 #include <Gosu/Gosu.hpp>
 #include <Gosu/AutoLink.hpp>
+
 class ErsterGegner : public Gegner {
 private:
 	

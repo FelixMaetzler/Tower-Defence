@@ -3,6 +3,7 @@
 #include "Gegner.h"
 #include <chrono>
 #include <iostream>
+#include "interneKonstanten.h"
 
 
 //Konstruktoren
@@ -69,6 +70,7 @@ void ersteFigur::gegnerinrange(vector<Gegner*>* liste_ptr) {
 				//Dieser bekommt Position des sterbenden Gegners
 				Gegner* a = (liste_ptr->at(j))->schwaecherenGegnerSpawnen((liste_ptr->at(j))->get_position(), (liste_ptr->at(j))->get_naechsterwegpunkt());
 				this->set_richtungzumgegner((liste_ptr->at(j))->get_position() - this->get_position());//Richtung wird gesetzt
+				spieler.set_geld(spieler.get_geld() + liste_ptr->at(j)->get_geld());//gibt dem Spieler Geld wenn der gegner stirbt
 				//liste_ptr->at(j)->~Gegner();//Keine Ahnung ob des funzt
 				//cout << a << endl;
 				//free(liste_ptr->at(j));
@@ -101,5 +103,5 @@ void ersteFigur::Zeichnen(void) {
 	}
 	*/
 	//Zeichnet den Sniper
-	this->get_image().draw_rot(this->get_x(), this->get_y(), 50, angle);
+	this->get_image().draw_rot(this->get_x(), this->get_y(), Z_Figur, angle);
 }

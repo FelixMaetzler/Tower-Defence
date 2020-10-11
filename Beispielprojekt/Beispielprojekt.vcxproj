@@ -164,6 +164,7 @@
     <ClInclude Include="Gegner.h" />
     <ClInclude Include="GegnerInteraktion.h" />
     <ClInclude Include="Grid.h" />
+    <ClInclude Include="interneKonstanten.h" />
     <ClInclude Include="Planet.h" />
     <ClInclude Include="Spieler.h" />
     <ClInclude Include="stdafx.h" />

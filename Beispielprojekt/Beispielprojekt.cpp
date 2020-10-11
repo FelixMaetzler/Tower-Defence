@@ -16,6 +16,7 @@
 #include "GegnerInteraktion.h"
 #include "ersteFigur.h"
 #include "zweiteFigur.h"
+#include "interneKonstanten.h"
 using namespace std;
 
 
@@ -44,6 +45,7 @@ vector<Figuren*> figurenliste(0);
 vector<Gegner*>* gegnerliste_ptr = &gegnerliste;
 vector<Figuren*>* figurenliste_ptr = &figurenliste;
 
+Spieler spieler;
 
 
 class GameWindow : public Gosu::Window
@@ -70,7 +72,7 @@ public:
 		mauszeiger(Mauszeiger, x_maus, y_maus);
 
 
-		rechteck_2Ecken(0, 0, fensterbreite, fensterhöhe, Weiss, 0);//Hintergrund
+		rechteck_2Ecken(0, 0, fensterbreite, fensterhöhe, Weiss, Z_Hintergrund);//Hintergrund
 
 		ArrayZeichnen(arrayKachel);
 
@@ -78,7 +80,7 @@ public:
 		zeichnen(figurenliste_ptr);
 		//Tomate.draw_rot(500, 500, 500,0,0.5,0.5, 1, 1);
 		
-
+		spieler.Zeichnen();
 	}
 
 	// Wird 60x pro Sekunde aufgerufen
@@ -124,7 +126,7 @@ int main()
 	ZweiterGegner* test3 = new ZweiterGegner();
 	ersteFigur figur;
 	zweiteFigur figur2;
-	Spieler spieler;
+	
 
 	//test.set_Geschwindigkeit(5);
 	//test.set_leben(10);
@@ -165,10 +167,4 @@ int main()
 
 }
 
-//TODO: ENUM für Z-Ebene implementieren
 
-enum Zpos {
-	Z_Hintergrund,
-	Z_Kacheln,
-	Z_Gegner,
-};

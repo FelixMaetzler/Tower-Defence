@@ -21,6 +21,7 @@
 #include "Spieler.h"
 #include "Wegkachel.h"
 #include "ErsterGegner.h"
+#include "interneKonstanten.h"
 using namespace std;
 
 //Konstruktoren
@@ -102,7 +103,7 @@ Vektoren Kachel::Mittelpunkt(void) {
 void Kachel::zeichnen(void) {
 	rechteck_2Ecken(this->get_x(), this->get_y(),
 		double(this->get_x() + this->get_kachelgröße()), double(this->get_y() + this->get_kachelgröße()),
-		this->get_farbe(), 5);
+		this->get_farbe(), Z_Kacheln);
 }
 
 //Funktionen
@@ -141,7 +142,7 @@ vector<vector<Kachel>> grid(int fensterbreite, int fensterhöhe, int kachelgröße,
 			x2 = x1 + kachelgröße;
 			//y Wert der rechten unten Ecke
 			y2 = y1 + kachelgröße;
-			//rechteck_2Ecken(x1, y1, x2, y2, Gosu::Color::BLACK, 5);
+			//rechteck_2Ecken(x1, y1, x2, y2, Gosu::Color::BLACK, Z_Kacheln);
 
 			//wandelt den linken oberen Punkt in einen Vektor um
 			Vektoren p(x1, y1);

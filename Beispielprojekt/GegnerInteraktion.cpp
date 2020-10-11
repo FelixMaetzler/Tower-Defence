@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "GegnerInteraktion.h"
+#include "interneKonstanten.h"
 
 void schiessen(vector<Gegner*>* Gegnerliste, vector<Figuren*>* Figurenliste)
 {
@@ -79,10 +80,12 @@ void wegpunkt(vector<Gegner*>* liste_ptr, vector<Kachel> wegliste) {
 			//Wenn er den letzten Wegpunkt erreicht hat, dann wird er aus der Liste gelöscht
 			if (double(k + 1) >= wegliste.size())
 			{
+				//Dem Spieler werden Leben abgezogen
+				spieler.set_leben(spieler.get_leben() - liste_ptr->at(i)->get_leben());
 				delete liste_ptr->at(i);
 				liste_ptr->erase(liste_ptr->begin() + i);
 				i--;
-				//Dem spieler müssen Leben abgezogen werden
+				
 				
 				return;
 			}

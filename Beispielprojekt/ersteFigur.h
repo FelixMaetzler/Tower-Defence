@@ -5,6 +5,7 @@
 #include "stdafx.h"
 #include <Gosu/Gosu.hpp>
 #include <Gosu/AutoLink.hpp>
+#include "interneKonstanten.h";
 
 class ersteFigur : public Figuren {
 	Vektoren richtungzumgegner;//gibt die Richtung zum Gegner an. Wird benötigt um den Sniper richtig zu drehen

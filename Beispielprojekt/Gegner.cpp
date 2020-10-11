@@ -3,6 +3,7 @@
 #include "Vektoren.h"
 #include "Zeichnen.h"
 #include <iostream>
+#include "interneKonstanten.h"
 //Konstruktoren
 
 Gegner::Gegner(void) {};
@@ -74,6 +75,12 @@ Gosu::Image Gegner::get_image(void) const {
 void Gegner::set_image(const string dateipfad) {
 	this->image = Gosu::Image(dateipfad);
 }
+double Gegner::get_geld(void) const {
+	return this->geld;
+}
+void Gegner::set_geld(const double g) {
+	this->geld = g;
+}
 
 //andere Methoden
 
@@ -86,9 +93,9 @@ void Gegner::Zeichnen(void) const {
 	int b = 20;//Kantenlänge des quadratischen Gegners
 	int a = 50;//Kachelgröße. Gegebenfalls als Variable neiboltzten
 	int f = (this->get_leben() / 100) * 255;
-	//rechteck_Mittelpunkt(this->get_x() + a / 2, this->get_y() + a / 2, b, b, Gosu::Color::Color(255, 0, 0, 255), 30);
+	//rechteck_Mittelpunkt(this->get_x() + a / 2, this->get_y() + a / 2, b, b, Gosu::Color::Color(255, 0, 0, 255), Z_Gegner);
 	//this->image.draw(this->get_x(), this->get_y(), 100, 10000, 10000);
-	this->image.draw_rot(double(this->get_x() + a/2), double(this->get_y()+a/2), 500, 0, 0.5, 0.5, 0.1, 0.1);
+	this->image.draw_rot(double((this->get_x() + a/2)), double(this->get_y()+a/2), Z_Gegner, 0, 0.5, 0.5, 0.1, 0.1);
 	
 }
 
@@ -106,7 +113,7 @@ void Gegner::wegpunkt(vector<Kachel> liste) {
 	{
 		
 		this->set_naechsterwegpunkt(k + 1);//Dann ist der Wegpunkt erreicht und der nächste Wegpunkt wird gesetzt
-		this->RichtungZuPunkt(liste.at(k + 1).get_position());
+		this->RichtungZuPunkt(liste.at(double(k + 1)).get_position());
 	}
 	else
 	{
