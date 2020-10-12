@@ -17,7 +17,7 @@ enum Zpos {
 	Z_Mauszeiger,
 	
 };
-
+extern double lautstaerke;
 extern Spieler spieler;
 
 #endif // !INTERNEKONSTANTEN_H

@@ -56,7 +56,7 @@ void ersteFigur::gegnerinrange(vector<Gegner*>* liste_ptr) {
 		if (((liste_ptr->at(j))->get_position() - this->get_position()).laenge() <= this->get_range())//Deswegen wird hier nochmal geprüft ob der Spitzenreiter j wirklich in range ist
 		{
 			//auf das Element das in der Liste auf j liegt wird jetzt geschossen
-			this->get_audio().play(1, 1);//Audio wird abgespielt
+			this->get_audio().play(lautstaerke, 1);//Audio wird abgespielt
 			this->set_zeitstempel(std::chrono::steady_clock::now());//und der Zeitstempel des letzten Schusses auf jetzt gesetzt
 
 			if ((liste_ptr->at(j))->get_leben() > this->get_damage())//Wenn der Gegner mehr Leben hat als der Turm Schaden macht

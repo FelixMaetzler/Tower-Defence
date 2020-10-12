@@ -46,7 +46,7 @@ void zweiteFigur::gegnerinrange(vector<Gegner*>* liste_ptr) {
 			if (t > 4000/1.3)
 			{
 				//wird er nochmals abgespielt
-				this->get_audio().play(1, 1.3);
+				this->get_audio().play(lautstaerke, 1.3);
 				this->set_zeitstempel(std::chrono::steady_clock::now());
 			}
 

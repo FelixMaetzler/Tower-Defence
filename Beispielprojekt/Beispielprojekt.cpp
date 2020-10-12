@@ -46,7 +46,7 @@ vector<Gegner*>* gegnerliste_ptr = &gegnerliste;
 vector<Figuren*>* figurenliste_ptr = &figurenliste;
 
 Spieler spieler;
-
+double lautstaerke = 0.2;
 
 class GameWindow : public Gosu::Window
 {
@@ -56,10 +56,7 @@ public:
 	GameWindow()
 		:
 		Mauszeiger("mauscursor_bearbeitet.png"),
-		Window(fensterbreite, fensterhöhe, false),
-		Tomate("tomato.png")
-
-
+		Window(fensterbreite, fensterhöhe, false)
 	{
 		set_caption("Gosu Tutorial mit Git");
 	}
@@ -86,7 +83,7 @@ public:
 	// Wird 60x pro Sekunde aufgerufen
 	void update() override
 	{
-
+	
 		x_maus = input().mouse_x();
 		y_maus = input().mouse_y();
 		bewegen(gegnerliste_ptr);//Bewegen muss IMMER vor Wegpunkt uffgerufe werden, weil sonst das Slowen von zweiteFigur nicht funzt
