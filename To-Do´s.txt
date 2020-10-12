@@ -17,3 +17,4 @@ Hier werden die To-Do´s uffgeschriebe:
 
 -überlegen, was jetzt die Ggener sein sollen (Gemüse, Süßigkeiten, Ballons usw.)
 -überlegen, was jetzt die Türme darstellen sollen (Gemüse usw.)
+-Wenn gegner in Eisturm Range stirbt, spawnt kein neuer
