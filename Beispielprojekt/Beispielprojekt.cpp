@@ -76,14 +76,14 @@ public:
 		zeichnen(gegnerliste_ptr);
 		zeichnen(figurenliste_ptr);
 		//Tomate.draw_rot(500, 500, 500,0,0.5,0.5, 1, 1);
-		
+
 		spieler.Zeichnen();
 	}
 
 	// Wird 60x pro Sekunde aufgerufen
 	void update() override
 	{
-	
+
 		x_maus = input().mouse_x();
 		y_maus = input().mouse_y();
 		bewegen(gegnerliste_ptr);//Bewegen muss IMMER vor Wegpunkt uffgerufe werden, weil sonst das Slowen von zweiteFigur nicht funzt
@@ -114,6 +114,29 @@ public:
 	}
 };
 
+class Hauptmenu : public Gosu::Window {
+private:
+
+public:
+	Gosu::Image Mauszeiger;
+	Hauptmenu() :
+		Window(fensterbreite, fensterhöhe, false),
+		Mauszeiger("mauscursor_bearbeitet.png")
+	{
+		set_caption("Hauptmenu");
+	}
+
+	void draw() override {
+		rechteck_2Ecken(0, 0, fensterbreite, fensterhöhe, Weiss, Z_Hintergrund);//Hintergrund
+		mauszeiger(Mauszeiger, x_maus, y_maus);
+	}
+
+	void update() override {
+		x_maus = input().mouse_x();
+		y_maus = input().mouse_y();
+	}
+};
+
 // C++ Hauptprogramm
 int main()
 {
@@ -123,7 +146,7 @@ int main()
 	ZweiterGegner* test3 = new ZweiterGegner();
 	ersteFigur figur;
 	zweiteFigur figur2;
-	
+
 
 	//test.set_Geschwindigkeit(5);
 	//test.set_leben(10);
@@ -152,12 +175,11 @@ int main()
 	figur2.set_position(arrayKachel[11][2].get_position());
 	figurenliste_ptr->push_back(&figur2);
 
+
+	Hauptmenu hm;
+GameWindow Fenster;
+	hm.show();
 	
-	
-
-	GameWindow Fenster;
-
-
 	Fenster.show();
 
 
