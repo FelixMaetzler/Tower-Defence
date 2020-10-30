@@ -55,6 +55,14 @@ Gosu::Font Spieler::get_geldanzeige(void) const {
 	return this->geldanzeige;
 }
 
+void Spieler::set_runde(const int i) {
+	this->runde = i;
+}
+
+int Spieler::get_runde(void) const {
+	return this->runde;
+}
+
 //andere Methoden
 
 void Spieler::Zeichnen(void) {
@@ -67,4 +75,12 @@ void Spieler::Zeichnen(void) {
 	text_geld += " Euro";
 	this->get_geldanzeige().draw(text_geld, 1600, 70, Z_Spieleranzeige, 1, 1, Gosu::Color::Color(0, 255, 0));
 	this->get_lebensanzeige().draw(text_leben, 1710, 70, Z_Spieleranzeige, 1, 1, Gosu::Color::Color(0, 255, 0));
+}
+
+void Spieler::geld_abziehen(const double geld) {
+	this->set_geld(this->get_geld() - geld);
+}
+
+void Spieler::runde_inkrementieren(void) {
+	this->set_runde(this->get_runde() + 1);
 }

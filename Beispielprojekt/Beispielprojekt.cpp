@@ -47,6 +47,9 @@ vector<Figuren*>* figurenliste_ptr = &figurenliste;
 
 Spieler spieler;
 double lautstaerke = 0.2;
+bool rundenstart = false;
+bool SniperAusgewählt = false;
+bool EisbergAusgewählt = false;
 
 class GameWindow : public Gosu::Window
 {
@@ -72,8 +75,13 @@ public:
 		rechteck_2Ecken(0, 0, fensterbreite, fensterhöhe, Weiss, Z_Hintergrund);//Hintergrund
 
 		ArrayZeichnen(arrayKachel);
+		if (rundenstart)
+		{
+			zeichnen(gegnerliste_ptr);
+		}
 
-		zeichnen(gegnerliste_ptr);
+
+
 		zeichnen(figurenliste_ptr);
 		//Tomate.draw_rot(500, 500, 500,0,0.5,0.5, 1, 1);
 
@@ -86,12 +94,32 @@ public:
 
 		x_maus = input().mouse_x();
 		y_maus = input().mouse_y();
-		bewegen(gegnerliste_ptr);//Bewegen muss IMMER vor Wegpunkt uffgerufe werden, weil sonst das Slowen von zweiteFigur nicht funzt
-		wegpunkt(gegnerliste_ptr, wegalsListe(arrayKachel));//Bewegen muss IMMER vor Wegpunkt uffgerufe werden, weil sonst das Slowen von zweiteFigur nicht funzt
+		if (rundenstart)//erst wenn die Runde gestartet wurde
+		{
 
 
-		schiessen(gegnerliste_ptr, figurenliste_ptr);
+			bewegen(gegnerliste_ptr);//Bewegen muss IMMER vor Wegpunkt uffgerufe werden, weil sonst das Slowen von zweiteFigur nicht funzt
+			wegpunkt(gegnerliste_ptr, wegalsListe(arrayKachel));//Bewegen muss IMMER vor Wegpunkt uffgerufe werden, weil sonst das Slowen von zweiteFigur nicht funzt
 
+
+			schiessen(gegnerliste_ptr, figurenliste_ptr);
+
+			if (gegnerliste_ptr->size() == 0)//alle Gegner sind weg
+			{
+				rundenstart = false; //Spiel wird pausiert
+				spieler.runde_inkrementieren();
+				//neue Gegner müssen gespawnt werden
+				int x;
+				x = spieler.get_runde();
+				for (int i = 0; i < x; i++)
+				{
+					Gegner* gegner = new ZweiterGegner();
+					gegner->set_position({ i * 50,0 });
+					gegnerliste_ptr->push_back(gegner);
+				}
+			}
+
+		}
 	}
 
 	void button_down(Gosu::Button button) override
@@ -100,11 +128,28 @@ public:
 
 		if (button == Gosu::MS_LEFT) {
 
-			arrayKachel = Maustaste_Gedrückt(arrayKachel, x_maus, y_maus);
+			arrayKachel = Maustaste_Gedrückt(arrayKachel, x_maus, y_maus, figurenliste_ptr);
 		}
 
 		else {
 			Window::button_down(button);
+		}
+
+		if (button == Gosu::KB_P)//P für Play wurde gedrückt
+		{
+			rundenstart = true;
+		}
+		if (button == Gosu::KB_S)//Shortcut Sniper
+		{
+			SniperAusgewählt = true;
+			//alle anderen auf false
+			EisbergAusgewählt = false;
+		}
+		if (button == Gosu::KB_E)//Shortcut Eisberg
+		{
+			EisbergAusgewählt = true;
+			//alle anderen auf false
+			SniperAusgewählt = false;
 		}
 	}
 	void button_up(Gosu::Button button)override {
@@ -147,6 +192,7 @@ int main()
 	ersteFigur figur;
 	zweiteFigur figur2;
 
+	/*
 
 	//test.set_Geschwindigkeit(5);
 	//test.set_leben(10);
@@ -163,6 +209,9 @@ int main()
 	test3->set_position(Vektoren(0, 0));
 	gegnerliste_ptr->push_back(test3);
 
+	*/
+
+
 	arrayKachel.back().back().set_farbe(Gosu::Color::Color(254, 0, 0));
 	arrayKachel.at(0).at(0).set_farbe(Gosu::Color::Color(0, 255, 0));
 	/*
@@ -170,16 +219,20 @@ int main()
 	figur.set_damage(0.5);
 	figur.set_range(5000);
 	*/
+
+	/*
+
 	figur.set_position(arrayKachel[3][3].get_position());// Sitzt auf der 4. kachel von rechts und der 4. von oben
 	figurenliste_ptr->push_back(&figur);
 	figur2.set_position(arrayKachel[11][2].get_position());
 	figurenliste_ptr->push_back(&figur2);
 
+	*/
 
 	Hauptmenu hm;
-GameWindow Fenster;
+	GameWindow Fenster;
 	hm.show();
-	
+
 	Fenster.show();
 
 

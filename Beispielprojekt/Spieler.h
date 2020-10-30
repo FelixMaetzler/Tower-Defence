@@ -13,6 +13,8 @@ private:
 	double geld = 0;
 	//Leben des Spielers
 	double leben = 0;
+	//Die Runde in der der Spieler gerade ist
+	int runde = 1;
 	//Lebensanzeige
 	Gosu::Font lebensanzeige;
 	//Geldanzeige
@@ -46,10 +48,20 @@ public:
 
 	//gibt Geldanzeige zurück
 	Gosu::Font get_geldanzeige(void)const;
+
+	//setzt Runde 
+	void set_runde(const int);
+
+	//gibt aktuelle Runde zurück
+	int get_runde(void)const;
 	
 	//andere Methoden
 
 	void Zeichnen(void);
+	//Zieht die als Argument angegebene Zahl ab
+	void geld_abziehen(const double);
+	//erhöht die aktuelle Runde um 1
+	void runde_inkrementieren(void);
 
 };
 

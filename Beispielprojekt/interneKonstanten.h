@@ -19,6 +19,10 @@ enum Zpos {
 };
 extern double lautstaerke;
 extern Spieler spieler;
+extern bool rundenstart;
+extern bool SniperAusgewählt;
+extern bool EisbergAusgewählt;
+
 
 #endif // !INTERNEKONSTANTEN_H
 

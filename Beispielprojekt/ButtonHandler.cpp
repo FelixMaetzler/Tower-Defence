@@ -3,7 +3,10 @@
 #include "Vektoren.h"
 #include <vector>
 #include "Grid.h"
+#include "interneKonstanten.h"
 #include <iostream>
+#include "ersteFigur.h"
+#include "zweiteFigur.h"
 using namespace std;
 vector<vector<Kachel>> Maustaste_Losgelassen(vector<vector<Kachel>> arrayKachel, int x_maus, int y_maus)
 {
@@ -21,7 +24,7 @@ vector<vector<Kachel>> Maustaste_Losgelassen(vector<vector<Kachel>> arrayKachel,
 	return arrayKachel;
 }
 
-vector<vector<Kachel>> Maustaste_Gedrückt(vector<vector<Kachel>> arrayKachel, int x_maus, int y_maus)
+vector<vector<Kachel>> Maustaste_Gedrückt(vector<vector<Kachel>> arrayKachel, int x_maus, int y_maus, vector<Figuren*>* Figurenliste)
 {
 	if (hatKachelgetroffen(x_maus, y_maus, arrayKachel))//Wenn man eine Kachel geklickt hat
 	{
@@ -31,6 +34,7 @@ vector<vector<Kachel>> Maustaste_Gedrückt(vector<vector<Kachel>> arrayKachel, in
 		//a.print();
 		Kachel z = arrayKachel[a.get_x()][a.get_y()];
 
+		/*
 		if (z.get_farbe() == Schwarz && z.get_change() == false)
 		{
 			z.set_change(true);
@@ -45,7 +49,42 @@ vector<vector<Kachel>> Maustaste_Gedrückt(vector<vector<Kachel>> arrayKachel, in
 		}
 
 		arrayKachel[a.get_x()][a.get_y()] = z;
+		*/
 
+		//Wenn ein Shortcut gedrückt wurde
+
+		Figuren* x = NULL;//ein leerer Zeiger wird erstellt
+
+		if (SniperAusgewählt)
+		{
+			x = new ersteFigur();
+
+		}
+		if (EisbergAusgewählt)
+		{
+			x = new zweiteFigur();
+
+		}
+		if (x != NULL)//wenn er überschrieben wurde
+		{
+
+
+			if (spieler.get_geld() >= x->get_price())//wenn der Spieler Genug Geld hat
+			{
+				spieler.geld_abziehen(x->get_price());//Dann wird dem Spieler Geld abgezogen
+
+				x->set_position(z.get_position());//Die Position der Figur wird auf die angeklickte Kachel gesetzt
+				Figurenliste->push_back(x);//und die Figur wird zur Liste hinzugefügt
+			}
+			else//Wenn nicht genug Geld da ist
+			{
+				delete x;//Dann wird die Figur gelöscht
+			}
+		}
+
+		//alle Shortcuts zurücksetzen
+		SniperAusgewählt = false;
+		EisbergAusgewählt = false;
 	}
 	return arrayKachel;
 }

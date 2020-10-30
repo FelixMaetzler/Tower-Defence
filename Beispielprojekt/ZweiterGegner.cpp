@@ -8,6 +8,7 @@ ZweiterGegner::ZweiterGegner(void) {
 	this->set_geschwindigkeit(5);
 	this->set_image("Gurke.png");
 	this->set_geld(10);
+	this->set_position({ 0,0 });
 }
 Gegner* ZweiterGegner::schwaecherenGegnerSpawnen(Vektoren pos, int wegpunkt) {
 	Gegner* gegner = new ErsterGegner();
