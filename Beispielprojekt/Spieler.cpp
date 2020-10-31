@@ -9,7 +9,7 @@ Spieler::Spieler(void)
 	geldanzeige(20)//gibt die Schriftgröße an
 {
 	this->set_geld(300);
-	this->set_leben(50);
+	this->set_leben(1);
 	//this->set_geldanzeige(20);
 	//this->set_lebensanzeige(20);
 
@@ -29,6 +29,14 @@ void Spieler::set_leben(const double l) {
 	if (l < 1)
 	{
 		// Game Over
+		//Und damit wird alles reseted
+		gegnerliste_ptr->clear();//alle Gegner werden gelöscht
+		figurenliste_ptr->clear();//Alle Figuren werden gelöscht
+		Spieler x;
+		spieler.set_geld(x.get_geld());//Geld wird zurückgesetzt
+		spieler.set_leben(x.get_leben());//Leben werden zurückgesetzt
+		spieler.set_runde(0);//Runde wird zurückgesetzt
+		rundenstart = false;//damit nicht direkt die Runde wieder startet
 	}
 	else
 	{

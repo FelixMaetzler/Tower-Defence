@@ -87,10 +87,14 @@ void wegpunkt(vector<Gegner*>* liste_ptr, vector<Kachel> wegliste) {
 			{
 				//Dem Spieler werden Leben abgezogen
 				spieler.set_leben(spieler.get_leben() - liste_ptr->at(i)->get_leben());
-				delete liste_ptr->at(i);
-				liste_ptr->erase(liste_ptr->begin() + i);
-				i--;
+				if (liste_ptr->size() != 0)
+				{
 
+
+					delete liste_ptr->at(i);
+					liste_ptr->erase(liste_ptr->begin() + i);
+					i--;
+				}
 
 				return;
 			}

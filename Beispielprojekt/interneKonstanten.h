@@ -3,7 +3,8 @@
 #define INTERNEKONSTANTEN_H
 
 #include "Spieler.h"
-
+#include "Figuren.h"
+#include "Gegner.h"
 //In dieser Datei werden Dinge definirt, die man überall im Programm braucht und aber nicht geändert werden müssen. Bzw. nur sehr sehr selten
 //Wie z.B. der Spieler. davon gibt es nur einen. Oder die Enumeration der Zpos
 
@@ -22,7 +23,8 @@ extern Spieler spieler;
 extern bool rundenstart;
 extern bool SniperAusgewählt;
 extern bool EisbergAusgewählt;
-
+extern vector<Gegner*>* gegnerliste_ptr;
+extern vector<Figuren*>* figurenliste_ptr;
 
 #endif // !INTERNEKONSTANTEN_H
 
