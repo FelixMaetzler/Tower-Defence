@@ -14,7 +14,7 @@ private:
 	//Leben des Spielers
 	double leben = 0;
 	//Die Runde in der der Spieler gerade ist
-	int runde = 1;
+	int runde = 0;
 	//Lebensanzeige
 	Gosu::Font lebensanzeige;
 	//Geldanzeige

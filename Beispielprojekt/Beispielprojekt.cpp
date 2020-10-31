@@ -98,15 +98,15 @@ public:
 		{
 
 
-			bewegen(gegnerliste_ptr);//Bewegen muss IMMER vor Wegpunkt uffgerufe werden, weil sonst das Slowen von zweiteFigur nicht funzt
-			wegpunkt(gegnerliste_ptr, wegalsListe(arrayKachel));//Bewegen muss IMMER vor Wegpunkt uffgerufe werden, weil sonst das Slowen von zweiteFigur nicht funzt
 
-
-			schiessen(gegnerliste_ptr, figurenliste_ptr);
 
 			if (gegnerliste_ptr->size() == 0)//alle Gegner sind weg
 			{
-				rundenstart = false; //Spiel wird pausiert
+				if (spieler.get_runde() != 0)
+				{
+					rundenstart = false; //Spiel wird pausiert. Ausser beim ersten Mal
+				}
+
 				spieler.runde_inkrementieren();
 				//neue Gegner müssen gespawnt werden
 				int x;
@@ -118,7 +118,11 @@ public:
 					gegnerliste_ptr->push_back(gegner);
 				}
 			}
+			bewegen(gegnerliste_ptr);//Bewegen muss IMMER vor Wegpunkt uffgerufe werden, weil sonst das Slowen von zweiteFigur nicht funzt
+			wegpunkt(gegnerliste_ptr, wegalsListe(arrayKachel));//Bewegen muss IMMER vor Wegpunkt uffgerufe werden, weil sonst das Slowen von zweiteFigur nicht funzt
 
+
+			schiessen(gegnerliste_ptr, figurenliste_ptr);
 		}
 	}
 
@@ -231,7 +235,7 @@ int main()
 
 	Hauptmenu hm;
 	GameWindow Fenster;
-	hm.show();
+	//hm.show();
 
 	Fenster.show();
 
