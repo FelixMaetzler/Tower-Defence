@@ -30,6 +30,7 @@ extern Spieler spieler;
 extern bool rundenstart;
 extern bool SniperAusgewählt;
 extern bool EisbergAusgewählt;
+extern bool LöschenAusgewählt;
 extern vector<Gegner*>* gegnerliste_ptr;
 extern vector<Figuren*>* figurenliste_ptr;
 

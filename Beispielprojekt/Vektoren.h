@@ -49,6 +49,7 @@ public:
 	Vektoren operator/(const double)const;
 	//dividiert den Vektor mit der Zahl
 	Vektoren operator/=(const double)const;
+	bool Vektoren::operator==(const Vektoren) const;
 	
 	
 	//gibt die Länge des Vektors zurück

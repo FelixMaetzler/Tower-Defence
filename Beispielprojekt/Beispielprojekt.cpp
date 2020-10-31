@@ -55,6 +55,7 @@ double lautstaerke = 0.2;
 bool rundenstart = false;
 bool SniperAusgewählt = false;
 bool EisbergAusgewählt = false;
+bool LöschenAusgewählt = false;
 
 class GameWindow : public Gosu::Window
 {
@@ -156,11 +157,20 @@ public:
 			SniperAusgewählt = true;
 			//alle anderen auf false
 			EisbergAusgewählt = false;
+			LöschenAusgewählt = false;
 		}
 		if (button == Gosu::KB_E)//Shortcut Eisberg
 		{
 			EisbergAusgewählt = true;
 			//alle anderen auf false
+			SniperAusgewählt = false;
+			LöschenAusgewählt = false;
+		}
+		if (button == Gosu::KB_D)//Shortcut löschen (delete)
+		{
+			LöschenAusgewählt = true;
+			//alle anderen auf false
+			EisbergAusgewählt = false;
 			SniperAusgewählt = false;
 		}
 	}
@@ -220,13 +230,14 @@ int main()
 	grid(fensterbreite, fensterhöhe, kachelgröße, abstand);
 	gridmitweg();
 
-
+	/*
 
 	ZweiterGegner* test = new ZweiterGegner();
 	ZweiterGegner* test2 = new ZweiterGegner();
 	ZweiterGegner* test3 = new ZweiterGegner();
 	ersteFigur figur;
 	zweiteFigur figur2;
+	*/
 
 	/*
 

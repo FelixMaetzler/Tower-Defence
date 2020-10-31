@@ -60,6 +60,17 @@ Vektoren Vektoren::operator/(const double a) const {
 Vektoren Vektoren::operator/=(const double a) const {
 	return Vektoren(this->get_x() / a, this->get_y() / a);
 }
+bool Vektoren::operator==(const Vektoren b) const {
+	if (this->get_x() == b.get_x())
+	{
+		if (this->get_y() == this->get_y())
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
 double Vektoren::laenge(void) const {
 	double d = 0;
 	d += this->get_x() * this->get_x();

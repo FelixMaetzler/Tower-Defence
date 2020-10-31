@@ -21,10 +21,10 @@ void Maustaste_Losgelassen(int x_maus, int y_maus)
 			(*arrayKachel)[(iterator_ze - 1)][int(iterator_sp - 1)].set_change(false);
 		}
 	}
-	
+
 }
 
-void Maustaste_Gedrückt( int x_maus, int y_maus)
+void Maustaste_Gedrückt(int x_maus, int y_maus)
 {
 	if (hatKachelgetroffen(x_maus, y_maus))//Wenn man eine Kachel geklickt hat
 	{
@@ -82,10 +82,28 @@ void Maustaste_Gedrückt( int x_maus, int y_maus)
 				delete x;//Dann wird die Figur gelöscht
 			}
 		}
+		if (LöschenAusgewählt)
+		{
+
+
+			if ((*arrayKachel)[a.get_x()][a.get_y()].get_besetzt())
+			{
+				for (int i = 0; i < figurenliste_ptr->size(); i++)
+				{
+					if (arrayKachel->at(a.get_x()).at(a.get_y()).get_position() == figurenliste_ptr->at(i)->get_position())
+					{
+						spieler.geld_abziehen((-1) * double(figurenliste_ptr->at(i)->get_price()) * 0.5);//der Spieler bekommt die hälfte des Geldes wieder
+						figurenliste_ptr->erase(figurenliste_ptr->begin() + i);
+						return;
+					}
+				}
+			}
+		}
 
 		//alle Shortcuts zurücksetzen
 		SniperAusgewählt = false;
 		EisbergAusgewählt = false;
+		LöschenAusgewählt = false;
 	}
-	
+
 }
