@@ -18,6 +18,13 @@ enum Zpos {
 	Z_Mauszeiger,
 	
 };
+
+extern int fensterbreite;
+extern int fensterhöhe;
+extern int kachelgröße;
+extern int abstand;
+
+
 extern double lautstaerke;
 extern Spieler spieler;
 extern bool rundenstart;

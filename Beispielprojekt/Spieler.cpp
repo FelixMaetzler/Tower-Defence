@@ -9,7 +9,7 @@ Spieler::Spieler(void)
 	geldanzeige(20)//gibt die Schriftgröße an
 {
 	this->set_geld(300);
-	this->set_leben(1);
+	this->set_leben(100);
 	//this->set_geldanzeige(20);
 	//this->set_lebensanzeige(20);
 

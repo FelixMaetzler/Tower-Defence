@@ -55,8 +55,10 @@ void bewegen(vector<Gegner*>* Gegnerliste) {
 	for (int i = 0; i < (*Gegnerliste).size(); i++)
 	{
 		Gegner& gegner = *((*Gegnerliste).at(i));
-
+		
+		
 		gegner.set_position(gegner.get_position() + gegner.get_richtung());
+		
 	}
 }
 void bewegen(Gegner* x) {
@@ -82,12 +84,12 @@ void wegpunkt(vector<Gegner*>* liste_ptr, vector<Kachel> wegliste) {
 		if (d.laenge() <= 3)//Wenn der Gegner nah genug an der Kachel ist, dann
 		{
 
-			//Wenn er den letzten Wegpunkt erreicht hat, dann wird er aus der Liste gelöscht
-			if (double(k + 1) >= wegliste.size())
+			//Wenn er den letzten Wegpunkt erreicht hat oder aus iwelchen gründen weiter ist, dann wird er aus der Liste gelöscht
+			if (double(k) + 1 >= wegliste.size() || wegliste.back().get_x() > fensterbreite ||wegliste.back().get_y() > fensterhöhe)
 			{
 				//Dem Spieler werden Leben abgezogen
 				spieler.set_leben(spieler.get_leben() - liste_ptr->at(i)->get_leben());
-				if (liste_ptr->size() != 0)
+				if (liste_ptr->size() != 0)//Vllt ist schon Game Over
 				{
 
 

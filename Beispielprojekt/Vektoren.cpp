@@ -65,6 +65,7 @@ double Vektoren::laenge(void) const {
 	d += this->get_x() * this->get_x();
 	d += this->get_y() * this->get_y();
 	d = pow(d, 0.5);
+	
 	return d;
 }
 double Vektoren::winkel(void) const {
@@ -83,8 +84,15 @@ double Vektoren::winkelZwischen2Vektoren(const Vektoren a) const {
 }
 void Vektoren::normieren(void)  {
 	double d = this->laenge();
+	
+	if (d == 0)//Hier ist der Pfusch
+	{
+		return;
+	}
+	
 	this->set_x(this->get_x() / d);
 	this->set_y(this->get_y() / d);
+	
 }
 void Vektoren::print(void) const {
 	std::cout << "(" << this->get_x() << "|" << this->get_y() << ")" << std::endl;

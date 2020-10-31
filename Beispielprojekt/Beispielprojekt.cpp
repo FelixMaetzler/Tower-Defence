@@ -17,6 +17,7 @@
 #include "ersteFigur.h"
 #include "zweiteFigur.h"
 #include "interneKonstanten.h"
+#include "math.h"
 using namespace std;
 
 
@@ -124,6 +125,9 @@ public:
 
 			schiessen(gegnerliste_ptr, figurenliste_ptr);
 		}
+		
+	
+		
 	}
 
 	void button_down(Gosu::Button button) override

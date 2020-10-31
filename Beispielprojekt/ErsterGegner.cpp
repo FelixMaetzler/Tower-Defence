@@ -11,6 +11,7 @@ ErsterGegner::ErsterGegner(void) {
 	this->set_geschwindigkeit(1);
 	this->set_image("tomato.png");
 	this->set_geld(3);
+	//this->set_position({ 0,0 });
 }
 
 

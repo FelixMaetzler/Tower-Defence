@@ -69,6 +69,7 @@ void ersteFigur::gegnerinrange(vector<Gegner*>* liste_ptr) {
 				//Dann wird hier ein Gegner erstellt der einen Tier unter dem aktuellen ist
 				//Dieser bekommt Position des sterbenden Gegners
 				Gegner* a = (liste_ptr->at(j))->schwaecherenGegnerSpawnen((liste_ptr->at(j))->get_position(), (liste_ptr->at(j))->get_naechsterwegpunkt());
+				
 				this->set_richtungzumgegner((liste_ptr->at(j))->get_position() - this->get_position());//Richtung wird gesetzt
 				spieler.set_geld(spieler.get_geld() + liste_ptr->at(j)->get_geld());//gibt dem Spieler Geld wenn der gegner stirbt
 				//liste_ptr->at(j)->~Gegner();//Keine Ahnung ob des funzt
@@ -87,7 +88,8 @@ void ersteFigur::gegnerinrange(vector<Gegner*>* liste_ptr) {
 					//wenn es aber schon der niedrigste war, dann wird der Listenplatz gelöscht
 					liste_ptr->erase(liste_ptr->begin() + j);
 				}
-
+				
+					
 
 			}
 		}

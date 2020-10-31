@@ -54,8 +54,11 @@ Vektoren Gegner::get_richtung(void) const {
 	return this->richtung;
 }
 void Gegner::set_richtung(Vektoren a, double modificator) {
-	a.normieren();
+	
+	a.normieren();//Irgendwie wird set_richtung mit einem (0, 0) Vektor aufgerufen wird
+	
 	this->richtung = a * this->get_geschwindigkeit() * modificator;
+	
 }
 void Gegner::set_position(const Vektoren a) {
 	this->position = a;
