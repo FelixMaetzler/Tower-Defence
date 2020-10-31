@@ -10,6 +10,7 @@ vector<vector<Kachel>> wegHorizontal(vector<vector<Kachel>> Kachelmatrix, int x,
 		Kachel a = Kachelmatrix[x][double(y + i)];
 		a.set_istWeg(true);
 		a.set_farbe(Gosu::Color::Color(255, 255, 255, 0));
+		a.set_image("Weg.png");
 		Kachelmatrix[x][double(y + i)] = a;
 	}
 	return Kachelmatrix;
@@ -21,6 +22,7 @@ vector<vector<Kachel>> wegVertikal(vector<vector<Kachel>> Kachelmatrix, int x, i
 		Kachel a = Kachelmatrix[double(x + i)][y];
 		a.set_istWeg(true);
 		a.set_farbe(Gosu::Color::Color(255, 255, 255, 0));
+		a.set_image("Weg.png");
 		Kachelmatrix[double(x + i)][y] = a;
 	}
 	return Kachelmatrix;

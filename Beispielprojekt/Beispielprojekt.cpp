@@ -29,14 +29,14 @@ int y_maus = 0;//Y-Position der Maus
 int fensterbreite = 1920;
 int fensterhöhe = 1080;
 int kachelgröße = 50;
-int abstand = 5;
+int abstand = 0;
 //Gosu::Color blck(255, 0, 0, 0);
 //Gosu::Color rd(255, 255, 0, 0);
 
-auto qwertz = grid(fensterbreite, fensterhöhe, kachelgröße, abstand);
-auto arrayKachel = gridmitweg(qwertz);
 
 
+vector<vector<Kachel>> arrayKachel;
+vector<vector<Kachel>>* arrayKachel_ptr = &arrayKachel;//Pointer auf das Kachelarray
 
 
 //ErsterGegner* test_ptr = &test;
@@ -75,7 +75,7 @@ public:
 
 		rechteck_2Ecken(0, 0, fensterbreite, fensterhöhe, Weiss, Z_Hintergrund);//Hintergrund
 
-		ArrayZeichnen(arrayKachel);
+		ArrayZeichnen(*arrayKachel_ptr);
 		if (rundenstart)
 		{
 			zeichnen(gegnerliste_ptr);
@@ -136,7 +136,7 @@ public:
 
 		if (button == Gosu::MS_LEFT) {
 
-			arrayKachel = Maustaste_Gedrückt(arrayKachel, x_maus, y_maus, figurenliste_ptr);
+			arrayKachel = Maustaste_Gedrückt(*arrayKachel_ptr, x_maus, y_maus, figurenliste_ptr);
 		}
 
 		else {
@@ -193,6 +193,11 @@ public:
 // C++ Hauptprogramm
 int main()
 {
+
+	auto qwertz = grid(fensterbreite, fensterhöhe, kachelgröße, abstand);
+	arrayKachel = gridmitweg(qwertz);
+
+
 
 	ZweiterGegner* test = new ZweiterGegner();
 	ZweiterGegner* test2 = new ZweiterGegner();

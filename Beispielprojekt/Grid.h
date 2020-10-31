@@ -19,6 +19,10 @@ private:
 	bool Check_if_changed = false;
 	//ist gesetzt, wenn die Kachel ein Weg ist
 	bool istWeg = false;
+	//Bild
+	Gosu::Image image;
+	//ist gesetzt, wenn auf dem Feld ein Spieler ist
+	bool besetzt = false;
 	
 public:
 	//Konstruktoren
@@ -60,6 +64,15 @@ public:
 	Vektoren get_position(void)const;
 	//setzt die Position
 	void set_position(const Vektoren);
+	//gibt das Bild zurück
+	Gosu::Image get_image(void)const;
+	//setzt das Bild
+	void set_image(const string);
+	//gibt zurück, ob die Kachel besetzt ist
+	bool get_besetzt(void)const;
+	//setzt die Kachel auf besetzt
+	void set_besetzt(const bool);
+
 	
 	//andere Methoden
 

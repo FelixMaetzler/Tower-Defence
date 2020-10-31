@@ -32,7 +32,7 @@ vector<vector<Kachel>> Maustaste_Gedrückt(vector<vector<Kachel>> arrayKachel, in
 		Vektoren a = MausZuKachel(x_maus, y_maus, arrayKachel);
 
 		//a.print();
-		Kachel z = arrayKachel[a.get_x()][a.get_y()];
+		Kachel z = (*arrayKachel_ptr)[a.get_x()][a.get_y()];
 
 		/*
 		if (z.get_farbe() == Schwarz && z.get_change() == false)
@@ -69,12 +69,13 @@ vector<vector<Kachel>> Maustaste_Gedrückt(vector<vector<Kachel>> arrayKachel, in
 		{
 
 
-			if (spieler.get_geld() >= x->get_price())//wenn der Spieler Genug Geld hat
+			if (spieler.get_geld() >= x->get_price() && !z.get_besetzt())//wenn der Spieler Genug Geld hat und die Kachel nicht besetzt ist
 			{
 				spieler.geld_abziehen(x->get_price());//Dann wird dem Spieler Geld abgezogen
 
 				x->set_position(z.get_position());//Die Position der Figur wird auf die angeklickte Kachel gesetzt
 				Figurenliste->push_back(x);//und die Figur wird zur Liste hinzugefügt
+				arrayKachel_ptr->at(a.get_x()).at(a.get_y()).set_besetzt(true);
 			}
 			else//Wenn nicht genug Geld da ist
 			{

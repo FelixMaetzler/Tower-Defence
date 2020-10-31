@@ -19,6 +19,8 @@ private:
 	Gosu::Font lebensanzeige;
 	//Geldanzeige
 	Gosu::Font geldanzeige;
+	//Rundenanzeige
+	Gosu::Font rundenanzeige;
 public:
 	//Konstruktoren
 
@@ -54,6 +56,12 @@ public:
 
 	//gibt aktuelle Runde zurück
 	int get_runde(void)const;
+
+	//setzt Rundenanzeige
+	void set_rundenanzeige(const int);
+
+	//gibt Rundenanzeige zurück
+	Gosu::Font get_rundenanzeige(void)const;
 	
 	//andere Methoden
 

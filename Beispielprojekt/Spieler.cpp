@@ -6,7 +6,8 @@
 
 Spieler::Spieler(void)
 	:lebensanzeige(20),//gibt die Schriftgröße an
-	geldanzeige(20)//gibt die Schriftgröße an
+	geldanzeige(20),//gibt die Schriftgröße an
+	rundenanzeige(20)//gibt die Schriftgröße an
 {
 	this->set_geld(300);
 	this->set_leben(100);
@@ -70,19 +71,33 @@ void Spieler::set_runde(const int i) {
 int Spieler::get_runde(void) const {
 	return this->runde;
 }
+void Spieler::set_rundenanzeige(const int i) {
+	this->rundenanzeige = Gosu::Font(i);
+}
+
+Gosu::Font Spieler::get_rundenanzeige(void) const {
+	return this->rundenanzeige;
+}
+
 
 //andere Methoden
 
 void Spieler::Zeichnen(void) {
+	Gosu::Color schriftfarbe = Gosu::Color::Color(0, 255, 0);
 	string text_geld;
 	string text_leben;
+	string text_runde;
 	text_leben = "Leben: ";
 	text_leben += std::to_string((int)this->get_leben());
 	text_geld = "";
 	text_geld += std::to_string((int)this->get_geld());
 	text_geld += " Euro";
-	this->get_geldanzeige().draw(text_geld, 1600, 70, Z_Spieleranzeige, 1, 1, Gosu::Color::Color(0, 255, 0));
-	this->get_lebensanzeige().draw(text_leben, 1710, 70, Z_Spieleranzeige, 1, 1, Gosu::Color::Color(0, 255, 0));
+	text_runde = "Runde: ";
+	text_runde += std::to_string((int)this->get_runde());
+	this->get_rundenanzeige().draw(text_runde, 1490, 70, Z_Spieleranzeige, 1, 1, schriftfarbe);
+	this->get_geldanzeige().draw(text_geld, 1600, 70, Z_Spieleranzeige, 1, 1, schriftfarbe);
+	this->get_lebensanzeige().draw(text_leben, 1710, 70, Z_Spieleranzeige, 1, 1, schriftfarbe);
+	
 }
 
 void Spieler::geld_abziehen(const double geld) {
