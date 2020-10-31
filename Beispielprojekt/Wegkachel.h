@@ -17,13 +17,13 @@ public:
 //Funktionen
 
 //Zeichnet einen horizontalen Weg von der Kachel mit der Stelle (x|y) mit einer Länge von Länge
-vector<vector<Kachel>> wegHorizontal(vector<vector<Kachel>>, int, int, int);
+void wegHorizontal(int, int, int);
 //Zeichnet einen vertikalen Weg von der Kachel mit der Stelle (x|y) mit einer Länge von Länge
-vector<vector<Kachel>> wegVertikal(vector<vector<Kachel>>, int, int, int);
+void wegVertikal(int, int, int);
 //ninmt das komplett leere Grid und gibt das Grid mit dem gelben Weg zurück
-vector<vector<Kachel>> gridmitweg(vector<vector<Kachel>>);
+void gridmitweg(void);
 //nimmt das Komplette Grid und gibt den Weg als Liste zurück. dabei sind die Kacheln in der richtigen Reihenfolge
-vector<Kachel> wegalsListe(vector<vector<Kachel>>);
+vector<Kachel> wegalsListe(void);
 
 
 #endif // !WEGKACHEL_H

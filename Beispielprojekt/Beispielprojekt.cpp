@@ -35,8 +35,8 @@ int abstand = 0;
 
 
 
-vector<vector<Kachel>> arrayKachel;
-vector<vector<Kachel>>* arrayKachel_ptr = &arrayKachel;//Pointer auf das Kachelarray
+
+
 
 
 //ErsterGegner* test_ptr = &test;
@@ -45,6 +45,10 @@ vector<Gegner*> gegnerliste(0);
 vector<Figuren*> figurenliste(0);
 vector<Gegner*>* gegnerliste_ptr = &gegnerliste;
 vector<Figuren*>* figurenliste_ptr = &figurenliste;
+
+vector<vector<Kachel>>* arrayKachel = NULL;
+
+
 
 Spieler spieler;
 double lautstaerke = 0.2;
@@ -75,7 +79,7 @@ public:
 
 		rechteck_2Ecken(0, 0, fensterbreite, fensterhöhe, Weiss, Z_Hintergrund);//Hintergrund
 
-		ArrayZeichnen(*arrayKachel_ptr);
+		ArrayZeichnen(arrayKachel);
 		if (rundenstart)
 		{
 			zeichnen(gegnerliste_ptr);
@@ -120,7 +124,7 @@ public:
 				}
 			}
 			bewegen(gegnerliste_ptr);//Bewegen muss IMMER vor Wegpunkt uffgerufe werden, weil sonst das Slowen von zweiteFigur nicht funzt
-			wegpunkt(gegnerliste_ptr, wegalsListe(arrayKachel));//Bewegen muss IMMER vor Wegpunkt uffgerufe werden, weil sonst das Slowen von zweiteFigur nicht funzt
+			wegpunkt(gegnerliste_ptr, wegalsListe());//Bewegen muss IMMER vor Wegpunkt uffgerufe werden, weil sonst das Slowen von zweiteFigur nicht funzt
 
 
 			schiessen(gegnerliste_ptr, figurenliste_ptr);
@@ -136,7 +140,7 @@ public:
 
 		if (button == Gosu::MS_LEFT) {
 
-			arrayKachel = Maustaste_Gedrückt(*arrayKachel_ptr, x_maus, y_maus, figurenliste_ptr);
+			Maustaste_Gedrückt(x_maus, y_maus);
 		}
 
 		else {
@@ -162,7 +166,7 @@ public:
 	}
 	void button_up(Gosu::Button button)override {
 		if (button == Gosu::MS_LEFT) {
-			arrayKachel = Maustaste_Losgelassen(arrayKachel, x_maus, y_maus);
+		Maustaste_Losgelassen(x_maus, y_maus);
 		}
 	}
 };
@@ -194,8 +198,27 @@ public:
 int main()
 {
 
-	auto qwertz = grid(fensterbreite, fensterhöhe, kachelgröße, abstand);
-	arrayKachel = gridmitweg(qwertz);
+	//berechnet, wieviel ganze Kacheln in eine Zeile passen
+	int AnzahlKachelnZeile = fensterbreite / (kachelgröße + abstand);
+	//berechnet, wieviel ganze Kacheln in eine Spalte passen
+	int AnzahlKachelnSpalte = fensterhöhe / (kachelgröße + abstand);
+
+	//Hier wird gecheckt, ob vielleicht noch eine  Kachel mehr geht, wenn man keinen Abstand zum Rand haben muss
+	if ((fensterhöhe - ((AnzahlKachelnSpalte + 1) * kachelgröße + AnzahlKachelnSpalte * abstand)) >= 0)
+	{
+		AnzahlKachelnSpalte++;
+	}
+	//Hier wird gecheckt, ob vielleicht noch eine  Kachel mehr geht, wenn man keinen Abstand zum Rand haben muss
+	if ((fensterbreite - ((AnzahlKachelnZeile + 1) * kachelgröße + AnzahlKachelnZeile * abstand)) >= 0)
+	{
+		AnzahlKachelnZeile++;
+	}
+	//DAs Speichert ide einzelnen Kacheln
+	vector<vector<Kachel>> Kachelmatrix(AnzahlKachelnSpalte, vector<Kachel>(AnzahlKachelnZeile));
+	arrayKachel = &Kachelmatrix;
+
+	grid(fensterbreite, fensterhöhe, kachelgröße, abstand);
+	gridmitweg();
 
 
 
@@ -225,8 +248,8 @@ int main()
 	*/
 
 
-	arrayKachel.back().back().set_farbe(Gosu::Color::Color(254, 0, 0));
-	arrayKachel.at(0).at(0).set_farbe(Gosu::Color::Color(0, 255, 0));
+	arrayKachel->back().back().set_farbe(Gosu::Color::Color(254, 0, 0));
+	arrayKachel->at(0).at(0).set_farbe(Gosu::Color::Color(0, 255, 0));
 	/*
 	figur.set_attackspeed(10);
 	figur.set_damage(0.5);

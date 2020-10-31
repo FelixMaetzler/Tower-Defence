@@ -131,7 +131,7 @@ void Kachel::zeichnen(void) {
 //Funktionen
 
 
-vector<vector<Kachel>> grid(int fensterbreite, int fensterhöhe, int kachelgröße, int abstand) {
+void grid(int fensterbreite, int fensterhöhe, int kachelgröße, int abstand) {
 	//berechnet, wieviel ganze Kacheln in eine Zeile passen
 	int AnzahlKachelnZeile = fensterbreite / (kachelgröße + abstand);
 	//berechnet, wieviel ganze Kacheln in eine Spalte passen
@@ -147,8 +147,8 @@ vector<vector<Kachel>> grid(int fensterbreite, int fensterhöhe, int kachelgröße,
 	{
 		AnzahlKachelnZeile++;
 	}
-	//DAs Speichert ide einzelnen Kacheln
-	vector<vector<Kachel>> Kachelarray(AnzahlKachelnSpalte, vector<Kachel>(AnzahlKachelnZeile));
+
+	
 	//iteriert über alle Zeilen
 	for (int i = 0; i < AnzahlKachelnSpalte; i++)
 	{
@@ -171,19 +171,19 @@ vector<vector<Kachel>> grid(int fensterbreite, int fensterhöhe, int kachelgröße,
 			//erstellt eine Kachel mit den ganzen Werten
 			Kachel a(p, kachelgröße, Gosu::Color::Color(255, 0, 0, 0), false);
 			//Boltzt diese Kachel ins Array rein
-			Kachelarray[i][j] = a;
+			(*arrayKachel)[i][j] = a;
 			//Kachelarray[j][i].set_farbe(Gosu::Color::Color(255, 0, 0, 0));
 
 			//Kachelarray[j][i] = Kachel(x1, y1, kachelgröße, Schwarz);
 
 		}
 	}
-	return Kachelarray;
+	
 };
 
 
-void ArrayZeichnen(vector<vector<Kachel>> Kachelarray) {
-	for each (auto x in Kachelarray)
+void ArrayZeichnen(vector<vector<Kachel>>* Kachelarray) {
+	for each (auto x in *Kachelarray)
 	{
 		for each (Kachel y in x)
 		{
@@ -194,17 +194,17 @@ void ArrayZeichnen(vector<vector<Kachel>> Kachelarray) {
 
 
 
-Vektoren MausZuKachel(int x, int y, vector<vector<Kachel>> Kachelarray) {
+Vektoren MausZuKachel(int x, int y) {
 	//diese Funktion darf nur uffgerufe werden, wenn man weiß das eine Kachel getroffen wurde. Ansonsten wird (0|0) zurückgeboltzt
 	//Merker für die Zeile
 	int Koordinate_Zeile;
 	//Merker für die Spalte
 	int Koordinate_Spalte;
 	//hier wird über alle Zeilen iteriert
-	for (Koordinate_Zeile = 0; Koordinate_Zeile < (*arrayKachel_ptr).size(); Koordinate_Zeile++)
+	for (Koordinate_Zeile = 0; Koordinate_Zeile < arrayKachel->size(); Koordinate_Zeile++)
 	{
 		//Zwischenspeicher für eine Kachel. Da alle Kacheln in einer Reihe die gleichen y Koordinanten haben, wird der aus der 1. Spalte genommen 
-		Kachel a = (*arrayKachel_ptr)[Koordinate_Zeile][0];
+		Kachel a = (*arrayKachel)[Koordinate_Zeile][0];
 		//wenn der y wert der Maus zwischen den beiden y Werten der Kachel liegt, dann wurde die richtige Zeile gefunden 
 		if (a.get_y() <= y && y <= (a.get_y() + a.get_kachelgröße()))
 		{
@@ -212,10 +212,10 @@ Vektoren MausZuKachel(int x, int y, vector<vector<Kachel>> Kachelarray) {
 			break;
 		}
 	}
-	for (Koordinate_Spalte = 0; Koordinate_Spalte < (*arrayKachel_ptr).at(0).size(); Koordinate_Spalte++)
+	for (Koordinate_Spalte = 0; Koordinate_Spalte < arrayKachel->at(0).size(); Koordinate_Spalte++)
 	{
 		//Zwischenspeicher für eine Kachel. Da alle Kacheln in einer Zeile die gleichen x Koordinanten haben, wird der aus der 1. Zeile genommen
-		Kachel a = (*arrayKachel_ptr)[0][Koordinate_Spalte];
+		Kachel a = (*arrayKachel)[0][Koordinate_Spalte];
 		if (a.get_x() <= x && x <= (a.get_x() + a.get_kachelgröße()))
 		{
 			//wenn der x wert der Maus zwischen den beiden x Werten der Kachel liegt, dann wurde die richtige Spalte gefunden 
@@ -226,7 +226,7 @@ Vektoren MausZuKachel(int x, int y, vector<vector<Kachel>> Kachelarray) {
 	return Vektoren(Koordinate_Zeile, Koordinate_Spalte);
 }
 
-bool hatKachelgetroffen(int x, int y, vector<vector<Kachel>> Kachelarray) {
+bool hatKachelgetroffen(int x, int y) {
 
 	//[i][0] iterieren wir über die erste Spalte -> Hier muss die Höhe geprüft werden
 	//if Mauspos-Höhe ein Wert der einer Kachel zugewiesen werden kann: 
@@ -234,10 +234,10 @@ bool hatKachelgetroffen(int x, int y, vector<vector<Kachel>> Kachelarray) {
 
 	bool g = false;
 	bool h = false;
-	for (int i = 0; i < (*arrayKachel_ptr).size(); i++)
+	for (int i = 0; i < arrayKachel->size(); i++)
 	{
 		//Zwischenspeicher für eine Kachel. Da alle Kacheln in einer Reihe die gleichen y Koordinanten haben, wird der aus der 1. Spalte genommen 
-		Kachel a = (*arrayKachel_ptr)[i][0];
+		Kachel a = (*arrayKachel)[i][0];
 
 		if (a.get_y() <= y && y <= (a.get_y() + a.get_kachelgröße()))
 		{
@@ -247,10 +247,10 @@ bool hatKachelgetroffen(int x, int y, vector<vector<Kachel>> Kachelarray) {
 			break;
 		}
 	}
-	for (int j = 0; j < (*arrayKachel_ptr).at(0).size(); j++)
+	for (int j = 0; j < arrayKachel->at(0).size(); j++)
 	{
 		//Zwischenspeicher für eine Kachel. Da alle Kacheln in einer Zeile die gleichen x Koordinanten haben, wird der aus der 1. Zeile genommen
-		Kachel a = (*arrayKachel_ptr)[0][j];
+		Kachel a = (*arrayKachel)[0][j];
 		if (a.get_x() <= x && x <= (a.get_x() + a.get_kachelgröße()))
 		{
 			//wenn der x wert der Maus zwischen den beiden x Werten der Kachel liegt, dann wurde eine Spalte gefunden

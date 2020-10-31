@@ -33,6 +33,6 @@ extern bool EisbergAusgewählt;
 extern vector<Gegner*>* gegnerliste_ptr;
 extern vector<Figuren*>* figurenliste_ptr;
 
-extern vector<vector<Kachel>>* arrayKachel_ptr;
+extern vector<vector<Kachel>>* arrayKachel;
 #endif // !INTERNEKONSTANTEN_H
 

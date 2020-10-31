@@ -8,31 +8,31 @@
 #include "ersteFigur.h"
 #include "zweiteFigur.h"
 using namespace std;
-vector<vector<Kachel>> Maustaste_Losgelassen(vector<vector<Kachel>> arrayKachel, int x_maus, int y_maus)
+void Maustaste_Losgelassen(int x_maus, int y_maus)
 {
 
 	double iterator_ze = 1;
 	double iterator_sp = 1;
 
-	for (iterator_ze = 1; iterator_ze < arrayKachel.size() + 1; iterator_ze++)
+	for (iterator_ze = 1; iterator_ze < arrayKachel->size() + 1; iterator_ze++)
 	{
-		for (iterator_sp = 1; iterator_sp < arrayKachel.at(0).size() + 1; iterator_sp++)
+		for (iterator_sp = 1; iterator_sp < arrayKachel->at(0).size() + 1; iterator_sp++)
 		{
-			arrayKachel[(iterator_ze - 1)][int(iterator_sp - 1)].set_change(false);
+			(*arrayKachel)[(iterator_ze - 1)][int(iterator_sp - 1)].set_change(false);
 		}
 	}
-	return arrayKachel;
+	
 }
 
-vector<vector<Kachel>> Maustaste_Gedrückt(vector<vector<Kachel>> arrayKachel, int x_maus, int y_maus, vector<Figuren*>* Figurenliste)
+void Maustaste_Gedrückt( int x_maus, int y_maus)
 {
-	if (hatKachelgetroffen(x_maus, y_maus, arrayKachel))//Wenn man eine Kachel geklickt hat
+	if (hatKachelgetroffen(x_maus, y_maus))//Wenn man eine Kachel geklickt hat
 	{
 		//Dann soll eine Funktion ausgeführt werden, die die Kachelposition als Vektor zurückgibt
-		Vektoren a = MausZuKachel(x_maus, y_maus, arrayKachel);
+		Vektoren a = MausZuKachel(x_maus, y_maus);
 
 		//a.print();
-		Kachel z = (*arrayKachel_ptr)[a.get_x()][a.get_y()];
+		Kachel z = (*arrayKachel)[a.get_x()][a.get_y()];
 
 		/*
 		if (z.get_farbe() == Schwarz && z.get_change() == false)
@@ -74,8 +74,8 @@ vector<vector<Kachel>> Maustaste_Gedrückt(vector<vector<Kachel>> arrayKachel, in
 				spieler.geld_abziehen(x->get_price());//Dann wird dem Spieler Geld abgezogen
 
 				x->set_position(z.get_position());//Die Position der Figur wird auf die angeklickte Kachel gesetzt
-				Figurenliste->push_back(x);//und die Figur wird zur Liste hinzugefügt
-				arrayKachel_ptr->at(a.get_x()).at(a.get_y()).set_besetzt(true);
+				figurenliste_ptr->push_back(x);//und die Figur wird zur Liste hinzugefügt
+				arrayKachel->at(a.get_x()).at(a.get_y()).set_besetzt(true);
 			}
 			else//Wenn nicht genug Geld da ist
 			{
@@ -87,5 +87,5 @@ vector<vector<Kachel>> Maustaste_Gedrückt(vector<vector<Kachel>> arrayKachel, in
 		SniperAusgewählt = false;
 		EisbergAusgewählt = false;
 	}
-	return arrayKachel;
+	
 }

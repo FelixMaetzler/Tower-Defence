@@ -84,13 +84,13 @@ public:
 //Funktionen
 
 //gibt die Kachelmatrix zurück. Nur die Kacheln, also ohne Weg. Fensterbreite, Fensterhöhe, Kachelgröße und Abstand. 
-vector<vector<Kachel>> grid(int fensterbreite, int fensterhöhe, int kachelgröße, int abstand);
+void grid(int fensterbreite, int fensterhöhe, int kachelgröße, int abstand);
 //nimmt die Mauskoordinaten (x|y) und die Kachelmatrix und gibt die getroffene Kachel als Vektor zurück. Darf nur aufgerufen  werden, wenn man weiß, das eine Kachel getroffen wurde
-Vektoren MausZuKachel(int, int, vector<vector<Kachel>>);
+Vektoren MausZuKachel(int, int);
 //nimmt die Mauskoordinaten (x|y) und die Kachelmatrix und gibt zurück, ob überhaupt eine Kachel getroffen wurde
-bool hatKachelgetroffen(int, int, vector<vector<Kachel>>);
+bool hatKachelgetroffen(int, int);
 //Zeichnet die Kachelmatrix
-void ArrayZeichnen(vector<vector<Kachel>>);
+void ArrayZeichnen(vector<vector<Kachel>>*);
 //
 
 

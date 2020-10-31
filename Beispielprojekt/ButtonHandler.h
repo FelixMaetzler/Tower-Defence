@@ -12,6 +12,6 @@
 
 using namespace std;
 
-vector<vector<Kachel>> Maustaste_Losgelassen(vector<vector<Kachel>>  arrayKachel,int,int);
-vector<vector<Kachel>> Maustaste_Gedrückt(vector<vector<Kachel>> arrayKachel, int,int, vector<Figuren*>*);
+void Maustaste_Losgelassen(int,int);
+void Maustaste_Gedrückt( int,int);
 #endif // !BUTTONHANDLER_H
