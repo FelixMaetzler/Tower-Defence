@@ -105,7 +105,7 @@ void wegpunkt(vector<Gegner*>* liste_ptr, vector<Kachel> wegliste) {
 			}
 
 			gegner.set_naechsterwegpunkt(k + 1);//Dann ist der Wegpunkt erreicht und der nächste Wegpunkt wird gesetzt
-			gegner.RichtungZuPunkt(wegliste.at(k + 1).get_position());
+			gegner.RichtungZuPunkt(wegliste.at(static_cast<std::vector<Kachel, std::allocator<Kachel>>::size_type>(k) + 1).get_position());//Dieses Static Cast ist ein auto Vorschlag wegen des Fehlers C26451
 		}
 		else
 		{
