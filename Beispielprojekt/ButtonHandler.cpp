@@ -94,6 +94,7 @@ void Maustaste_Gedrückt(int x_maus, int y_maus)
 					{
 						spieler.geld_abziehen((-1) * double(figurenliste_ptr->at(i)->get_price()) * 0.5);//der Spieler bekommt die hälfte des Geldes wieder
 						figurenliste_ptr->erase(figurenliste_ptr->begin() + i);
+						arrayKachel->at(a.get_x()).at(a.get_y()).set_besetzt(false);
 						return;
 					}
 				}
