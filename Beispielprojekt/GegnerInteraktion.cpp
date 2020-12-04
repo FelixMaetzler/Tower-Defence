@@ -14,7 +14,10 @@ void schiessen(vector<Gegner*>* Gegnerliste, vector<Figuren*>* Figurenliste)
 
 		for (int j = 0; j < Figurenliste->size(); j++)
 		{
-
+			if (Gegnerliste->size() == 0)
+			{
+				break;
+			}
 			(Figurenliste->at(j))->gegnerinrange(Gegnerliste);
 			/*
 			d = Gegnerliste->at(i).get_position() - Figurenliste->at(j).get_position();
