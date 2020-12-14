@@ -31,7 +31,7 @@ int fensterhöhe = 1080;
 int kachelgröße = 50;
 int abstand = 0;
 //Gosu::Color blck(255, 0, 0, 0);
-//Gosu::Color rd(255, 255, 0, 0);
+
 
 
 
